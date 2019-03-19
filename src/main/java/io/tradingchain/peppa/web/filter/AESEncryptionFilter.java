@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.*;
 
-class AESEncryptionFilter implements Filter {
+public class AESEncryptionFilter implements Filter {
 
     private String key;
 
