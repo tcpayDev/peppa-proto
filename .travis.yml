@@ -9,6 +9,7 @@ install:
   - mvn install -DfinalName=release -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
   provider: releases
-  api_key: 222973a5bcc17cbd3690e7f697bae82e054ebe5c
+  user: "mayan31370"
+  password: "lijing31370"
   file: target/release.jar
   skip_cleanup: true
