@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+option java_package = "io.tradingchain.peppa.proto.user";
+option java_outer_classname = "User";
+
+message RegistUserRequest {
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+  string tradePassword = 4;
+  string externalId = 5;
+  string externalName = 6;
+  string partnerKey = 7;
+  string inviteCode = 8;
+}
+
+message RegistUserResponse {
+  int64 code = 1;
+  string msg = 2;
+}
+
+message ValidateUsernameRequest{
+  string username = 1;
+  string platform = 2;
+}
+
+message ValidatePasswordRequest{
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+}
+
+message ValidateTradePasswordRequest{
+  string tradePassword = 1;
+  string username = 2;
+  string platform = 3;
+}
+
+message ValidateTokenRequest{
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+  string tradePassword = 4;
+  string tokenKey = 5;
+}
+
+message ValidateAuthcodeRequest{
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+  string tradePassword = 4;
+  string authcode = 5;
+}
+
+message UpdateUserPasswordRequest{
+  string newPassword = 1;
+  string username = 2;
+  string platform = 3;
+}
+
+message UpdateUserTradePasswordRequest{
+  string newTradePassword = 1;
+  string username = 2;
+  string platform = 3;
+}
+
+message UpdateUserResetAuthcodeRequest{
+  string password = 1;
+  string username = 2;
+  string platform = 3;
+  string tradePassword = 4;
+  string tokenKey = 5;
+}
+
+message UpdateUserResetTokenRequest{
+  string password = 1;
+  string username = 2;
+  string platform = 3;
+  string tradePassword = 4;
+  string authcodeKey = 5;
+}
+
+message FindUserByExternalIdRequest {
+  string externalId = 1;
+  string externalName = 2;
+}
+
+message FindUserByExternalIdResponse{
+  int64 code = 1;
+  string msg = 2;
+  UserData data = 3;
+}
+
+message FindUsersRequest{
+  int64 page = 1;
+  int64 size = 2;
+}
+
+message FindUsersResponse{
+  int64 code = 1;
+  string msg = 2;
+  int64 total = 3;
+  repeated UserData data = 4;
+}
+
+message FindUserByPartnerRequest{
+  string partnerKey = 1;
+  int64 page = 2;
+  int64 size = 3;
+}
+
+message FindUserByPartnerResponse{
+  int64 code = 1;
+  string msg = 2;
+  int64 total = 3;
+  repeated UserData data = 4;
+}
+
+message GetUserInfoRequest{
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+}
+
+message GetUserInfoResponse{
+  int64 code = 1;
+  string msg = 2;
+  UserData data = 3;
+}
+
+message UserData {
+  string username = 1;
+  string inviteCode = 2;
+  string inviteUser = 3;
+  string platform = 4;
+  string addr = 5;
+  string partnerKey = 6;
+}

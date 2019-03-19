@@ -1,0 +1,206 @@
+syntax = "proto3";
+option java_package = "io.tradingchain.peppa.proto.payment";
+option java_outer_classname = "Payment";
+
+message CreateCollectPaymentRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiver = 9;
+  string externalId = 10;
+  string externalName = 11;
+}
+message CreateCollectPaymentResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+message CreatePrepaidPaymentRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiver = 9;
+  string externalId = 10;
+  string externalName = 11;
+}
+message CreatePrepaidPaymentResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+message FindCollectPathRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiveAssetName = 9;
+  string receiveAssetIssuer = 10;
+  string receiveAmount = 11;
+}
+message FindCollectPathResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated PathPaymentData data = 3;
+}
+message FindPrepaidPathRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiveAssetName = 9;
+  string receiveAssetIssuer = 10;
+  string receiveAmount = 11;
+}
+message FindPrepaidPathResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated PathPaymentData data = 3;
+}
+message CreateCollectPathPaymentRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiver = 9;
+  string receiveAssetName = 10;
+  string receiveAssetIssuer = 11;
+  string receiveAmount = 12;
+  string externalId = 13;
+  string externalName = 14;
+}
+message CreateCollectPathPaymentResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+message CreatePrepaidPathPaymentRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  string assetName = 6;
+  string assetIssuer = 7;
+  string amount = 8;
+  string receiver = 9;
+  string receiveAssetName = 10;
+  string receiveAssetIssuer = 11;
+  string receiveAmount = 12;
+  string externalId = 13;
+  string externalName = 14;
+}
+message CreatePrepaidPathPaymentResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+message FindPaymentByExternalIdRequest{
+  string externalId = 1;
+  string externalName = 2;
+
+}
+message FindPaymentByExternalIdResponse{
+  int64 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+message FindPaymentByIdRequest{
+  int64 paymentId = 1;
+}
+message FindPaymentByIdResponse{
+  int64 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+message FindPaymentsByUserRequest{
+  string password = 1;
+  string username = 2;
+  string platform = 3;
+  bool pay = 4;
+  bool receive = 5;
+  int64 page = 6;
+  int64 size = 7;
+}
+message FindPaymentsByUserResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated PaymentData data = 3;
+}
+message FindPaymentsByPartnerRequest{
+  string partnerKey = 1;
+  int64 page = 2;
+  int64 size = 3;
+}
+message FindPaymentsByPartnerResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated PaymentData data = 3;
+}
+message FindPaymentsRequest{
+  int64 page = 1;
+  int64 size = 2;
+}
+message FindPaymentsResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated PaymentData data = 3;
+}
+
+message PathPaymentData{
+  string sourceAssetName = 1;
+  string sourceAssetIssuer = 2;
+  string destinationAssetName = 3;
+  string destinationAssetIssuer = 4;
+  string amount = 5;
+  string balance = 6;
+}
+
+message PaymentData{
+  string id = 1;
+  string create_at = 2;
+  string asset_code = 3;
+  string from = 4;
+  string to = 5;
+  PaymentStatus status = 6;
+  string payAmount = 7;
+  string receiveAmount = 8;
+  PaymentType paymentType = 9;
+  string fee = 10;
+  FeeType feeType = 11;
+  string feeRate = 12;
+  string partnerKey = 13;
+
+  enum PaymentStatus {
+     PAYING = 0;
+     OK = 1;
+     FAIL = 2;
+  }
+  enum PaymentType {
+    COMMON = 0;
+    BRIDGE = 1;
+  }
+
+  enum FeeType {
+    COLLECT = 0;
+    PREPAID = 1;
+    NONE = 2;
+  }
+}

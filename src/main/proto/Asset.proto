@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option java_package = "io.tradingchain.peppa.proto.asset";
+option java_outer_classname = "AssetOperate";
+
+message IssuerAssetRequest{
+  string assetName = 1;
+  string issuer= 2;
+  string info= 3;
+  string gateway= 4;
+  string total = 5;
+}
+
+message IssuerAssetResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+message UpdateAssetRequest{
+  int64 assetId = 1;
+  string info = 2;
+  string gateway = 3;
+}
+
+message UpdateAssetResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+message FindAssetByIdRequest{
+  int64 assetId = 1;
+}
+
+message FindAssetByIdResponse{
+  int64 code = 1;
+  string msg = 2;
+  Asset data = 3;
+}
+
+message FindAssetInfoByNameRequest{
+  string assetName = 1;
+  string issuer = 2;
+}
+
+message FindAssetInfoByNameResponse{
+  int64 code = 1;
+  string msg = 2;
+  Asset data = 3;
+}
+
+message FindAssetsRequest{
+  int64 page = 1;
+  int64 size = 2;
+}
+
+message FindAssetsResponse{
+  int64 code = 1;
+  string msg = 2;
+  repeated Asset data = 3;
+}
+
+message Asset{
+ string id = 1;
+ string name = 2;
+ string issuer = 3;
+ string total = 4;
+ string info = 5;
+ string gateway = 6;
+}

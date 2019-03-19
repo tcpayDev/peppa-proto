@@ -1,0 +1,50 @@
+syntax = "proto3";
+option java_package = "io.tradingchain.peppa.proto.trade";
+option java_outer_classname = "Trade";
+
+message FindTradesByUserRequest{
+  string password = 1;
+  string username = 2;
+  string platform = 3;
+  int64 page = 4;
+  int64 size = 5;
+}
+message FindTradesByUserResponse{
+  int64 code = 1;
+  string msg =  2;
+  repeated TradeData data = 3;
+
+}
+message FindTradeByIdRequest{
+  int64 tradeId = 1;
+}
+message FindTradeByIdResponse{
+  int64 code = 1;
+  string msg =  2;
+  TradeData data = 3;
+}
+message FindTradeByOfferIdRequest{
+  int64 offerId = 1;
+}
+message FindTradeByOfferIdResponse{
+  int64 code = 1;
+  string msg =  2;
+  TradeData data = 3;
+}
+message FindTradesByTradePairIdRequest{
+  int64 tradePairId = 1;
+  int64 size = 2;
+  int64 page = 3;
+}
+message FindTradesByTradePairIdResponse{
+  int64 code = 1;
+  string msg =  2;
+  TradeData data = 3;
+}
+message TradeData{
+  string baseName = 1;
+  string counterName = 2;
+  string amount = 3;
+  string price = 4;
+  int64 createTime = 5;
+}
