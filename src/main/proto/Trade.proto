@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 option java_package = "io.tradingchain.peppa.proto.trade";
 option java_outer_classname = "Trade";
 
