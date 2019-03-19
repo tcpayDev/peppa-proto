@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Tradingchain/peppa-proto.svg?branch=master)](https://travis-ci.com/Tradingchain/peppa-proto)
+[![](https://jitpack.io/v/Tradingchain/peppa-proto.svg)](https://jitpack.io/#Tradingchain/peppa-proto)
 
 # peppa-proto
 
