@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Tradingchain/peppa-proto.svg?branch=master)](https://travis-ci.com/Tradingchain/peppa-proto)
+
 # peppa-proto
 
 * proto文件放在src/main/proto目录下。
