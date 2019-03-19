@@ -1,3 +1,4 @@
+language: java
 jdk:
   - openjdk8
 before_install:
@@ -12,5 +13,3 @@ deploy:
     secure:  420a7ecc638fa6088a88ffd25defcc2db1f45510
   file: target/release.jar
   skip_cleanup: true
-  on:
-    tags: true
