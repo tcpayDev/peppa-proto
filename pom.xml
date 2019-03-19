@@ -65,7 +65,6 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
-                    <protocExecutable>/tmp/bin/protoc</protocExecutable>
                     <protocExecutable>protoc</protocExecutable>
                 </configuration>
                 <executions>
