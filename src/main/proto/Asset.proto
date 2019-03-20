@@ -1,69 +1,102 @@
 syntax = "proto3";
 
 option java_package = "io.tradingchain.peppa.proto.asset";
-option java_outer_classname = "AssetOperate";
+option java_outer_classname = "Asset";
 
+//资产发行
 message IssuerAssetRequest{
+  //资产发行名称
   string assetName = 1;
+  //资产发行者
   string issuer= 2;
+  //资产发行内容
   string info= 3;
+  //发行gateway
   string gateway= 4;
+  //发行总量
   string total = 5;
+  //接收者
+  string destination = 6;
+  //接收者seed
+  string destinationSeed = 7;
+  //接收者授权码
+  string destinationAuthCode = 8;
 }
 
+//资产发行返回信息
 message IssuerAssetResponse{
   int64 code = 1;
   string msg = 2;
 }
 
+//更新资产内容
 message UpdateAssetRequest{
+  //资产ID
   int64 assetId = 1;
+  //资产简介
   string info = 2;
+  //发行方网关
   string gateway = 3;
 }
 
+//更新资产返回内容
 message UpdateAssetResponse{
   int64 code = 1;
   string msg = 2;
 }
 
+//查询资产内容
 message FindAssetByIdRequest{
   int64 assetId = 1;
 }
 
+//查询资产返回内容
 message FindAssetByIdResponse{
   int64 code = 1;
   string msg = 2;
-  Asset data = 3;
+  //if 有，则会返回资产信息
+  AssetData data = 3;
 }
 
+//根据资产名称和发行者查询
 message FindAssetInfoByNameRequest{
   string assetName = 1;
   string issuer = 2;
 }
 
+//根据资产名称返回信息
 message FindAssetInfoByNameResponse{
   int64 code = 1;
   string msg = 2;
-  Asset data = 3;
+  //if 有，则会返回资产信息
+  AssetData data = 3;
 }
 
+//查询资产列表
 message FindAssetsRequest{
   int64 page = 1;
   int64 size = 2;
 }
 
+//资产列表内容
 message FindAssetsResponse{
   int64 code = 1;
   string msg = 2;
-  repeated Asset data = 3;
+  repeated AssetData data = 3;
 }
 
-message Asset{
+
+//资产内容
+message AssetData{
  string id = 1;
+ //资产名称
  string name = 2;
+ //资产发行人
  string issuer = 3;
+ //发行总量
  string total = 4;
+ //资产简介
  string info = 5;
+ //发行方gateway
  string gateway = 6;
 }
