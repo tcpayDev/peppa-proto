@@ -45,7 +45,7 @@ public class AESEncryptionFilter implements Filter {
         public AESEncryptedHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
             super(request);
             byte[] temp = new byte[request.getContentLength()];
-            IOUtils.read(request.getInputStream(), temp);
+            IOUtils.readFully(request.getInputStream(), temp);
             body = AESEncryptionUtil.decrypt(key, temp);
         }
 

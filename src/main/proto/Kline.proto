@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "io.tradingchain.peppa.proto.kline";
+option java_outer_classname = "Kline";
+
+message FindKlineRequest{
+  string type = 1;
+  int64 startTime = 2;
+  int64 endTime = 3;
+  int64 size = 4;
+}
+
+message FindKlineResponse{
+  int64 code = 1;
+  string msg  = 2;
+  repeated DataInfo data = 3;
+}
+
+message DataInfo {
+  int64 time  = 1;
+  string open  = 2;
+  string top  = 3;
+  string low  = 4;
+  string close  = 5;
+  string volume  = 6;
+}

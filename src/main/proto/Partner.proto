@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_package = "io.tradingchain.peppa.proto.partner";
+option java_outer_classname = "Partner";
+
+message CreatePartnerRequest{
+  string partnerKey = 1;
+  string secret = 2;
+  string platform = 3;
+}
+
+message CreatePartnerResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+message UpdatePartnerInfoRequest{
+  string partnerKey = 1;
+  string secret = 2;
+  string platform = 3;
+}
+
+message UpdatePartnerInfoResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+message FindPartnerInfoByIdRequest{
+  string partnerKey = 1;
+}
+
+message FindPartnerInfoByIdResponse{
+  int64 code = 1;
+  string msg = 2;
+  PartnerData data = 3;
+}
+
+message FindPartnersRequest{
+  int64 page = 1;
+  int64 size = 2;
+}
+
+message FindPartnersResponse{
+  int64 code = 1;
+  string msg = 2;
+  int64 total = 3;
+  repeated PartnerData data = 4;
+}
+
+message PartnerData{
+  string apiKey = 1;
+  string platform = 2;
+  string secret = 3;
+}
