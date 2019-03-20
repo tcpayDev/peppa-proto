@@ -7,3 +7,6 @@ before_install:
 
 install:
   - mvn install:install-file -Dfile=release.jar -DartifactId=$ARTIFACT -DgroupId=$GROUP -Dversion=$VERSION -Dpackaging=jar
+
+on:
+  tags: false
