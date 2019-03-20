@@ -24,4 +24,8 @@ hs_err_pid*
 
 # Idea
 .idea/
+<<<<<<< HEAD
+target/
+=======
 *.iml
+>>>>>>> 9ecea33bca2856886fcf9d634dab61266bcdd72f
