@@ -1,6 +1,9 @@
 language: java
 jdk:
   - openjdk8
+on:
+    tags: true
+    repo: Tradingchain/peppa-proto
 before_install:
   - wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0/protoc-3.7.0-linux-x86_64.zip
   - unzip protoc-3.7.0-linux-x86_64.zip -d /tmp/
