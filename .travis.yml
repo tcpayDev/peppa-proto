@@ -12,6 +12,7 @@ deploy:
   api_key:
     secure: 0cWzzdbxOzUQWOsABq0zPIZleS9XUu2zkmrUcSrn9tZQZkEAElZCGbAAWAEpxQz5aaEvxy8wRPEh/wSNdMWuYWEJcAdZ5stk/mm0j5+nQfz571xV4myyjOvpMg6D+ErBAPA4P95jktNw+Wv+xce+2Ga8eUdgHeQUowDL6+jAoTN7SOBICQJvyijXwzu+dFIPDzz7Q/q6KPQ7nndcL+HisglyjVIX89bGGU5yGgvtbfRvqaewtEtYm6rzeZtCYbTT12rZpZwr+hH7knyvNZirWTyIOi11ILZQB1cgZ8dUk4HbsTEZyDlgpRDGZnxN5UWAMyiJ9Y/HXqk25og/2WaSrUYAvHEasdBcrQ/zEg2ZWHq6GSWc/1Rm2toUjFR3sPzns3StZ2VRj/hiiD0gnPfRHYkErPpfHzYZ4qm+DQ0AyG0PK+5QrcWJ32zw5nFGH91RqEDfl77lxNzXgoaB58sN4T67IcsF8voMLMkhNBU8tOJJhQSVHAK71AMz7VIYt9JCotH3MUcnPkr8rMi994EiQWhqSnvf8kbAncBJ2JqbOLqrucPzq3VAF8bx8w5gFfGEPImT3GQaIGjizer+b6Jf8rGFngd7sRipsEDcyiUgWwZG5yYbM3MQrerZhMEX2pCMjWqhJlVQUd7k0ximxo5grosikYsfZlCi5H5SrvegVu8=
   file: target/release.jar
+  skip_cleanup: true
   on:
     tags: true
     repo: Tradingchain/peppa-proto
