@@ -16,7 +16,7 @@ message AddKlineRequest{
 message AddKlineResponse{
   int64 code = 1;
   string msg  = 2;
-  repeated DataInfo data = 3;
+  DataInfo data = 3;
 }
 
 message FindKlineRequest{
