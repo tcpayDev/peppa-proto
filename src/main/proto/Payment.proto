@@ -18,6 +18,7 @@ message CreateCollectPaymentRequest{
 message CreateCollectPaymentResponse{
   int64 code = 1;
   string msg = 2;
+  PaymentData payment = 3;
 }
 message CreatePrepaidPaymentRequest{
   string partnerKey = 1;
@@ -35,6 +36,7 @@ message CreatePrepaidPaymentRequest{
 message CreatePrepaidPaymentResponse{
   int64 code = 1;
   string msg = 2;
+  PaymentData payment = 3;
 }
 message FindCollectPathRequest{
   string partnerKey = 1;
@@ -49,12 +51,12 @@ message FindCollectPathRequest{
   string receiveAssetIssuer = 10;
   string receiveAmount = 11;
 }
-message FindCollectPathResponse{
+message FindCollectPathResponse {
   int64 code = 1;
   string msg = 2;
-  repeated PathPaymentData data = 3;
+  repeated PathData path = 3;
 }
-message FindPrepaidPathRequest{
+message FindPrepaidPathRequest {
   string partnerKey = 1;
   string password = 2;
   string username = 3;
@@ -67,12 +69,12 @@ message FindPrepaidPathRequest{
   string receiveAssetIssuer = 10;
   string receiveAmount = 11;
 }
-message FindPrepaidPathResponse{
+message FindPrepaidPathResponse {
   int64 code = 1;
   string msg = 2;
-  repeated PathPaymentData data = 3;
+  repeated PathData path = 3;
 }
-message CreateCollectPathPaymentRequest{
+message CreateCollectPathPaymentRequest {
   string partnerKey = 1;
   string password = 2;
   string username = 3;
@@ -88,11 +90,12 @@ message CreateCollectPathPaymentRequest{
   string externalId = 13;
   string externalName = 14;
 }
-message CreateCollectPathPaymentResponse{
+message CreateCollectPathPaymentResponse {
   int64 code = 1;
   string msg = 2;
+  PaymentData payment = 3;
 }
-message CreatePrepaidPathPaymentRequest{
+message CreatePrepaidPathPaymentRequest {
   string partnerKey = 1;
   string password = 2;
   string username = 3;
@@ -111,6 +114,7 @@ message CreatePrepaidPathPaymentRequest{
 message CreatePrepaidPathPaymentResponse{
   int64 code = 1;
   string msg = 2;
+  PaymentData payment = 3;
 }
 message FindPaymentByExternalIdRequest{
   string externalId = 1;
@@ -120,7 +124,7 @@ message FindPaymentByExternalIdRequest{
 message FindPaymentByExternalIdResponse{
   int64 code = 1;
   string msg = 2;
-  PaymentData data = 3;
+  PaymentData payment = 3;
 }
 message FindPaymentByIdRequest{
   int64 paymentId = 1;
@@ -128,9 +132,9 @@ message FindPaymentByIdRequest{
 message FindPaymentByIdResponse{
   int64 code = 1;
   string msg = 2;
-  PaymentData data = 3;
+  PaymentData payment = 3;
 }
-message FindPaymentsByUserRequest{
+message FindPaymentsByUserRequest {
   string password = 1;
   string username = 2;
   string platform = 3;
@@ -139,32 +143,32 @@ message FindPaymentsByUserRequest{
   int64 page = 6;
   int64 size = 7;
 }
-message FindPaymentsByUserResponse{
+message FindPaymentsByUserResponse {
   int64 code = 1;
   string msg = 2;
-  repeated PaymentData data = 3;
+  repeated PaymentData payments = 3;
 }
-message FindPaymentsByPartnerRequest{
+message FindPaymentsByPartnerRequest {
   string partnerKey = 1;
   int64 page = 2;
   int64 size = 3;
 }
-message FindPaymentsByPartnerResponse{
+message FindPaymentsByPartnerResponse {
   int64 code = 1;
   string msg = 2;
-  repeated PaymentData data = 3;
+  repeated PaymentData payments = 3;
 }
-message FindPaymentsRequest{
+message FindPaymentsRequest {
   int64 page = 1;
   int64 size = 2;
 }
-message FindPaymentsResponse{
+message FindPaymentsResponse {
   int64 code = 1;
   string msg = 2;
-  repeated PaymentData data = 3;
+  repeated PaymentData payments = 3;
 }
 
-message PathPaymentData{
+message PathData {
   string sourceAssetName = 1;
   string sourceAssetIssuer = 2;
   string destinationAssetName = 3;
@@ -173,7 +177,7 @@ message PathPaymentData{
   string balance = 6;
 }
 
-message PaymentData{
+message PaymentData {
   string id = 1;
   string create_at = 2;
   string asset_code = 3;
