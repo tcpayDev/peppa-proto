@@ -3,112 +3,234 @@ syntax = "proto3";
 option java_package = "io.tradingchain.peppa.proto.user";
 option java_outer_classname = "User";
 
+//注册用户
 message RegistUserRequest {
+  //用户名
   string username = 1;
+  //密码
   string password = 2;
+  //平台标识
   string platform = 3;
+  //交易密码
   string tradePassword = 4;
+  //请求标识，用于查询
   string externalId = 5;
+  //请求标识名称
   string externalName = 6;
+  //接入方Key
   string partnerKey = 7;
-  string inviteCode = 8;
 }
 
+//注册用户返回信息
 message RegistUserResponse {
+  int64 code = 1;
+  string msg = 2;
+  //用户公钥
+  string addr = 3;
+  //授权码
+  string authCode = 4;
+  //拜占庭
+  string token = 5;
+}
+
+//验证用户是否存在
+message ValidateUsernameRequest{
+  //用户名
+  string username = 1;
+  //平台标识
+  string platform = 2;
+}
+
+//验证用户是否存在返回
+message ValidateUsernameResponse{
   int64 code = 1;
   string msg = 2;
 }
 
-message ValidateUsernameRequest{
-  string username = 1;
-  string platform = 2;
-}
 
+//验证密码是否正确
 message ValidatePasswordRequest{
+  //用户名
   string username = 1;
+  //密码
   string password = 2;
+  //平台标识
   string platform = 3;
 }
 
+//验证密码是否正确返回
+message ValidatePasswordResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+//验证交易密码是否正确
 message ValidateTradePasswordRequest{
-  string tradePassword = 1;
-  string username = 2;
+  //用户名
+  string username = 1;
+  //交易密码
+  string tradePassword = 2;
+  //平台标识
   string platform = 3;
 }
+//验证交易密码是否正确返回
+message ValidateTradePasswordResponse{
+  int64 code = 1;
+  string msg = 2;
+}
 
+//验证拜占庭
 message ValidateTokenRequest{
+  //用户名
   string username = 1;
+  //密码
   string password = 2;
+  //平台
   string platform = 3;
+  //交易密码
   string tradePassword = 4;
+  //token
   string tokenKey = 5;
 }
 
+//验证拜占庭是否正确返回
+message ValidateTokenResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+//验证授权码是否正确
 message ValidateAuthcodeRequest{
+  //用户名
   string username = 1;
+  //密码
   string password = 2;
+  //平台
   string platform = 3;
+  //交易密码
   string tradePassword = 4;
+  //授权码
   string authcode = 5;
 }
 
+//验证授权码是否正确返回
+message ValidateAuthcodeResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+//修改用户密码
 message UpdateUserPasswordRequest{
+  //新密码
   string newPassword = 1;
+  //用户名
   string username = 2;
+  //密码
   string platform = 3;
 }
 
+//修改用户密码返回
+message UpdateUserPasswordResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+//修改用户交易密码
 message UpdateUserTradePasswordRequest{
+  //新交易密码
   string newTradePassword = 1;
+  //用户名
   string username = 2;
+  //密码
   string platform = 3;
 }
 
+//修改用户交易密码返回
+message UpdateUserTradePasswordResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+//修改用户授权码
 message UpdateUserResetAuthcodeRequest{
-  string password = 1;
-  string username = 2;
+  //用户名
+  string username = 1;
+  //密码
+  string password = 2;
+  //平台
   string platform = 3;
+  //交易密码
   string tradePassword = 4;
+  //拜占庭
   string tokenKey = 5;
 }
 
+//修改用户授权码返回
+message UpdateUserResetAuthcodeResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+//修改用户拜占庭
 message UpdateUserResetTokenRequest{
-  string password = 1;
-  string username = 2;
+  //用户名
+  string username = 1;
+  //密码
+  string password = 2;
+  //平台
   string platform = 3;
+  //交易密码
   string tradePassword = 4;
+  //授权码
   string authcodeKey = 5;
 }
 
+//修改用户拜占庭返回
+message UpdateUserResetTokenResponse{
+  int64 code = 1;
+  string msg = 2;
+}
+
+//通过外部externalid查询用户
 message FindUserByExternalIdRequest {
+
+  //外部扩展标识Id
   string externalId = 1;
+  //外部扩展标识
   string externalName = 2;
 }
 
+//通过外部externalid查询用户 返回
 message FindUserByExternalIdResponse{
   int64 code = 1;
   string msg = 2;
   UserData data = 3;
 }
 
+//查询用户列表
 message FindUsersRequest{
+  //页码
   int64 page = 1;
+  //条目
   int64 size = 2;
 }
 
+//查询用户列表返回
 message FindUsersResponse{
   int64 code = 1;
   string msg = 2;
+  //返回总条数
   int64 total = 3;
+  //用户集合列表
   repeated UserData data = 4;
 }
 
+//通过partnerKey查询用户列表
 message FindUserByPartnerRequest{
   string partnerKey = 1;
   int64 page = 2;
   int64 size = 3;
 }
 
+//返回partnerKey查询用户列表
 message FindUserByPartnerResponse{
   int64 code = 1;
   string msg = 2;
@@ -116,23 +238,32 @@ message FindUserByPartnerResponse{
   repeated UserData data = 4;
 }
 
+//获取用户信息
 message GetUserInfoRequest{
   string username = 1;
   string password = 2;
   string platform = 3;
 }
 
+//获取用户信息返回
 message GetUserInfoResponse{
   int64 code = 1;
   string msg = 2;
   UserData data = 3;
 }
 
+//用户信息
 message UserData {
+  //用户名
   string username = 1;
+  //邀请码
   string inviteCode = 2;
+  //邀请人
   string inviteUser = 3;
+  //平台标识
   string platform = 4;
+  //公钥
   string addr = 5;
+  //接入方key
   string partnerKey = 6;
 }
