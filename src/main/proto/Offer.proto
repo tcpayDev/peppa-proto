@@ -18,6 +18,7 @@ message CreateBuyOfferRequest{
 message CreateBuyOfferResponse{
   int64 code = 1;
   string msg = 2;
+  OfferData offer = 3;
 }
 
 message CreateSellOfferRequest{
@@ -35,6 +36,43 @@ message CreateSellOfferRequest{
 message CreateSellOfferResponse{
   int64 code = 1;
   string msg = 2;
+  OfferData offer = 3;
+}
+
+message CreatePassiveBuyOfferRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  int64 tradePairId = 6;
+  string amount = 7;
+  string price = 8;
+  string externalId = 9;
+  string externalName = 10;
+}
+message CreatePassiveBuyOfferResponse{
+  int64 code = 1;
+  string msg = 2;
+  OfferData offer = 3;
+}
+
+message CreatePassiveSellOfferRequest{
+  string partnerKey = 1;
+  string password = 2;
+  string username = 3;
+  string platform = 4;
+  string tradePassword = 5;
+  int64 tradePairId = 6;
+  string amount = 7;
+  string price = 8;
+  string externalId = 9;
+  string externalName = 10;
+}
+message CreatePassiveSellOfferResponse{
+  int64 code = 1;
+  string msg = 2;
+  OfferData offer = 3;
 }
 
 message CancelOfferRequest{
@@ -49,6 +87,7 @@ message CancelOfferRequest{
 message CancelOfferResponse{
   int64 code = 1;
   string msg = 2;
+  OfferData offer = 3;
 }
 
 message FindOfferByExternalIdRequest{
@@ -58,7 +97,7 @@ message FindOfferByExternalIdRequest{
 message FindOfferByExternalIdResponse{
   int64 code = 1;
   string msg = 2;
-  OfferData data = 3;
+  OfferData offer = 3;
 }
 
 message FindOfferByIdRequest{
@@ -67,7 +106,7 @@ message FindOfferByIdRequest{
 message FindOfferByIdResponse{
   int64 code = 1;
   string msg = 2;
-  OfferData data = 3;
+  OfferData offer = 3;
 }
 
 message FindOffersByUserRequest{
@@ -80,7 +119,7 @@ message FindOffersByUserRequest{
 message FindOffersByUserResponse{
   int64 code = 1;
   string msg = 2;
-  repeated OfferData data = 3;
+  repeated OfferData offers = 3;
 }
 
 message FindOffersByTradePairRequest{
@@ -91,7 +130,7 @@ message FindOffersByTradePairRequest{
 message FindOffersByTradePairResponse{
   int64 code = 1;
   string msg = 2;
-  repeated OfferData data = 3;
+  repeated OfferData offers = 3;
 }
 
 message OfferData{
@@ -113,4 +152,4 @@ message OfferData{
     OK = 2;
     FAIL = 3;
   }
-  }
+}
