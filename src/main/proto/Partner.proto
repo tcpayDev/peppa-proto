@@ -12,6 +12,7 @@ message CreatePartnerRequest{
 message CreatePartnerResponse{
   int64 code = 1;
   string msg = 2;
+  PartnerData partner = 3;
 }
 
 message UpdatePartnerInfoRequest{
@@ -23,6 +24,7 @@ message UpdatePartnerInfoRequest{
 message UpdatePartnerInfoResponse{
   int64 code = 1;
   string msg = 2;
+  PartnerData partner = 3;
 }
 
 message FindPartnerInfoByIdRequest{
@@ -32,7 +34,7 @@ message FindPartnerInfoByIdRequest{
 message FindPartnerInfoByIdResponse{
   int64 code = 1;
   string msg = 2;
-  PartnerData data = 3;
+  PartnerData partner = 3;
 }
 
 message FindPartnersRequest{
@@ -44,7 +46,7 @@ message FindPartnersResponse{
   int64 code = 1;
   string msg = 2;
   int64 total = 3;
-  repeated PartnerData data = 4;
+  repeated PartnerData partners = 4;
 }
 
 message PartnerData{
