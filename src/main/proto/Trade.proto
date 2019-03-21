@@ -12,7 +12,7 @@ message FindTradesByUserRequest{
 message FindTradesByUserResponse{
   int64 code = 1;
   string msg =  2;
-  repeated TradeData data = 3;
+  repeated TradeData trades = 3;
 
 }
 message FindTradeByIdRequest{
@@ -21,7 +21,7 @@ message FindTradeByIdRequest{
 message FindTradeByIdResponse{
   int64 code = 1;
   string msg =  2;
-  TradeData data = 3;
+  TradeData trade = 3;
 }
 message FindTradeByOfferIdRequest{
   int64 offerId = 1;
@@ -29,7 +29,7 @@ message FindTradeByOfferIdRequest{
 message FindTradeByOfferIdResponse{
   int64 code = 1;
   string msg =  2;
-  TradeData data = 3;
+  repeated TradeData trades = 3;
 }
 message FindTradesByTradePairIdRequest{
   int64 tradePairId = 1;
@@ -39,7 +39,7 @@ message FindTradesByTradePairIdRequest{
 message FindTradesByTradePairIdResponse{
   int64 code = 1;
   string msg =  2;
-  TradeData data = 3;
+  repeated TradeData trades = 3;
 }
 message TradeData{
   string baseName = 1;
