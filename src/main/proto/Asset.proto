@@ -14,6 +14,7 @@ message IssuerAssetRequest{
 message IssuerAssetResponse{
   int64 code = 1;
   string msg = 2;
+  Asset asset = 3;
 }
 
 message UpdateAssetRequest{
@@ -25,6 +26,7 @@ message UpdateAssetRequest{
 message UpdateAssetResponse{
   int64 code = 1;
   string msg = 2;
+  Asset asset = 3;
 }
 
 message FindAssetByIdRequest{
@@ -34,7 +36,7 @@ message FindAssetByIdRequest{
 message FindAssetByIdResponse{
   int64 code = 1;
   string msg = 2;
-  Asset data = 3;
+  Asset asset = 3;
 }
 
 message FindAssetInfoByNameRequest{
@@ -45,7 +47,7 @@ message FindAssetInfoByNameRequest{
 message FindAssetInfoByNameResponse{
   int64 code = 1;
   string msg = 2;
-  Asset data = 3;
+  Asset asset = 3;
 }
 
 message FindAssetsRequest{
@@ -56,7 +58,7 @@ message FindAssetsRequest{
 message FindAssetsResponse{
   int64 code = 1;
   string msg = 2;
-  repeated Asset data = 3;
+  repeated Asset assets = 3;
 }
 
 message Asset{
