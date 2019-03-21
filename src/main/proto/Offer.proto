@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.offer";
 option java_outer_classname = "Offer";
 
@@ -135,17 +135,16 @@ message FindOffersByTradePairResponse{
 
 message OfferData{
   string offerId= 1;
-  string baseName= 2;
-  string counterName= 3;
+  SimpleAsset baseAsset= 2;
+  SimpleAsset counterAsset= 3;
   string price= 4;
-  string sellingAmount= 5;
-  string buyingAmount= 6;
-  string leftSellingAmount= 7;
-  string leftBuyingAmount= 8;
-  string total= 9;
-  string fee= 10;
+  string amount= 5;
+  string leftAmount= 6;
+  string fee= 7;
+  string leftFee= 8;
+  SimpleAsset feeAsset= 9;
   //订单状态
-  OfferStatus status = 11;
+  OfferStatus status = 10;
   enum OfferStatus{
     OFFERING = 0;
     CANCEL = 1;

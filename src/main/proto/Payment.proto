@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.payment";
 option java_outer_classname = "Payment";
 
@@ -179,18 +180,20 @@ message PathData {
 
 message PaymentData {
   string id = 1;
-  string create_at = 2;
-  string asset_code = 3;
-  string from = 4;
-  string to = 5;
-  PaymentStatus status = 6;
-  string payAmount = 7;
+  string createTime = 2;
+  string from = 3;
+  SimpleAsset payAsset = 4;
+  string payAmount = 5;
+  string to = 6;
+  SimpleAsset receiveAsset = 7;
   string receiveAmount = 8;
-  PaymentType paymentType = 9;
-  string fee = 10;
-  FeeType feeType = 11;
-  string feeRate = 12;
-  string partnerKey = 13;
+  string fee = 9;
+  SimpleAsset feeAsset = 10;
+  string feeRate = 11;
+  PaymentStatus status = 12;
+  PaymentType paymentType = 13;
+  FeeType feeType = 14;
+  string partnerKey = 15;
 
   enum PaymentStatus {
      PAYING = 0;

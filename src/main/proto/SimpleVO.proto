@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "io.tradingchain.peppa.proto.offer";
+option java_outer_classname = "SimpleVO";
+//资产内容
+message SimpleAsset{
+    //资产名称
+    string name = 1;
+    //资产发行人
+    string issuer = 2;
+    //发行总量
+    bool isBasic = 3;
+}

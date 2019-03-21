@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.tradepair";
 option java_outer_classname = "TradePair";
 
@@ -52,8 +53,6 @@ message FindTradePairsResponse {
 }
 
 message TradePairData {
-    string baseName = 1;
-    string baseIssuer = 2;
-    string counterName = 3;
-    string counterIssuer = 4;
+    SimpleAsset baseAsset = 1;
+    SimpleAsset counterAsset = 2;
 }
