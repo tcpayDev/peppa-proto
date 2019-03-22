@@ -248,7 +248,7 @@ message GetUserInfoRequest{
 message GetUserInfoResponse{
   int32 code = 1;
   string msg = 2;
-  UserData data = 3;
+  repeated Balance data = 3;
 }
 
 //用户信息
