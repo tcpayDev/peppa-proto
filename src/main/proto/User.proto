@@ -248,6 +248,7 @@ message GetUserInfoRequest{
 message GetUserInfoResponse{
   int32 code = 1;
   string msg = 2;
+  //返回资产
   repeated Balance data = 3;
 }
 
