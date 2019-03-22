@@ -9,14 +9,14 @@ message CreateBuyOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int64 tradePairId = 6;
+  int32 tradePairId = 6;
   string amount = 7;
   string price = 8;
   string externalId = 9;
   string externalName = 10;
 }
 message CreateBuyOfferResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
@@ -27,14 +27,14 @@ message CreateSellOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int64 tradePairId = 6;
+  int32 tradePairId = 6;
   string amount = 7;
   string price = 8;
   string externalId = 9;
   string externalName = 10;
 }
 message CreateSellOfferResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
@@ -45,14 +45,14 @@ message CreatePassiveBuyOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int64 tradePairId = 6;
+  int32 tradePairId = 6;
   string amount = 7;
   string price = 8;
   string externalId = 9;
   string externalName = 10;
 }
 message CreatePassiveBuyOfferResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
@@ -63,21 +63,21 @@ message CreatePassiveSellOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int64 tradePairId = 6;
+  int32 tradePairId = 6;
   string amount = 7;
   string price = 8;
   string externalId = 9;
   string externalName = 10;
 }
 message CreatePassiveSellOfferResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
 
 message CancelOfferRequest{
   string partnerKey = 1;
-  int64 offerId = 2;
+  int32 offerId = 2;
   string password = 3;
   string username = 4;
   string platform = 5;
@@ -85,7 +85,7 @@ message CancelOfferRequest{
 }
 
 message CancelOfferResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
@@ -95,16 +95,16 @@ message FindOfferByExternalIdRequest{
   string externalName = 2;
 }
 message FindOfferByExternalIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
 
 message FindOfferByIdRequest{
-  int64 offerId = 1;
+  int32 offerId = 1;
 }
 message FindOfferByIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
 }
@@ -113,22 +113,22 @@ message FindOffersByUserRequest{
   string password= 1;
   string username= 2;
   string platform= 3;
-  int64 page= 4;
-  int64 size = 5;
+  int32 page= 4;
+  int32 size = 5;
 }
 message FindOffersByUserResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated OfferData offers = 3;
 }
 
 message FindOffersByTradePairRequest{
-  int64 tradePairId= 1;
-  int64 page= 2;
-  int64 size = 3;
+  int32 tradePairId= 1;
+  int32 page= 2;
+  int32 size = 3;
 }
 message FindOffersByTradePairResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated OfferData offers = 3;
 }

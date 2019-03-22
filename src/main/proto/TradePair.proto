@@ -10,44 +10,44 @@ message CreateTradePairRequest {
     string counterAssetIssuer = 4;
 }
 message CreateTradePairResponse {
-    int64 code = 1;
+    int32 code = 1;
     string msg = 2;
     TradePairData tradePair = 3;
 }
 message DeleteTradePairRequest {
-    int64 tradePairId = 1;
+    int32 tradePairId = 1;
 }
 message DeleteTradePairResponse {
-    int64 code = 1;
+    int32 code = 1;
     string msg = 2;
     TradePairData tradePair = 3;
 }
 message FindTradePairByIdRequest {
-    int64 tradePairId = 1;
+    int32 tradePairId = 1;
 }
 message FindTradePairByIdResponse {
-    int64 code = 1;
+    int32 code = 1;
     string msg = 2;
     TradePairData tradePair = 3;
 }
 message UpdateTradePairRequest {
-    int64 tradePairId = 1;
+    int32 tradePairId = 1;
     string baseAssetName = 2;
     string baseAssetIssuer = 3;
     string counterAssetName = 4;
     string counterAssetIssuer = 5;
 }
 message UpdateTradePairResponse {
-    int64 code = 1;
+    int32 code = 1;
     string msg = 2;
     TradePairData tradePair = 3;
 }
 message FindTradePairsRequest {
-    int64 page = 1;
-    int64 size = 2;
+    int32 page = 1;
+    int32 size = 2;
 }
 message FindTradePairsResponse {
-    int64 code = 1;
+    int32 code = 1;
     string msg = 2;
     repeated TradePairData tradePairs = 3;
 }

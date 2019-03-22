@@ -4,7 +4,7 @@ option java_package = "io.tradingchain.peppa.proto.kline";
 option java_outer_classname = "Kline";
 
 message AddKlineRequest{
-  int64 time = 1;
+  int32 time = 1;
   string type = 2;
   string open = 3;
   string top = 4;
@@ -14,7 +14,7 @@ message AddKlineRequest{
 }
 
 message AddKlineResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg  = 2;
   KLineData data = 3;
 }
@@ -23,17 +23,17 @@ message FindKlineRequest{
   string type = 1;
   int64 startTime = 2;
   int64 endTime = 3;
-  int64 size = 4;
+  int32 size = 4;
 }
 
 message FindKlineResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg  = 2;
   repeated KLineData data = 3;
 }
 
 message KLineData {
-  int64 time  = 1;
+  int32 time  = 1;
   string open  = 2;
   string top  = 3;
   string low  = 4;

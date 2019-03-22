@@ -17,7 +17,7 @@ message CreateCollectPaymentRequest{
   string externalName = 11;
 }
 message CreateCollectPaymentResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
@@ -35,7 +35,7 @@ message CreatePrepaidPaymentRequest{
   string externalName = 11;
 }
 message CreatePrepaidPaymentResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
@@ -53,7 +53,7 @@ message FindCollectPathRequest{
   string receiveAmount = 11;
 }
 message FindCollectPathResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated PathData path = 3;
 }
@@ -71,7 +71,7 @@ message FindPrepaidPathRequest {
   string receiveAmount = 11;
 }
 message FindPrepaidPathResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated PathData path = 3;
 }
@@ -92,7 +92,7 @@ message CreateCollectPathPaymentRequest {
   string externalName = 14;
 }
 message CreateCollectPathPaymentResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
@@ -113,7 +113,7 @@ message CreatePrepaidPathPaymentRequest {
   string externalName = 14;
 }
 message CreatePrepaidPathPaymentResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
@@ -123,15 +123,15 @@ message FindPaymentByExternalIdRequest{
 
 }
 message FindPaymentByExternalIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
 message FindPaymentByIdRequest{
-  int64 paymentId = 1;
+  int32 paymentId = 1;
 }
 message FindPaymentByIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
@@ -141,30 +141,30 @@ message FindPaymentsByUserRequest {
   string platform = 3;
   bool pay = 4;
   bool receive = 5;
-  int64 page = 6;
-  int64 size = 7;
+  int32 page = 6;
+  int32 size = 7;
 }
 message FindPaymentsByUserResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated PaymentData payments = 3;
 }
 message FindPaymentsByPartnerRequest {
   string partnerKey = 1;
-  int64 page = 2;
-  int64 size = 3;
+  int32 page = 2;
+  int32 size = 3;
 }
 message FindPaymentsByPartnerResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated PaymentData payments = 3;
 }
 message FindPaymentsRequest {
-  int64 page = 1;
-  int64 size = 2;
+  int32 page = 1;
+  int32 size = 2;
 }
 message FindPaymentsResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated PaymentData payments = 3;
 }

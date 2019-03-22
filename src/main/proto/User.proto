@@ -23,7 +23,7 @@ message RegistUserRequest {
 
 //注册用户返回信息
 message RegistUserResponse {
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   //用户公钥
   string addr = 3;
@@ -43,7 +43,7 @@ message ValidateUsernameRequest{
 
 //验证用户是否存在返回
 message ValidateUsernameResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -60,7 +60,7 @@ message ValidatePasswordRequest{
 
 //验证密码是否正确返回
 message ValidatePasswordResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 //验证交易密码是否正确
@@ -74,7 +74,7 @@ message ValidateTradePasswordRequest{
 }
 //验证交易密码是否正确返回
 message ValidateTradePasswordResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -94,7 +94,7 @@ message ValidateTokenRequest{
 
 //验证拜占庭是否正确返回
 message ValidateTokenResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 //验证授权码是否正确
@@ -113,7 +113,7 @@ message ValidateAuthcodeRequest{
 
 //验证授权码是否正确返回
 message ValidateAuthcodeResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -129,7 +129,7 @@ message UpdateUserPasswordRequest{
 
 //修改用户密码返回
 message UpdateUserPasswordResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -145,7 +145,7 @@ message UpdateUserTradePasswordRequest{
 
 //修改用户交易密码返回
 message UpdateUserTradePasswordResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -165,7 +165,7 @@ message UpdateUserResetAuthcodeRequest{
 
 //修改用户授权码返回
 message UpdateUserResetAuthcodeResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -185,7 +185,7 @@ message UpdateUserResetTokenRequest{
 
 //修改用户拜占庭返回
 message UpdateUserResetTokenResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
 }
 
@@ -200,7 +200,7 @@ message FindUserByExternalIdRequest {
 
 //通过外部externalid查询用户 返回
 message FindUserByExternalIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   UserData data = 3;
 }
@@ -208,17 +208,17 @@ message FindUserByExternalIdResponse{
 //查询用户列表
 message FindUsersRequest{
   //页码
-  int64 page = 1;
+  int32 page = 1;
   //条目
-  int64 size = 2;
+  int32 size = 2;
 }
 
 //查询用户列表返回
 message FindUsersResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   //返回总条数
-  int64 total = 3;
+  int32 total = 3;
   //用户集合列表
   repeated UserData data = 4;
 }
@@ -226,15 +226,15 @@ message FindUsersResponse{
 //通过partnerKey查询用户列表
 message FindUserByPartnerRequest{
   string partnerKey = 1;
-  int64 page = 2;
-  int64 size = 3;
+  int32 page = 2;
+  int32 size = 3;
 }
 
 //返回partnerKey查询用户列表
 message FindUserByPartnerResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
-  int64 total = 3;
+  int32 total = 3;
   repeated UserData data = 4;
 }
 
@@ -247,7 +247,7 @@ message GetUserInfoRequest{
 
 //获取用户信息返回
 message GetUserInfoResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   UserData data = 3;
 }

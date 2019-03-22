@@ -27,7 +27,7 @@ message IssuerAssetRequest{
 
 //资产发行返回信息
 message IssuerAssetResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   AssetData asset = 3;
 }
@@ -35,7 +35,7 @@ message IssuerAssetResponse{
 //更新资产内容
 message UpdateAssetRequest{
   //资产ID
-  int64 assetId = 1;
+  int32 assetId = 1;
   //资产简介
   string info = 2;
   //发行方网关
@@ -44,19 +44,19 @@ message UpdateAssetRequest{
 
 //更新资产返回内容
 message UpdateAssetResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   AssetData asset = 3;
 }
 
 //查询资产内容
 message FindAssetByIdRequest{
-  int64 assetId = 1;
+  int32 assetId = 1;
 }
 
 //查询资产返回内容
 message FindAssetByIdResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   //if 有，则会返回资产信息
   AssetData asset = 3;
@@ -70,7 +70,7 @@ message FindAssetInfoByNameRequest{
 
 //根据资产名称返回信息
 message FindAssetInfoByNameResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   //if 有，则会返回资产信息
   AssetData asset = 3;
@@ -84,7 +84,7 @@ message FindAssetsRequest{
 
 //资产列表内容
 message FindAssetsResponse{
-  int64 code = 1;
+  int32 code = 1;
   string msg = 2;
   repeated AssetData assets = 3;
 }
