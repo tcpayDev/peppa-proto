@@ -267,7 +267,6 @@ message UserData {
   //接入方key
   string partnerKey = 6;
 }
-
 //资产详情
 message Balance{
   //资产名称
