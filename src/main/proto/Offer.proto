@@ -101,7 +101,7 @@ message FindOfferByExternalIdResponse{
 }
 
 message FindOfferByIdRequest{
-  int32 offerId = 1;
+  int64 offerId = 1;
 }
 message FindOfferByIdResponse{
   int32 code = 1;
@@ -123,7 +123,7 @@ message FindOffersByUserResponse{
 }
 
 message FindOffersByTradePairRequest{
-  int32 tradePairId= 1;
+  int64 tradePairId= 1;
   int32 page= 2;
   int32 size = 3;
 }

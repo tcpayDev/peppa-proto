@@ -128,7 +128,7 @@ message FindPaymentByExternalIdResponse{
   PaymentData payment = 3;
 }
 message FindPaymentByIdRequest{
-  int32 paymentId = 1;
+  int64 paymentId = 1;
 }
 message FindPaymentByIdResponse{
   int32 code = 1;

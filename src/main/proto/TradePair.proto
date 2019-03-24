@@ -15,7 +15,7 @@ message CreateTradePairResponse {
     TradePairData tradePair = 3;
 }
 message DeleteTradePairRequest {
-    int32 tradePairId = 1;
+    int64 tradePairId = 1;
 }
 message DeleteTradePairResponse {
     int32 code = 1;
@@ -23,7 +23,7 @@ message DeleteTradePairResponse {
     TradePairData tradePair = 3;
 }
 message FindTradePairByIdRequest {
-    int32 tradePairId = 1;
+    int64 tradePairId = 1;
 }
 message FindTradePairByIdResponse {
     int32 code = 1;
@@ -31,7 +31,7 @@ message FindTradePairByIdResponse {
     TradePairData tradePair = 3;
 }
 message UpdateTradePairRequest {
-    int32 tradePairId = 1;
+    int64 tradePairId = 1;
     string baseAssetName = 2;
     string baseAssetIssuer = 3;
     string counterAssetName = 4;

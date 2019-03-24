@@ -17,7 +17,7 @@ message FindTradesByUserResponse{
 
 }
 message FindTradeByIdRequest{
-  int32 tradeId = 1;
+  int64 tradeId = 1;
 }
 message FindTradeByIdResponse{
   int32 code = 1;
@@ -25,7 +25,7 @@ message FindTradeByIdResponse{
   TradeData trade = 3;
 }
 message FindTradeByOfferIdRequest{
-  int32 offerId = 1;
+  int64 offerId = 1;
 }
 message FindTradeByOfferIdResponse{
   int32 code = 1;
