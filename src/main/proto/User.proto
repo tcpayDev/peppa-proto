@@ -39,7 +39,9 @@ message TrustAssetsRequest{
   string username = 1;
   string tradePassword = 2;
   string platform = 3;
+  //用户授权码
   string authcode = 4;
+  //要信任资产列表
   repeated SimpleAsset data = 5;
 }
 
