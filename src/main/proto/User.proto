@@ -1,4 +1,6 @@
 syntax = "proto3";
+
+import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.user";
 option java_outer_classname = "User";
 
@@ -30,6 +32,20 @@ message RegistUserResponse {
   string authCode = 4;
   //拜占庭
   string token = 5;
+}
+
+//信任资产
+message TrustAssetsRequest{
+  string username = 1;
+  string tradePassword = 2;
+  string platform = 3;
+  repeated SimpleAsset data = 4;
+}
+
+//信任资产返回信息
+message TrustAssetsResponse{
+  int32 code = 1;
+  string msg = 2;
 }
 
 //验证用户是否存在
