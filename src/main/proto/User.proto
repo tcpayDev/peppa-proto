@@ -166,6 +166,7 @@ message UpdateUserResetAuthcodeRequest{
 message UpdateUserResetAuthcodeResponse{
   int32 code = 1;
   string msg = 2;
+  string authCode = 3;
 }
 
 //修改用户拜占庭
@@ -186,6 +187,7 @@ message UpdateUserResetTokenRequest{
 message UpdateUserResetTokenResponse{
   int32 code = 1;
   string msg = 2;
+  string token = 3;
 }
 
 //通过外部externalid查询用户
