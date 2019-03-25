@@ -21,6 +21,7 @@ message FindKlineRequest {
   KlineType type = 1;
   int64 startTime = 2;
   int64 endTime = 3;
+  //交易对
   int64 tradePairId = 4;
   int32 size = 5;
 }
@@ -33,12 +34,19 @@ message FindKlineResponse {
 
 //kline类别
 enum KlineType {
+  //分钟
   MINUTELY = 0;
+  //15分钟
   QUARTER_HOURLY = 1;
+  //半小时
   HALF_HOURLY = 2;
+  //小时
   HOURLY = 3;
+  //日线
   DAILY = 4;
+  //周线
   WEEKLY = 5;
+  //月线
   MONTHLY = 6;
 }
 
