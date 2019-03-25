@@ -7,6 +7,11 @@ message CreatePartnerRequest{
   string partnerKey = 1;
   string secret = 2;
   string platform = 3;
+  string prepaidPaymentRate = 4;
+  string collectPaymentRate = 5;
+  string prepaidPathRate = 6;
+  string collectPathRate = 7;
+  string offerRate = 8;
 }
 
 message CreatePartnerResponse{
@@ -53,4 +58,9 @@ message PartnerData{
   string apiKey = 1;
   string platform = 2;
   string secret = 3;
+  string prepaidPaymentRate = 4;
+  string collectPaymentRate = 5;
+  string prepaidPathRate = 6;
+  string collectPathRate = 7;
+  string offerRate = 8;
 }
