@@ -77,7 +77,7 @@ message FindTradePairsResponse {
 //交易对详情
 message TradePairData {
   //交易对id
-  int32 tradePairId = 1;
+  int64 tradePairId = 1;
   //基础币种
   SimpleAsset baseAsset = 2;
   //计价币种
