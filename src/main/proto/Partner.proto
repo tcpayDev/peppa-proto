@@ -30,8 +30,20 @@ message CreatePartnerResponse{
 
 message UpdatePartnerInfoRequest{
   string partnerKey = 1;
+  //签名私钥
   string secret = 2;
+  //平台标识
   string platform = 3;
+  //付付普通转账手续费率
+  string prepaidPaymentRate = 4;
+  //到付普通转账手续费率
+  string collectPaymentRate = 5;
+  //付付桥联转账手续费率
+  string prepaidPathRate = 6;
+  //到付桥联转账手续费率
+  string collectPathRate = 7;
+  //挂单手续费费账户
+  string offerRate = 8;
 }
 
 message UpdatePartnerInfoResponse{

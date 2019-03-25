@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "SimpleVO.proto";
+
 option java_package = "io.tradingchain.peppa.proto.kline";
 option java_outer_classname = "Kline";
 
@@ -54,4 +56,6 @@ message KLineData {
   string close = 5;
   //成交量
   string volume = 6;
+  //交易对id
+  int64 tradePairId = 7;
 }
