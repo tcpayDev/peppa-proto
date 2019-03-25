@@ -4,9 +4,22 @@ option java_package = "io.tradingchain.peppa.proto.partner";
 option java_outer_classname = "Partner";
 
 message CreatePartnerRequest{
+  //apikey
   string partnerKey = 1;
+  //签名私钥
   string secret = 2;
+  //平台标识
   string platform = 3;
+  //付付普通转账手续费率
+  string prepaidPaymentRate = 4;
+  //到付普通转账手续费率
+  string collectPaymentRate = 5;
+  //付付桥联转账手续费率
+  string prepaidPathRate = 6;
+  //到付桥联转账手续费率
+  string collectPathRate = 7;
+  //挂单手续费费账户
+  string offerRate = 8;
 }
 
 message CreatePartnerResponse{
@@ -53,4 +66,9 @@ message PartnerData{
   string apiKey = 1;
   string platform = 2;
   string secret = 3;
+  string prepaidPaymentRate = 4;
+  string collectPaymentRate = 5;
+  string prepaidPathRate = 6;
+  string collectPathRate = 7;
+  string offerRate = 8;
 }
