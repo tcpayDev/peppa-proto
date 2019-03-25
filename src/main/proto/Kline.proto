@@ -3,40 +3,55 @@ syntax = "proto3";
 option java_package = "io.tradingchain.peppa.proto.kline";
 option java_outer_classname = "Kline";
 
-message AddKlineRequest{
-  int32 time = 1;
-  string type = 2;
-  string open = 3;
-  string top = 4;
-  string low = 5;
-  string high = 6;
-  string amount = 7;
+//追加kline
+message AddKlineRequest {
+  //Kline信息
+  KLineData data = 1;
+  //kline类别
+  KlineType type = 2;
 }
 
-message AddKlineResponse{
+message AddKlineResponse {
   int32 code = 1;
-  string msg  = 2;
+  string msg = 2;
   KLineData data = 3;
 }
 
-message FindKlineRequest{
-  string type = 1;
+message FindKlineRequest {
+  KlineType type = 1;
   int64 startTime = 2;
   int64 endTime = 3;
   int32 size = 4;
 }
 
-message FindKlineResponse{
+message FindKlineResponse {
   int32 code = 1;
-  string msg  = 2;
+  string msg = 2;
   repeated KLineData data = 3;
 }
 
+//kline类别
+enum KlineType {
+  MINUTELY = 0;
+  QUARTER_HOURLY = 1;
+  HALF_HOURLY = 2;
+  HOURLY = 3;
+  DAILY = 4;
+  WEEKLY = 5;
+  MONTHLY = 6;
+}
+
 message KLineData {
-  int32 time  = 1;
-  string open  = 2;
-  string top  = 3;
-  string low  = 4;
-  string close  = 5;
-  string volume  = 6;
+  //时间戳
+  int64 time = 1;
+  //开盘价
+  string open = 2;
+  //最高价
+  string top = 3;
+  //最低价
+  string low = 4;
+  //收盘价
+  string close = 5;
+  //成交量
+  string volume = 6;
 }
