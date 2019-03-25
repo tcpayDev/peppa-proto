@@ -133,7 +133,7 @@ message FindPaymentByIdRequest{
 message FindPaymentByIdResponse{
   int32 code = 1;
   string msg = 2;
-  PaymentData payment = 3;
+  PaymentData data = 3;
 }
 message FindPaymentsByUserRequest {
   string password = 1;
@@ -179,7 +179,7 @@ message PathData {
 }
 
 message PaymentData {
-  string id = 1;
+  int64 id = 1;
   string createTime = 2;
   string from = 3;
   SimpleAsset payAsset = 4;

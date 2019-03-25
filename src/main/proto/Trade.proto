@@ -33,7 +33,7 @@ message FindTradeByOfferIdResponse{
   repeated TradeData trades = 3;
 }
 message FindTradesByTradePairIdRequest{
-  int32 tradePairId = 1;
+  int64 tradePairId = 1;
   int32 size = 2;
   int32 page = 3;
 }
