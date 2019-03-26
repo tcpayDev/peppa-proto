@@ -91,6 +91,8 @@ message FindCollectPathRequest{
   string receiveAssetIssuer = 10;
   //到账金额
   string receiveAmount = 11;
+  //到账用户地址
+  string receiveUserAddr = 12;
 }
 message FindCollectPathResponse {
   int32 code = 1;
@@ -117,6 +119,8 @@ message FindPrepaidPathRequest {
   string receiveAssetIssuer = 10;
   //到账金额
   string receiveAmount = 11;
+  //到账用户地址
+  string receiveUserAddr = 12;
 }
 message FindPrepaidPathResponse {
   int32 code = 1;
@@ -143,7 +147,7 @@ message CreateCollectPathPaymentRequest {
 message CreateCollectPathPaymentResponse {
   int32 code = 1;
   string msg = 2;
-  PaymentData payment = 3;
+  PaymentData data = 3;
 }
 message CreatePrepaidPathPaymentRequest {
   string partnerKey = 1;
@@ -165,7 +169,7 @@ message CreatePrepaidPathPaymentRequest {
 message CreatePrepaidPathPaymentResponse{
   int32 code = 1;
   string msg = 2;
-  PaymentData payment = 3;
+  PaymentData data = 3;
 }
 message FindPaymentByExternalIdRequest{
   string externalId = 1;
@@ -175,7 +179,7 @@ message FindPaymentByExternalIdRequest{
 message FindPaymentByExternalIdResponse{
   int32 code = 1;
   string msg = 2;
-  PaymentData payment = 3;
+  PaymentData data = 3;
 }
 message FindPaymentByIdRequest{
   int64 paymentId = 1;
@@ -197,7 +201,7 @@ message FindPaymentsByUserRequest {
 message FindPaymentsByUserResponse {
   int32 code = 1;
   string msg = 2;
-  repeated PaymentData payments = 3;
+  repeated PaymentData data = 3;
 }
 message FindPaymentsByPartnerRequest {
   string partnerKey = 1;
@@ -207,7 +211,7 @@ message FindPaymentsByPartnerRequest {
 message FindPaymentsByPartnerResponse {
   int32 code = 1;
   string msg = 2;
-  repeated PaymentData payments = 3;
+  repeated PaymentData data = 3;
 }
 message FindPaymentsRequest {
   int32 page = 1;
@@ -216,7 +220,7 @@ message FindPaymentsRequest {
 message FindPaymentsResponse {
   int32 code = 1;
   string msg = 2;
-  repeated PaymentData payments = 3;
+  repeated PaymentData data = 3;
 }
 
 message PathData {
@@ -230,7 +234,7 @@ message PathData {
 
 message PaymentData {
   int64 id = 1;
-  string createTime = 2;
+  int64 createTime = 2;
   string from = 3;
   SimpleAsset payAsset = 4;
   string payAmount = 5;
