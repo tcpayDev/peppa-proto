@@ -3,53 +3,93 @@ import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.payment";
 option java_outer_classname = "Payment";
 
+//创建到付啦
 message CreateCollectPaymentRequest{
+  //接入方key
   string partnerKey = 1;
+  //密码
   string password = 2;
+  //用户名
   string username = 3;
-  string platform = 4;
-  string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
-  string amount = 8;
-  string receiver = 9;
-  string externalId = 10;
-  string externalName = 11;
+  //授权码
+  string authcode = 4;
+  //平台名称
+  string platform = 5;
+  //交易密码
+  string tradePassword = 6;
+  //资产名称
+  string assetName = 7;
+  //资产发行人
+  string assetIssuer = 8;
+  //转账数量
+  string amount = 9;
+  //收款人
+  string receiver = 10;
+  //外部id
+  string externalId = 11;
+  //外部名称
+  string externalName = 12;
 }
+//创建到付返回信息呀
 message CreateCollectPaymentResponse{
   int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
+
+//创建付付呀
 message CreatePrepaidPaymentRequest{
+  //接入方key
   string partnerKey = 1;
+  //密码
   string password = 2;
+  //用户名
   string username = 3;
-  string platform = 4;
-  string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
-  string amount = 8;
-  string receiver = 9;
-  string externalId = 10;
-  string externalName = 11;
+  //授权码
+  string authcode = 4;
+  //平台名称
+  string platform = 5;
+  //交易密码
+  string tradePassword = 6;
+  //资产名称
+  string assetName = 7;
+  //资产发行人
+  string assetIssuer = 8;
+  //转账数量
+  string amount = 9;
+  //收款人
+  string receiver = 10;
+  //外部id
+  string externalId = 11;
+  //外部名称
+  string externalName = 12;
 }
+//创建付付返回
 message CreatePrepaidPaymentResponse{
   int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
+//查询用户到付列表
 message FindCollectPathRequest{
+  //接入方key
   string partnerKey = 1;
+  //密码
   string password = 2;
+  //用户名
   string username = 3;
+  //平台名称
   string platform = 4;
-  string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
+  //资产名称
+  string assetName = 5;
+  //资产发行人
+  string assetIssuer = 6;
+  //最大发送数量
   string amount = 8;
+  //到账币种
   string receiveAssetName = 9;
   string receiveAssetIssuer = 10;
+  //到账金额
   string receiveAmount = 11;
 }
 message FindCollectPathResponse {
@@ -58,16 +98,24 @@ message FindCollectPathResponse {
   repeated PathData path = 3;
 }
 message FindPrepaidPathRequest {
+  //接入方key
   string partnerKey = 1;
+  //密码
   string password = 2;
+  //用户名
   string username = 3;
+  //平台名称
   string platform = 4;
-  string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
+  //资产名称
+  string assetName = 5;
+  //资产发行人
+  string assetIssuer = 6;
+  //最大发送数量
   string amount = 8;
+  //到账币种
   string receiveAssetName = 9;
   string receiveAssetIssuer = 10;
+  //到账金额
   string receiveAmount = 11;
 }
 message FindPrepaidPathResponse {
@@ -81,15 +129,16 @@ message CreateCollectPathPaymentRequest {
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
-  string amount = 8;
-  string receiver = 9;
-  string receiveAssetName = 10;
-  string receiveAssetIssuer = 11;
-  string receiveAmount = 12;
-  string externalId = 13;
-  string externalName = 14;
+  string authcode = 6;
+  string assetName = 7;
+  string assetIssuer = 8;
+  string amount = 9;
+  string receiver = 10;
+  string receiveAssetName = 11;
+  string receiveAssetIssuer = 12;
+  string receiveAmount = 13;
+  string externalId = 14;
+  string externalName = 15;
 }
 message CreateCollectPathPaymentResponse {
   int32 code = 1;
@@ -102,15 +151,16 @@ message CreatePrepaidPathPaymentRequest {
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  string assetName = 6;
-  string assetIssuer = 7;
-  string amount = 8;
-  string receiver = 9;
-  string receiveAssetName = 10;
-  string receiveAssetIssuer = 11;
-  string receiveAmount = 12;
-  string externalId = 13;
-  string externalName = 14;
+  string authcode = 6;
+  string assetName = 7;
+  string assetIssuer = 8;
+  string amount = 9;
+  string receiver = 10;
+  string receiveAssetName = 11;
+  string receiveAssetIssuer = 12;
+  string receiveAmount = 13;
+  string externalId = 14;
+  string externalName = 15;
 }
 message CreatePrepaidPathPaymentResponse{
   int32 code = 1;
