@@ -226,10 +226,11 @@ message FindPaymentsResponse {
 message PathData {
   string sourceAssetName = 1;
   string sourceAssetIssuer = 2;
+  string sourceAmount = 5;
   string destinationAssetName = 3;
   string destinationAssetIssuer = 4;
-  string amount = 5;
-  string balance = 6;
+  string destinationAmount = 6;
+  string balance = 7;
 }
 
 message PaymentData {
