@@ -241,6 +241,7 @@ message FindPaymentsResponse {
   repeated PaymentData data = 3;
 }
 
+//支付路径信息
 message PathData {
   string sourceAssetName = 1;
   string sourceAssetIssuer = 2;
