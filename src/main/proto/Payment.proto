@@ -134,15 +134,24 @@ message CreateCollectPathPaymentRequest {
   string platform = 4;
   string tradePassword = 5;
   string authcode = 6;
+  //发起币种
   string assetName = 7;
   string assetIssuer = 8;
-  string amount = 9;
+  //显示数量
+  string sourceAmount = 9;
+  //到账用户
   string receiver = 10;
+  //到账币种
   string receiveAssetName = 11;
   string receiveAssetIssuer = 12;
+  //显示到账数量
   string receiveAmount = 13;
   string externalId = 14;
   string externalName = 15;
+  //除去手续费发起数量
+  string realSourceAmount = 16;
+  //除去手续费发起到账数量
+  string realReceiveAmount = 17;
 }
 message CreateCollectPathPaymentResponse {
   int32 code = 1;
@@ -156,15 +165,24 @@ message CreatePrepaidPathPaymentRequest {
   string platform = 4;
   string tradePassword = 5;
   string authcode = 6;
+  //发起币种
   string assetName = 7;
   string assetIssuer = 8;
-  string amount = 9;
+  //显示数量
+  string sourceAmount = 9;
+  //到账用户
   string receiver = 10;
+  //到账币种
   string receiveAssetName = 11;
   string receiveAssetIssuer = 12;
+  //显示到账数量
   string receiveAmount = 13;
   string externalId = 14;
   string externalName = 15;
+  //除去手续费发起数量
+  string realSourceAmount = 16;
+  //除去手续费发起到账数量
+  string realReceiveAmount = 17;
 }
 message CreatePrepaidPathPaymentResponse{
   int32 code = 1;
@@ -226,11 +244,13 @@ message FindPaymentsResponse {
 message PathData {
   string sourceAssetName = 1;
   string sourceAssetIssuer = 2;
-  string sourceAmount = 5;
-  string destinationAssetName = 3;
-  string destinationAssetIssuer = 4;
-  string destinationAmount = 6;
-  string balance = 7;
+  string sourceAmount = 3;
+  string realSourceAmount = 4;
+  string destinationAssetName = 5;
+  string destinationAssetIssuer = 6;
+  string destinationAmount = 7;
+  string realDestinationAmount = 8;
+  string balance = 9;
 }
 
 message PaymentData {
@@ -239,16 +259,18 @@ message PaymentData {
   string from = 3;
   SimpleAsset payAsset = 4;
   string payAmount = 5;
-  string to = 6;
-  SimpleAsset receiveAsset = 7;
-  string receiveAmount = 8;
-  string fee = 9;
-  SimpleAsset feeAsset = 10;
-  string feeRate = 11;
-  PaymentStatus status = 12;
-  PaymentType paymentType = 13;
-  FeeType feeType = 14;
-  string partnerKey = 15;
+  string realPayAmount = 6;
+  string to = 7;
+  SimpleAsset receiveAsset = 8;
+  string receiveAmount = 9;
+  string realReceiveAmount = 10;
+  string fee = 11;
+  SimpleAsset feeAsset = 12;
+  string feeRate = 13;
+  PaymentStatus status = 14;
+  PaymentType paymentType = 15;
+  FeeType feeType = 16;
+  string partnerKey = 17;
 
   enum PaymentStatus {
      PAYING = 0;
