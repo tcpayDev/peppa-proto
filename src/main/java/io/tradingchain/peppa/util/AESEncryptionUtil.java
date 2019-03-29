@@ -1,6 +1,6 @@
 package io.tradingchain.peppa.util;
 
-import org.springframework.util.Base64Utils;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
@@ -12,8 +12,7 @@ public class AESEncryptionUtil {
 
     public static String encrypt(String seed, byte[] original) {
         try {
-            byte[] encrypted = getCipher(seed, Cipher.ENCRYPT_MODE).doFinal(original);
-            return Base64Utils.encodeToString(encrypted);
+            return new String(Base64.encodeBase64(getCipher(seed, Cipher.ENCRYPT_MODE).doFinal(original)));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
@@ -30,7 +29,7 @@ public class AESEncryptionUtil {
 
     public static byte[] decrypt(String seed, byte[] encrypted) {
         try {
-            return getCipher(seed, Cipher.DECRYPT_MODE).doFinal(Base64Utils.decode(encrypted));
+            return getCipher(seed, Cipher.DECRYPT_MODE).doFinal(Base64.decodeBase64(encrypted));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
