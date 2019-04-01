@@ -56,10 +56,10 @@ message CreatePassiveSellOfferRequest{
   string platform = 4;
   string tradePassword = 5;
   //授权码
-  string authcode = 6;
-  int64 tradePairId = 7;
-  string amount = 8;
-  string price = 9;
+  string amount = 6;
+  string price = 7;
+  string authcode = 8;
+  int64 tradePairId = 9;
   string externalId = 10;
   string externalName = 11;
 }
