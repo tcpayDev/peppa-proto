@@ -3,6 +3,7 @@ import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.offer";
 option java_outer_classname = "Offer";
 
+//创建买单
 message CreateBuyOfferRequest{
   string partnerKey = 1;
   string password = 2;
@@ -17,6 +18,7 @@ message CreateBuyOfferRequest{
   string externalName = 11;
 }
 
+//创建卖单
 message CreateSellOfferRequest{
   string partnerKey = 1;
   string password = 2;
@@ -31,6 +33,7 @@ message CreateSellOfferRequest{
   string externalName = 11;
 }
 
+//创建被动买单
 message CreatePassiveBuyOfferRequest{
   string partnerKey = 1;
   string password = 2;
@@ -45,12 +48,14 @@ message CreatePassiveBuyOfferRequest{
   string externalName = 11;
 }
 
+//创建被动卖单
 message CreatePassiveSellOfferRequest{
   string partnerKey = 1;
   string password = 2;
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
   int64 tradePairId = 7;
   string amount = 8;
