@@ -9,11 +9,12 @@ message CreateBuyOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int32 tradePairId = 6;
-  string amount = 7;
-  string price = 8;
-  string externalId = 9;
-  string externalName = 10;
+  string authcode = 6;
+  int64 tradePairId = 7;
+  string amount = 8;
+  string price = 9;
+  string externalId = 10;
+  string externalName = 11;
 }
 message CreateBuyOfferResponse{
   int32 code = 1;
@@ -27,11 +28,12 @@ message CreateSellOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int32 tradePairId = 6;
-  string amount = 7;
-  string price = 8;
-  string externalId = 9;
-  string externalName = 10;
+  string authcode = 6;
+  int64 tradePairId = 7;
+  string amount = 8;
+  string price = 9;
+  string externalId = 10;
+  string externalName = 11;
 }
 message CreateSellOfferResponse{
   int32 code = 1;
@@ -45,11 +47,12 @@ message CreatePassiveBuyOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int32 tradePairId = 6;
-  string amount = 7;
-  string price = 8;
-  string externalId = 9;
-  string externalName = 10;
+  string authcode = 6;
+  int64 tradePairId = 7;
+  string amount = 8;
+  string price = 9;
+  string externalId = 10;
+  string externalName = 11;
 }
 message CreatePassiveBuyOfferResponse{
   int32 code = 1;
@@ -63,11 +66,12 @@ message CreatePassiveSellOfferRequest{
   string username = 3;
   string platform = 4;
   string tradePassword = 5;
-  int32 tradePairId = 6;
-  string amount = 7;
-  string price = 8;
-  string externalId = 9;
-  string externalName = 10;
+  string authcode = 6;
+  int64 tradePairId = 7;
+  string amount = 8;
+  string price = 9;
+  string externalId = 10;
+  string externalName = 11;
 }
 message CreatePassiveSellOfferResponse{
   int32 code = 1;
