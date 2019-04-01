@@ -123,7 +123,7 @@ message FindOffersByTradePairResponse{
   string msg = 2;
   repeated OfferData offers = 3;
 }
-
+//offer 订单内容
 message OfferData{
   string offerId= 1;
   SimpleAsset baseAsset= 2;
