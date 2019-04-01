@@ -16,11 +16,6 @@ message CreateBuyOfferRequest{
   string externalId = 10;
   string externalName = 11;
 }
-message CreateBuyOfferResponse{
-  int32 code = 1;
-  string msg = 2;
-  OfferData offer = 3;
-}
 
 message CreateSellOfferRequest{
   string partnerKey = 1;
@@ -34,11 +29,6 @@ message CreateSellOfferRequest{
   string price = 9;
   string externalId = 10;
   string externalName = 11;
-}
-message CreateSellOfferResponse{
-  int32 code = 1;
-  string msg = 2;
-  OfferData offer = 3;
 }
 
 message CreatePassiveBuyOfferRequest{
@@ -54,11 +44,6 @@ message CreatePassiveBuyOfferRequest{
   string externalId = 10;
   string externalName = 11;
 }
-message CreatePassiveBuyOfferResponse{
-  int32 code = 1;
-  string msg = 2;
-  OfferData offer = 3;
-}
 
 message CreatePassiveSellOfferRequest{
   string partnerKey = 1;
@@ -73,7 +58,9 @@ message CreatePassiveSellOfferRequest{
   string externalId = 10;
   string externalName = 11;
 }
-message CreatePassiveSellOfferResponse{
+
+//提交挂单返回统一内容
+message CreateOfferResponse{
   int32 code = 1;
   string msg = 2;
   OfferData offer = 3;
