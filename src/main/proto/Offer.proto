@@ -5,14 +5,22 @@ option java_outer_classname = "Offer";
 
 //创建买单
 message CreateBuyOfferRequest{
+  //接入方key
   string partnerKey = 1;
-  string password = 2;
-  string username = 3;
+  //用户名
+  string username = 2;
+  //密码
+  string password = 3;
+  //平台
   string platform = 4;
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
+  //交易对Id
   int64 tradePairId = 7;
+  //买入数量
   string amount = 8;
+  //买入价格 以计价币作为单位
   string price = 9;
   string externalId = 10;
   string externalName = 11;
@@ -20,14 +28,22 @@ message CreateBuyOfferRequest{
 
 //创建卖单
 message CreateSellOfferRequest{
+  //接入方key
   string partnerKey = 1;
-  string password = 2;
-  string username = 3;
+  //用户名
+  string username = 2;
+  //密码
+  string password = 3;
+  //平台
   string platform = 4;
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
+  //交易对Id
   int64 tradePairId = 7;
+  //卖出数量
   string amount = 8;
+  //卖出价格 以计价币作为单位
   string price = 9;
   string externalId = 10;
   string externalName = 11;
