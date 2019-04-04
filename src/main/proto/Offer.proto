@@ -87,16 +87,18 @@ message CreateOfferResponse{
   OfferData offer = 3;
 }
 
+//取消订单请求
 message CancelOfferRequest{
   string partnerKey = 1;
-  int64 offerId = 2;
+  string username = 2;
   string password = 3;
-  string username = 4;
-  string platform = 5;
-  string tradePassword = 6;
+  string platform = 4;
+  string tradePassword = 5;
+  int64 offerId = 6;
   string authcode = 7;
 }
 
+//创建订单，返回内容
 message CancelOfferResponse{
   int32 code = 1;
   string msg = 2;
