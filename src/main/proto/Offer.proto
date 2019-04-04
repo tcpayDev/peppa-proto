@@ -149,7 +149,7 @@ message FindOffersByTradePairResponse{
 }
 //offer 订单内容
 message OfferData{
-  string offerId= 1;
+  int64 offerId= 1;
   SimpleAsset baseAsset= 2;
   SimpleAsset counterAsset= 3;
   string price= 4;
@@ -160,6 +160,7 @@ message OfferData{
   SimpleAsset feeAsset= 9;
   //订单状态
   OfferStatus status = 10;
+  int64 tradePairId = 11;
   enum OfferStatus{
     OFFERING = 0;
     CANCEL = 1;
