@@ -89,11 +89,12 @@ message CreateOfferResponse{
 
 message CancelOfferRequest{
   string partnerKey = 1;
-  int32 offerId = 2;
+  int64 offerId = 2;
   string password = 3;
   string username = 4;
   string platform = 5;
   string tradePassword = 6;
+  string authcode = 7;
 }
 
 message CancelOfferResponse{
