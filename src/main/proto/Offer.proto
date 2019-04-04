@@ -147,6 +147,20 @@ message FindOffersByTradePairResponse{
   string msg = 2;
   repeated OfferData offers = 3;
 }
+
+//查询全部订单
+message FindOffersRequest{
+  int32 page= 1;
+  int32 size = 2;
+}
+
+//查询全部订单返回
+message FindOffersResponse{
+  int32 page= 1;
+  int32 size = 2;
+  repeated OfferData offers = 3;
+}
+
 //offer 订单内容
 message OfferData{
   int64 offerId= 1;
