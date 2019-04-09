@@ -289,7 +289,7 @@ message UserData {
   string partnerKey = 6;
 }
 //资产详情
-message Balance{
+message Balance {
   //资产名称
   string total = 1;
   repeated BalanceData data = 2;
