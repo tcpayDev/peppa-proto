@@ -156,8 +156,8 @@ message FindOffersRequest{
 
 //查询全部订单返回
 message FindOffersResponse{
-  int32 page= 1;
-  int32 size = 2;
+  int32 code= 1;
+  string msg = 2;
   repeated OfferData offers = 3;
 }
 
