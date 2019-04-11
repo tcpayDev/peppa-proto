@@ -15,14 +15,7 @@ message IssuerAssetRequest {
   string gateway = 4;
   //发行总量
   string total = 5;
-  //接收者
-  string destination = 6;
-  //接收者seed
-  string destinationSeed = 7;
-  //接收者授权码
-  string destinationAuthCode = 8;
-  //收取手续费（TC数量）
-  string feeAmount = 9;
+
 }
 
 //资产发行返回信息
