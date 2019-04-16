@@ -137,6 +137,21 @@ message FindOffersByUserResponse{
   repeated OfferData offers = 3;
 }
 
+
+message FindOffersByUserAndStatusRequest{
+  string password= 1;
+  string username= 2;
+  string platform= 3;
+  OfferStatus status = 4;
+  int32 page= 5;
+  int32 size = 6;
+}
+message FindOffersByUserAndStatusResponse{
+  int32 code = 1;
+  string msg = 2;
+  repeated OfferData offers = 3;
+}
+
 message FindOffersByTradePairRequest{
   int64 tradePairId= 1;
   int32 page= 2;
@@ -175,10 +190,11 @@ message OfferData{
   //订单状态
   OfferStatus status = 10;
   int64 tradePairId = 11;
-  enum OfferStatus{
-    OFFERING = 0;
-    CANCEL = 1;
-    OK = 2;
-    FAIL = 3;
-  }
+}
+
+enum OfferStatus{
+  OFFERING = 0;
+  CANCEL = 1;
+  OK = 2;
+  FAIL = 3;
 }
