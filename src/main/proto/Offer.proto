@@ -189,7 +189,13 @@ message OfferData{
   SimpleAsset feeAsset= 9;
   //订单状态
   OfferStatus status = 10;
-  int64 tradePairId = 11;
+  OfferDirection direction = 11;
+  int64 tradePairId = 12;
+}
+
+enum OfferDirection{
+  sell = 0;
+  buy = 1;
 }
 
 enum OfferStatus{
