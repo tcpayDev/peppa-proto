@@ -287,6 +287,20 @@ message UserData {
   string addr = 5;
   //接入方key
   string partnerKey = 6;
+  //挂单手续费
+  string offerRate = 7;
+  //普通转账到付手续费
+  string collectPaymentRate = 8;
+  //桥联转账到付手续费
+  string collectPathRate = 9;
+  //普通转账先付手续费
+  string prepaidPaymentRate = 10;
+  //桥联转账先付手续费
+  string prepaidPathRate = 11;
+  //用户状态
+  string status = 12;
+  //创建时间
+  int64 createTime = 13;
 }
 //资产详情
 message Balance {
