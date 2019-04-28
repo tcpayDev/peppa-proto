@@ -134,8 +134,9 @@ message FindOffersByUserRequest{
 message FindOffersByUserResponse{
   int32 code = 1;
   string msg = 2;
-  repeated OfferData offers = 3;
-  int32 total = 4;
+  int32 total = 3;
+  //返回集合字段
+  repeated OfferData offers = 4;
 }
 
 
