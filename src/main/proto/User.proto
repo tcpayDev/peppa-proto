@@ -273,6 +273,19 @@ message GetUserInfoResponse{
   Balance data = 3;
 }
 
+message GetBalanceByAddrRequest{
+  string addr = 1;
+  int32 size = 2;
+  int32 page = 3;
+}
+
+message GetBalanceByAddrResponse{
+  int32 code = 1;
+  string msg = 2;
+  //返回资产
+  Balance data = 3;
+}
+
 //用户信息
 message UserData {
   //用户名
