@@ -84,6 +84,7 @@ message FindAssetsResponse {
   int32 code = 1;
   string msg = 2;
   repeated AssetData assets = 3;
+  int32 total = 4;
 }
 
 //资产内容

@@ -220,6 +220,7 @@ message FindPaymentsByUserResponse {
   int32 code = 1;
   string msg = 2;
   repeated PaymentData data = 3;
+  int32 total = 4;
 }
 message FindPaymentsByAddrRequest{
   string addr = 1;
@@ -231,6 +232,7 @@ message FindPaymentsByAddrResponse {
   int32 code = 1;
   string msg = 2;
   repeated PaymentData data = 3;
+  int32 total = 4;
 }
 message FindPaymentsByPartnerRequest {
   string partnerKey = 1;
@@ -241,6 +243,7 @@ message FindPaymentsByPartnerResponse {
   int32 code = 1;
   string msg = 2;
   repeated PaymentData data = 3;
+  int32 total = 4;
 }
 message FindPaymentsRequest {
   int32 page = 1;
@@ -250,6 +253,7 @@ message FindPaymentsResponse {
   int32 code = 1;
   string msg = 2;
   repeated PaymentData data = 3;
+  int32 total = 4;
 }
 
 //支付路径信息

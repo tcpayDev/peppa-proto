@@ -135,6 +135,7 @@ message FindOffersByUserResponse{
   int32 code = 1;
   string msg = 2;
   repeated OfferData offers = 3;
+  int32 total = 4;
 }
 
 
@@ -150,6 +151,7 @@ message FindOffersByUserAndStatusResponse{
   int32 code = 1;
   string msg = 2;
   repeated OfferData offers = 3;
+  int32 total = 4;
 }
 
 message FindOffersByTradePairRequest{
@@ -161,6 +163,7 @@ message FindOffersByTradePairResponse{
   int32 code = 1;
   string msg = 2;
   repeated OfferData offers = 3;
+  int32 total = 4;
 }
 
 //查询全部订单
@@ -174,6 +177,7 @@ message FindOffersResponse{
   int32 code= 1;
   string msg = 2;
   repeated OfferData offers = 3;
+  int32 total = 4;
 }
 
 message FindOffersByAddrRequest{
@@ -186,6 +190,7 @@ message FindOffersByAddrResponse {
   int32 code = 1;
   string msg = 2;
   repeated OfferData data = 3;
+  int32 total = 4;
 }
 
 //offer 订单内容
