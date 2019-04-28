@@ -139,7 +139,6 @@ message FindOffersByUserResponse{
   repeated OfferData offers = 4;
 }
 
-
 message FindOffersByUserAndStatusRequest{
   string password= 1;
   string username= 2;
