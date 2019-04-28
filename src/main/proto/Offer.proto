@@ -176,6 +176,16 @@ message FindOffersResponse{
   repeated OfferData offers = 3;
 }
 
+message FindOffersByAddrRequest{
+  string addr = 1;
+}
+
+message FindOffersByAddrResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated OfferData data = 3;
+}
+
 //offer 订单内容
 message OfferData{
   int64 offerId= 1;

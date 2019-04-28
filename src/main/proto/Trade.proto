@@ -24,6 +24,17 @@ message FindTradeByIdResponse{
   string msg =  2;
   TradeData trade = 3;
 }
+
+message FindTradesByAddrRequest{
+  string addr = 1;
+}
+
+message FindTradesByAddrResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated TradeData data = 3;
+}
+
 message FindTradeByOfferIdRequest{
   int64 offerId = 1;
 }

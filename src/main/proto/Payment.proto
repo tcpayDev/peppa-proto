@@ -221,6 +221,15 @@ message FindPaymentsByUserResponse {
   string msg = 2;
   repeated PaymentData data = 3;
 }
+message FindPaymentsByAddrRequest{
+  string addr = 1;
+}
+
+message FindPaymentsByAddrResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated PaymentData data = 3;
+}
 message FindPaymentsByPartnerRequest {
   string partnerKey = 1;
   int32 page = 2;
