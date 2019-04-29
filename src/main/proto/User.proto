@@ -289,18 +289,19 @@ message GetBalanceByAddrResponse{
 
 //用户信息
 message UserData {
+  string userId = 1;
   //用户名
-  string username = 1;
+  string username = 2;
   //邀请码
-  string inviteCode = 2;
+  string inviteCode = 3;
   //邀请人
-  string inviteUser = 3;
+  string inviteUser = 4;
   //平台标识
-  string platform = 4;
+  string platform = 5;
   //公钥
-  string addr = 5;
+  string addr = 6;
   //创建时间
-  int64 createTime = 6;
+  int64 createTime = 7;
 }
 //资产详情
 message Balance {
