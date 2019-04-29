@@ -14,12 +14,14 @@ message RegistUserRequest {
   string platform = 3;
   //交易密码
   string tradePassword = 4;
+  //邀请码
+  string inviteCode = 5;
   //请求标识，用于查询
-  string externalId = 5;
+  string externalId = 6;
   //请求标识名称
-  string externalName = 6;
+  string externalName = 7;
   //接入方Key
-  string partnerKey = 7;
+  string partnerKey = 8;
 }
 
 //注册用户返回信息
