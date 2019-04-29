@@ -80,6 +80,7 @@ message ValidatePasswordRequest{
 message ValidatePasswordResponse{
   int32 code = 1;
   string msg = 2;
+  UserData data = 3;
 }
 //验证交易密码是否正确
 message ValidateTradePasswordRequest{
