@@ -1,12 +1,11 @@
 package io.tradingchain.peppa.util;
 
-import org.apache.tomcat.util.codec.binary.Base64;
-
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import org.apache.commons.codec.binary.Base64;
 
 public class AESEncryptionUtil {
 
