@@ -39,7 +39,6 @@ message RegistUserResponse {
 //信任资产
 message TrustAssetsRequest{
   string username = 1;
-  string tradePassword = 2;
   string platform = 3;
   //用户授权码
   string authcode = 4;
@@ -107,10 +106,8 @@ message ValidateTokenRequest{
   string password = 2;
   //平台
   string platform = 3;
-  //交易密码
-  string tradePassword = 4;
   //token
-  string tokenKey = 5;
+  string tokenKey = 4;
 }
 
 //验证拜占庭是否正确返回
@@ -126,10 +123,8 @@ message ValidateAuthcodeRequest{
   string password = 2;
   //平台
   string platform = 3;
-  //交易密码
-  string tradePassword = 4;
-  //授权码
-  string authcode = 5;
+  //token
+  string tokenKey = 4;
 }
 
 //验证授权码是否正确返回
