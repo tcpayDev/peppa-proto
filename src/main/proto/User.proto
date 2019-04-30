@@ -124,7 +124,7 @@ message ValidateAuthcodeRequest{
   //平台
   string platform = 3;
   //token
-  string tokenKey = 4;
+  string authcode = 4;
 }
 
 //验证授权码是否正确返回
