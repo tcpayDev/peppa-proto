@@ -325,6 +325,8 @@ message GetOneAssetAmountRequest{
   string username = 1;
   string password = 2;
   string platform = 3;
+  string assetName = 4;
+  string assetIssuer = 5;
 }
 
 message GetOneAssetAmountResponse{
