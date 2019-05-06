@@ -321,6 +321,19 @@ message GetBalanceByAddrResponse{
   Balance data = 3;
 }
 
+message GetOneAssetAmountRequest{
+  string username = 1;
+  string password = 2;
+  string platform = 3;
+}
+
+message GetOneAssetAmountResponse{
+  int32 code = 1;
+  string msg = 2;
+  BalanceData data = 3;
+}
+
+
 //用户信息
 message UserData {
   int64 userId = 1;
@@ -353,8 +366,4 @@ message BalanceData{
   bool isBasic = 3;
   //拥有数量
   string amount = 4;
-  //正在卖出数量
-  string selling = 5;
-  //正在买入数量
-  string buyling = 6;
 }
