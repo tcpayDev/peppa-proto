@@ -135,12 +135,16 @@ message ValidateAuthcodeResponse{
 
 //修改用户密码
 message UpdateUserPasswordRequest{
+  //旧密码
+  string oldPassword = 1;
   //新密码
-  string newPassword = 1;
+  string newPassword = 2;
   //用户名
-  string username = 2;
+  string username = 3;
   //密码
-  string platform = 3;
+  string platform = 4;
+  //授权码
+  string authcode = 5;
 }
 
 //修改用户密码返回
@@ -151,18 +155,51 @@ message UpdateUserPasswordResponse{
 
 //修改用户交易密码
 message UpdateUserTradePasswordRequest{
+  //旧密码
+  string oldPassword = 1;
   //新交易密码
-  string newTradePassword = 1;
+  string newTradePassword = 2;
   //用户名
-  string username = 2;
+  string username = 3;
   //密码
-  string platform = 3;
+  string platform = 4;
+  //授权码
+  string authcode = 5;
 }
 
 //修改用户交易密码返回
 message UpdateUserTradePasswordResponse{
   int32 code = 1;
   string msg = 2;
+}
+
+//忘记密码
+message ForgetPasswordRequest{
+  //新交易密码
+  string newPassword = 1;
+  //用户名
+  string username = 2;
+  //密码
+  string platform = 3;
+  //授权码
+  string authcode = 4;
+}
+
+//忘记交易密码
+message ForgetTradePasswordRequest{
+  //新交易密码
+  string newTradePassword = 1;
+  //用户名
+  string username = 2;
+  //密码
+  string platform = 3;
+  //授权码
+  string authcode = 4;
+}
+
+message ForgetPasswordOrTradePasswordResponse{
+  string message = 1;
+  int32 code = 2;
 }
 
 //修改用户授权码
