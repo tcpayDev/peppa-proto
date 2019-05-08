@@ -158,6 +158,7 @@ message FindOffersByTradePairRequest{
   int64 tradePairId= 1;
   int32 page= 2;
   int32 size = 3;
+  OfferStatus status = 4;
 }
 message FindOffersByTradePairResponse{
   int32 code = 1;
@@ -170,6 +171,7 @@ message FindOffersByTradePairResponse{
 message FindOffersRequest{
   int32 page= 1;
   int32 size = 2;
+  OfferStatus status = 3;
 }
 
 //查询全部订单返回
@@ -184,6 +186,7 @@ message FindOffersByAddrRequest{
   string addr = 1;
   int32 page = 2;
   int32 size = 3;
+  OfferStatus status = 4;
 }
 
 message FindOffersByAddrResponse {

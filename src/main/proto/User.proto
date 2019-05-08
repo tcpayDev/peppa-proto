@@ -321,21 +321,6 @@ message GetBalanceByAddrResponse{
   Balance data = 3;
 }
 
-message GetOneAssetAmountRequest{
-  string username = 1;
-  string password = 2;
-  string platform = 3;
-  string assetName = 4;
-  string assetIssuer = 5;
-}
-
-message GetOneAssetAmountResponse{
-  int32 code = 1;
-  string msg = 2;
-  BalanceData data = 3;
-}
-
-
 //用户信息
 message UserData {
   int64 userId = 1;
