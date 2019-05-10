@@ -199,6 +199,7 @@ message FindOffersByAddrResponse {
 message FindOffersDepthRequest {
   int32 page = 1;
   int32 size = 2;
+  int64 tradePairId = 3;
 }
 
 message FindOffersDepthResponse {
