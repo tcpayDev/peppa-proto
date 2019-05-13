@@ -3,30 +3,30 @@ import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.trade";
 option java_outer_classname = "Trade";
 
-message FindTradesByUserRequest{
+message FindTradesByUserRequest {
   string password = 1;
   string username = 2;
   string platform = 3;
   int32 page = 4;
   int32 size = 5;
 }
-message FindTradesByUserResponse{
+message FindTradesByUserResponse {
   int32 code = 1;
-  string msg =  2;
+  string msg = 2;
   repeated TradeData trades = 3;
   int32 total = 4;
 
 }
-message FindTradeByIdRequest{
+message FindTradeByIdRequest {
   int64 tradeId = 1;
 }
-message FindTradeByIdResponse{
+message FindTradeByIdResponse {
   int32 code = 1;
-  string msg =  2;
+  string msg = 2;
   TradeData trade = 3;
 }
 
-message FindTradesByAddrRequest{
+message FindTradesByAddrRequest {
   string addr = 1;
   int32 page = 2;
   int32 size = 3;
@@ -39,30 +39,31 @@ message FindTradesByAddrResponse {
   int32 total = 4;
 }
 
-message FindTradeByOfferIdRequest{
+message FindTradeByOfferIdRequest {
   int64 offerId = 1;
 }
-message FindTradeByOfferIdResponse{
+message FindTradeByOfferIdResponse {
   int32 code = 1;
-  string msg =  2;
+  string msg = 2;
   repeated TradeData trades = 3;
   int32 total = 4;
 }
-message FindTradesByTradePairIdRequest{
+message FindTradesByTradePairIdRequest {
   int64 tradePairId = 1;
   int32 size = 2;
   int32 page = 3;
 }
-message FindTradesByTradePairIdResponse{
+message FindTradesByTradePairIdResponse {
   int32 code = 1;
-  string msg =  2;
+  string msg = 2;
   repeated TradeData trades = 3;
   int32 total = 4;
 }
-message TradeData{
+message TradeData {
   SimpleAsset baseAsset = 1;
   SimpleAsset counterAsset = 2;
   string amount = 3;
   string price = 4;
-  int64 createTime = 5;
+  string direction = 5;
+  int64 createTime = 6;
 }
