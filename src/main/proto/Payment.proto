@@ -290,6 +290,7 @@ message PaymentData {
   PaymentType paymentType = 15;
   FeeType feeType = 16;
   string partnerKey = 17;
+  string direction = 18;
 
   enum PaymentStatus {
      PAYING = 0;
