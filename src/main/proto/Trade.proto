@@ -7,8 +7,12 @@ message FindTradesByUserRequest {
   string password = 1;
   string username = 2;
   string platform = 3;
-  int32 page = 4;
-  int32 size = 5;
+  int64 assetId = 4;
+  int64 startTime = 5;
+  int64 endTime = 6;
+  int32 page = 7;
+  int32 size = 8;
+  string direction = 9;
 }
 message FindTradesByUserResponse {
   int32 code = 1;

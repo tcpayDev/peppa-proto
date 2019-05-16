@@ -211,10 +211,13 @@ message FindPaymentsByUserRequest {
   string password = 1;
   string username = 2;
   string platform = 3;
-  bool pay = 4;
-  bool receive = 5;
-  int32 page = 6;
-  int32 size = 7;
+  int64 assetId = 4;
+  int64 startTime = 5;
+  int64 endTime = 6;
+  bool pay = 7;
+  bool receive = 8;
+  int32 page = 9;
+  int32 size = 20;
 }
 message FindPaymentsByUserResponse {
   int32 code = 1;
