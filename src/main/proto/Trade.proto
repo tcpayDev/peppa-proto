@@ -64,10 +64,12 @@ message FindTradesByTradePairIdResponse {
   int32 total = 4;
 }
 message TradeData {
-  SimpleAsset baseAsset = 1;
-  SimpleAsset counterAsset = 2;
-  string amount = 3;
-  string price = 4;
-  string direction = 5;
-  int64 createTime = 6;
+  int64 id = 1;
+  SimpleAsset baseAsset = 2;
+  SimpleAsset counterAsset = 3;
+  string amount = 4;
+  string price = 5;
+  string direction = 6;
+  int64 createTime = 7;
+  string tradeNo = 8;
 }
