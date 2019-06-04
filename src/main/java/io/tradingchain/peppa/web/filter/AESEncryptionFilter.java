@@ -13,9 +13,11 @@ import java.io.*;
 
 public class AESEncryptionFilter implements Filter {
     private String key;
+    private String ivParameter;
 
-    public AESEncryptionFilter(String key) {
+    public AESEncryptionFilter(String key,String ivParameter) {
         this.key = key;
+        this.ivParameter = ivParameter;
     }
 
     @Override
@@ -33,7 +35,7 @@ public class AESEncryptionFilter implements Filter {
         }
 
         byte[] responseData = responseWrapper.getResponseData();
-        String encrypted = AESEncryptionUtil.encrypt(this.key, responseData);
+        String encrypted = AESEncryptionUtil.encrypt(this.key,this.ivParameter, responseData);
         servletResponse.getWriter().println(encrypted);
     }
 
@@ -45,7 +47,7 @@ public class AESEncryptionFilter implements Filter {
             super(request);
             byte[] temp = new byte[request.getContentLength()];
             IOUtils.readFully(request.getInputStream(), temp);
-            body = AESEncryptionUtil.decrypt(key, temp);
+            body = AESEncryptionUtil.decrypt(key,ivParameter, temp);
         }
 
         @Override
