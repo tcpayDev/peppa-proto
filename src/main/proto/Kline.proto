@@ -6,7 +6,7 @@ option java_outer_classname = "Kline";
 //追加kline
 message AddKlineRequest {
   //Kline信息
-  KLineData data = 1;
+  repeated KLineData data = 1;
   //kline类别
   KlineType type = 2;
 }
@@ -14,7 +14,6 @@ message AddKlineRequest {
 message AddKlineResponse {
   int32 code = 1;
   string msg = 2;
-  KLineData data = 3;
 }
 
 message FindKlineRequest {
