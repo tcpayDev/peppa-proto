@@ -36,18 +36,22 @@ message FindKlineResponse {
 enum KlineType {
   //分钟
   MINUTELY = 0;
+  //分钟
+  FIVE_MINUTELY = 1;
   //15分钟
-  QUARTER_HOURLY = 1;
+  QUARTER_HOURLY = 2;
   //半小时
-  HALF_HOURLY = 2;
+  HALF_HOURLY = 3;
   //小时
-  HOURLY = 3;
+  HOURLY = 4;
+  //6小时
+  QUARTER_DAY = 5;
+  //12小时
+  HALF_DAY = 6;
   //日线
-  DAILY = 4;
+  DAILY = 7;
   //周线
-  WEEKLY = 5;
-  //月线
-  MONTHLY = 6;
+  WEEKLY = 8;
 }
 
 message KLineData {
