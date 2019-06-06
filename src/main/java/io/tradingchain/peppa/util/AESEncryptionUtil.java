@@ -46,26 +46,6 @@ public class AESEncryptionUtil {
       e.printStackTrace();
     }
     return null;
-
-//    try {
-//      return new BASE64Encoder()
-//          .encode(getCipher(seed, ivParameter, Cipher.ENCRYPT_MODE).doFinal(original));//此处使用BASE64做转码。
-//    } catch (NoSuchAlgorithmException e) {
-//      e.printStackTrace();
-//    } catch (NoSuchPaddingException e) {
-//      e.printStackTrace();
-//    } catch (BadPaddingException e) {
-//      e.printStackTrace();
-//    } catch (InvalidKeyException e) {
-//      e.printStackTrace();
-//    } catch (IllegalBlockSizeException e) {
-//      e.printStackTrace();
-//    } catch (InvalidAlgorithmParameterException e) {
-//      e.printStackTrace();
-//    } catch (UnsupportedEncodingException e) {
-//      e.printStackTrace();
-//    }
-//    return null;
   }
 
   // 解密
@@ -89,34 +69,10 @@ public class AESEncryptionUtil {
     }
 
     return null;
-
-
-//    try {
-//      return getCipher(seed, ivParameter, Cipher.DECRYPT_MODE)
-//          .doFinal(new BASE64Decoder().decodeBuffer(new String(encrypted)));
-//    } catch (UnsupportedEncodingException e) {
-//      e.printStackTrace();
-//    } catch (NoSuchPaddingException e) {
-//      e.printStackTrace();
-//    } catch (NoSuchAlgorithmException e) {
-//      e.printStackTrace();
-//    } catch (InvalidAlgorithmParameterException e) {
-//      e.printStackTrace();
-//    } catch (InvalidKeyException e) {
-//      e.printStackTrace();
-//    } catch (BadPaddingException e) {
-//      e.printStackTrace();
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    } catch (IllegalBlockSizeException e) {
-//      e.printStackTrace();
-//    }
-//    return null;
   }
 
   private static Cipher getCipher(String seed, String ivParameter, int encryptMode)
       throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-
     SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
     random.setSeed(seed.getBytes());
     KeyGenerator generator = KeyGenerator.getInstance("AES");
@@ -127,11 +83,5 @@ public class AESEncryptionUtil {
     Cipher cipher = Cipher.getInstance("AES");
     cipher.init(encryptMode, key, iv);
     return cipher;
-//    byte[] raw = seed.getBytes("ASCII");
-//    SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-//    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-//    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
-//    cipher.init(encryptMode, skeySpec, iv);
-//    return cipher;
   }
 }
