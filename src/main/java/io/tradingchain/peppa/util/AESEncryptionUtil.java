@@ -5,16 +5,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.commons.codec.binary.Base64;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -25,20 +21,19 @@ public class AESEncryptionUtil {
    */
 
   // 加密
-  public static String encrypt(String seed, String ivParameter, byte[] original) {
-
-
+  public static String encrypt(String sKey, String ivParameter, byte[] sSrc) {
     try {
-      return new String(Base64.encodeBase64(getCipher(seed,ivParameter, Cipher.ENCRYPT_MODE).doFinal(original)));
+      return new BASE64Encoder()
+          .encode(getCipher(sKey, ivParameter, Cipher.ENCRYPT_MODE).doFinal(sSrc));//此处使用BASE64做转码。
     } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
     } catch (NoSuchPaddingException e) {
       e.printStackTrace();
+    } catch (BadPaddingException e) {
+      e.printStackTrace();
     } catch (InvalidKeyException e) {
       e.printStackTrace();
     } catch (IllegalBlockSizeException e) {
-      e.printStackTrace();
-    } catch (BadPaddingException e) {
       e.printStackTrace();
     } catch (InvalidAlgorithmParameterException e) {
       e.printStackTrace();
@@ -49,38 +44,37 @@ public class AESEncryptionUtil {
   }
 
   // 解密
-  public static byte[] decrypt(String seed, String ivParameter, byte[] encrypted) {
+  public static byte[] decrypt(String sKey, String ivParameter, byte[] sSrc) {
     try {
-      return getCipher(seed,ivParameter, Cipher.DECRYPT_MODE).doFinal(Base64.decodeBase64(encrypted));
-    } catch (NoSuchAlgorithmException e) {
+      return getCipher(sKey, ivParameter, Cipher.DECRYPT_MODE)
+          .doFinal(new BASE64Decoder().decodeBuffer(new String(sSrc)));
+    } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     } catch (NoSuchPaddingException e) {
       e.printStackTrace();
-    } catch (InvalidKeyException e) {
-      e.printStackTrace();
-    } catch (IllegalBlockSizeException e) {
-      e.printStackTrace();
-    } catch (BadPaddingException e) {
+    } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
     } catch (InvalidAlgorithmParameterException e) {
       e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
+    } catch (InvalidKeyException e) {
+      e.printStackTrace();
+    } catch (BadPaddingException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (IllegalBlockSizeException e) {
       e.printStackTrace();
     }
-
     return null;
   }
 
   private static Cipher getCipher(String seed, String ivParameter, int encryptMode)
       throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-    SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-    random.setSeed(seed.getBytes());
-    KeyGenerator generator = KeyGenerator.getInstance("AES");
-    generator.init(128, random);
-    SecretKey key = generator.generateKey();
-    System.out.println(key.getFormat());
+    byte[] raw = seed.getBytes("ASCII");
+    SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-    cipher.init(encryptMode, key,new IvParameterSpec(ivParameter.getBytes()));
+    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
+    cipher.init(encryptMode, skeySpec, iv);
     return cipher;
   }
 }
