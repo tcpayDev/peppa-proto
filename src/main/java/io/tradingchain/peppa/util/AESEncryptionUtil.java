@@ -79,9 +79,9 @@ public class AESEncryptionUtil {
     generator.init(128, random);
     SecretKey key = new SecretKeySpec(generator.generateKey().getEncoded(), "AES");
     System.out.println(key.getFormat());
-    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
+//    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
     Cipher cipher = Cipher.getInstance("AES");
-    cipher.init(encryptMode, key, iv);
+    cipher.init(encryptMode, key);
     return cipher;
   }
 }
