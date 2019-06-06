@@ -5,10 +5,13 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import sun.misc.BASE64Decoder;
@@ -70,11 +73,21 @@ public class AESEncryptionUtil {
 
   private static Cipher getCipher(String seed, String ivParameter, int encryptMode)
       throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-    byte[] raw = seed.getBytes("ASCII");
-    SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+
+    SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+    random.setSeed(seed.getBytes());
+    KeyGenerator generator = KeyGenerator.getInstance("AES");
+    generator.init(128, random);
+    SecretKey key = new SecretKeySpec(generator.generateKey().getEncoded(), "AES");
     IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
-    cipher.init(encryptMode, skeySpec, iv);
+    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    cipher.init(encryptMode, key, iv);
     return cipher;
+//    byte[] raw = seed.getBytes("ASCII");
+//    SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+//    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+//    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
+//    cipher.init(encryptMode, skeySpec, iv);
+//    return cipher;
   }
 }
