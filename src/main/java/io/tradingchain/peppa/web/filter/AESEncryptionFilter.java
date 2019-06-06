@@ -2,7 +2,6 @@ package io.tradingchain.peppa.web.filter;
 
 import io.tradingchain.peppa.util.AESEncryptionUtil;
 import org.apache.commons.io.IOUtils;
-import org.springframework.util.StopWatch;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
