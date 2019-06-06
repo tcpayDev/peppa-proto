@@ -77,11 +77,10 @@ public class AESEncryptionUtil {
     random.setSeed(seed.getBytes());
     KeyGenerator generator = KeyGenerator.getInstance("AES");
     generator.init(128, random);
-    SecretKey key = new SecretKeySpec(generator.generateKey().getEncoded(), "AES");
+    SecretKey key = generator.generateKey();
     System.out.println(key.getFormat());
-//    IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());
-    Cipher cipher = Cipher.getInstance("AES");
-    cipher.init(encryptMode, key);
+    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    cipher.init(encryptMode, key,new IvParameterSpec(ivParameter.getBytes()));
     return cipher;
   }
 }
