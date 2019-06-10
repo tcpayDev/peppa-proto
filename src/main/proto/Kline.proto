@@ -32,7 +32,7 @@ message FindKlineResponse {
   repeated KLineData data = 3;
 }
 
-//kline类别
+//kline类型
 enum KlineType {
   //分钟
   MINUTELY = 0;
