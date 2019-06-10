@@ -43,7 +43,13 @@ public class AESEncryptionUtil {
     return null;
   }
 
-  // 解密
+  /**
+   * 解密
+   * @param sKey key
+   * @param ivParameter 偏移量
+   * @param sSrc
+   * @return
+   */
   public static byte[] decrypt(String sKey, String ivParameter, byte[] sSrc) {
     try {
       return getCipher(sKey, ivParameter, Cipher.DECRYPT_MODE)
