@@ -18,9 +18,12 @@ public class AESEncryptionUtil {
 
   /**
    * 加密用的Key 可以用26个字母和数字组成 此处使用AES-128-CBC加密模式，key需要为16位。
+   * 偏移量必须为16位
+   * @param sKey
+   * @param ivParameter
+   * @param sSrc
+   * @return
    */
-
-  // 加密
   public static String encrypt(String sKey, String ivParameter, byte[] sSrc) {
     try {
       return new BASE64Encoder()
