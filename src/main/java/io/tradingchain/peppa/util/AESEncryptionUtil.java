@@ -68,6 +68,18 @@ public class AESEncryptionUtil {
     return null;
   }
 
+  /**
+   * 加密算法
+   * @param seed key
+   * @param ivParameter 偏移量
+   * @param encryptMode 模式
+   * @return
+   * @throws UnsupportedEncodingException
+   * @throws NoSuchPaddingException
+   * @throws NoSuchAlgorithmException
+   * @throws InvalidAlgorithmParameterException
+   * @throws InvalidKeyException
+   */
   private static Cipher getCipher(String seed, String ivParameter, int encryptMode)
       throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
     byte[] raw = seed.getBytes("ASCII");
