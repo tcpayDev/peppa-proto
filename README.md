@@ -8,17 +8,27 @@
 
 * Spring Boot工程配置AESEncryptionFilter：
 
-   - Application上加@ServletComponentScan。
-   - 增加如下filter配置：
+   +增加如下filter配置：filter 服务端会做处理
+   
    ```
-   @Bean
-   public FilterRegistrationBean aesEncryptFilterRegistration() { 
-        FilterRegistrationBean registration = new FilterRegistrationBean(new AESEncryptionFilter("somekey"));
-        registration.addUrlPatterns("/*"); //
-        registration.setName("aesEncryptionFilter");
-        registration.setOrder(1);
-        return registration;
-    }
+   @Configuration
+   public class FilterConfig {
+   
+     @Bean
+     public Filter aesEncryptionFilter() {
+       return new AESEncryptionFilter();
+     }
+   
+     @Bean
+     public FilterRegistrationBean aesEncryptFilterRegistration() {
+       FilterRegistrationBean registration = new FilterRegistrationBean();
+       registration.setFilter(new DelegatingFilterProxy("aesEncryptionFilter"));
+       registration.addUrlPatterns("/*"); //
+       registration.setName("aesEncryptionFilter");
+       registration.setOrder(1);
+       return registration;
+     }
+   }
      ```
      
 * Client代码示例：

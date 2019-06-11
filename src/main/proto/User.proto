@@ -353,4 +353,6 @@ message BalanceData{
   bool isBasic = 3;
   //拥有数量
   string amount = 4;
+  //估值
+  string counter = 5;
 }
