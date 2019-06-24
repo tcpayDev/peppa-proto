@@ -22,6 +22,27 @@ message RegistUserRequest {
   string externalName = 7;
   //接入方Key
   string partnerKey = 8;
+  //注册方式,注册方式为邮箱时，需要验证码
+  RegistType type = 9;
+  string code = 10;
+
+  enum RegistType {
+    MOBILE = 0;
+    EMAIL = 1;
+  }
+}
+
+//前端应该做请求限制次数,用于校验邮箱是否属于本人
+message SendEmailRequest{
+  string email = 1;
+  //接入方Key
+  string partnerKey = 8;
+}
+
+//前端应该做请求限制
+message SendEmailResponse{
+  int32 code = 1;
+  string msg = 2;
 }
 
 //注册用户返回信息
@@ -146,6 +167,7 @@ message UpdateUserPasswordRequest{
   //授权码
   string authcode = 5;
 }
+
 
 //修改用户密码返回
 message UpdateUserPasswordResponse{
