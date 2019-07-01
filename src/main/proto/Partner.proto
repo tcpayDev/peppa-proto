@@ -95,4 +95,9 @@ message PartnerData{
   string prepaidPathRate = 6;
   string collectPathRate = 7;
   string offerRate = 8;
+  string prepaidPaymentRateAccount = 9;
+  string collectPaymentRateAccount = 10;
+  string prepaidPathRateAccount = 11;
+  string collectPathRateAccount = 12;
+  string cofferRateAccount = 13;
 }
