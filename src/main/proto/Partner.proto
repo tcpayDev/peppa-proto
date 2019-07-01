@@ -100,4 +100,5 @@ message PartnerData{
   string prepaidPathRateAccount = 11;
   string collectPathRateAccount = 12;
   string cofferRateAccount = 13;
+  string iv = 14;
 }
