@@ -47,10 +47,11 @@ PersonProto.Person.Builder builder = PersonProto.Person.newBuilder();
                 .build();
         System.out.println("original: " + person);
 
-        String encrypted = AESEncryptionUtil.encrypt("somekey", person.toByteArray());
+        String encrypted = AESEncryptionUtil.encrypt("somekey","someiv", person.toByteArray());
         Request request = new Request.Builder()
                 .url("http://localhost:8080/update")
                 .post(RequestBody.create(MediaType.parse("application/x-protobuf"), encrypted))
+                ..header("TRADING_CHAIN_PLATFORM","请咨询客户经理")
                 .build();
         Response response = new OkHttpClient().newCall(request).execute();
         byte[] decrypted = AESEncryptionUtil.decrypt("somekey", response.body().bytes());
