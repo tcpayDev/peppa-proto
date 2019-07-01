@@ -287,15 +287,15 @@ message FindPaymentsResponse {
 message PathData {
   //发起资产
   SimpleAsset sourceAsset = 1;
-  //到帐资产
+  //到账资产
   SimpleAsset destinationAsset =2;
   //发起资产数量
   string sourceAmount = 3;
   //实际发起资产数量
   string realSourceAmount = 4;
-  //到帐资产数量
+  //到账资产数量
   string destinationAmount = 5;
-  //实际到帐资产数量
+  //实际到账资产数量
   string realDestinationAmount = 6;
   //拥有资产数量
   string balance = 7;
@@ -316,9 +316,9 @@ message PaymentData {
   string realPayAmount = 6;
   //接收人
   string to = 7;
-  //到帐资产
+  //到账资产
   SimpleAsset receiveAsset = 8;
-  //到帐数量
+  //到账数量
   string receiveAmount = 9;
   //实际到账数量
   string realReceiveAmount = 10;

@@ -22,6 +22,7 @@ message CreateBuyOfferRequest {
   string amount = 8;
   //买入价格 以计价币作为单位
   string price = 9;
+  //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
 }
@@ -45,37 +46,60 @@ message CreateSellOfferRequest {
   string amount = 8;
   //卖出价格 以计价币作为单位
   string price = 9;
+
+  //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
 }
 
 //创建被动买单
 message CreatePassiveBuyOfferRequest {
+  //接入方KEY
   string partnerKey = 1;
+  //用户密码
   string password = 2;
+  //用户账户
   string username = 3;
+  //接入方平台
   string platform = 4;
+  //交易密码
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
+  //交易对ID
   int64 tradePairId = 7;
+  //交易数量
   string amount = 8;
+  //价格
   string price = 9;
+
+  //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
 }
 
 //创建被动卖单
 message CreatePassiveSellOfferRequest {
+  //接入方KEY
   string partnerKey = 1;
+  //用户密码
   string password = 2;
+  //用户账户
   string username = 3;
+  //接入方平台
   string platform = 4;
+  //交易密码
   string tradePassword = 5;
   //授权码
-  string amount = 6;
-  string price = 7;
-  string authcode = 8;
-  int64 tradePairId = 9;
+  string authcode = 6;
+  //交易对ID
+  int64 tradePairId = 7;
+  //交易数量
+  string amount = 8;
+  //价格
+  string price = 9;
+
+  //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
 }
@@ -84,17 +108,25 @@ message CreatePassiveSellOfferRequest {
 message CreateOfferResponse {
   int32 code = 1;
   string msg = 2;
+  //返回挂单内容
   OfferData offer = 3;
 }
 
 //取消订单请求
 message CancelOfferRequest {
+  //接入方KEY
   string partnerKey = 1;
-  string username = 2;
-  string password = 3;
+  //用户密码
+  string password = 2;
+  //用户账户
+  string username = 3;
+  //接入方平台
   string platform = 4;
+  //交易密码
   string tradePassword = 5;
+  //挂单ID
   int64 offerId = 6;
+  //授权码
   string authcode = 7;
 }
 
@@ -102,16 +134,19 @@ message CancelOfferRequest {
 message CancelOfferResponse {
   int32 code = 1;
   string msg = 2;
+  //返回挂单内容
   OfferData offer = 3;
 }
 
 message FindOfferByExternalIdRequest {
+  //外部标识进行数据查询
   string externalId = 1;
   string externalName = 2;
 }
 message FindOfferByExternalIdResponse {
   int32 code = 1;
   string msg = 2;
+  //返回挂单内容
   OfferData offer = 3;
 }
 
@@ -121,12 +156,16 @@ message FindOfferByIdRequest {
 message FindOfferByIdResponse {
   int32 code = 1;
   string msg = 2;
+  //返回挂单内容
   OfferData offer = 3;
 }
 
 message FindOffersByUserRequest {
+  //密码
   string password = 1;
+  //用户账户
   string username = 2;
+  //平台
   string platform = 3;
   int32 page = 4;
   int32 size = 5;
@@ -134,15 +173,20 @@ message FindOffersByUserRequest {
 message FindOffersByUserResponse {
   int32 code = 1;
   string msg = 2;
+  //挂单总数
   int32 total = 3;
   //返回集合字段
   repeated OfferData offers = 4;
 }
 
 message FindOffersByUserAndStatusRequest {
+  //密码
   string password = 1;
+  //用户账户
   string username = 2;
+  //平台
   string platform = 3;
+  //订单状态
   OfferStatus status = 4;
   int32 page = 5;
   int32 size = 6;
@@ -150,20 +194,26 @@ message FindOffersByUserAndStatusRequest {
 message FindOffersByUserAndStatusResponse {
   int32 code = 1;
   string msg = 2;
+  //返回集合字段
   repeated OfferData offers = 3;
+  //挂单总数
   int32 total = 4;
 }
 
 message FindOffersByTradePairRequest {
+  //交易对ID
   int64 tradePairId = 1;
   int32 page = 2;
   int32 size = 3;
+  //订单状态
   OfferStatus status = 4;
 }
 message FindOffersByTradePairResponse {
   int32 code = 1;
   string msg = 2;
+  //返回集合字段
   repeated OfferData offers = 3;
+  //挂单总数
   int32 total = 4;
 }
 
@@ -171,6 +221,7 @@ message FindOffersByTradePairResponse {
 message FindOffersRequest {
   int32 page = 1;
   int32 size = 2;
+  //订单状态
   OfferStatus status = 3;
 }
 
@@ -178,7 +229,9 @@ message FindOffersRequest {
 message FindOffersResponse {
   int32 code = 1;
   string msg = 2;
+  //返回集合字段
   repeated OfferData offers = 3;
+  //挂单总数
   int32 total = 4;
 }
 
@@ -186,26 +239,32 @@ message FindOffersByAddrRequest {
   string addr = 1;
   int32 page = 2;
   int32 size = 3;
+  //订单状态
   OfferStatus status = 4;
 }
 
 message FindOffersByAddrResponse {
   int32 code = 1;
   string msg = 2;
-  repeated OfferData data = 3;
+  //返回集合字段
+  repeated OfferData offers = 3;
+  //挂单总数
   int32 total = 4;
 }
 
 message FindOffersDepthRequest {
   int32 page = 1;
   int32 size = 2;
+  //交易对ID
   int64 tradePairId = 3;
 }
 
 message FindOffersDepthResponse {
   int32 code = 1;
   string msg = 2;
+  //交易对深度  卖出
   AskData askData = 3;
+  //买入深度
   BidData bidData = 4;
 }
 message AskData {
@@ -223,29 +282,46 @@ message DepthData {
 
 //offer 订单内容
 message OfferData {
+  //挂单ID
   int64 offerId = 1;
+  //基础币种
   SimpleAsset baseAsset = 2;
+  //计价币种
   SimpleAsset counterAsset = 3;
+  //价格
   string price = 4;
+  //数量
   string amount = 5;
+  //剩余数量
   string leftAmount = 6;
+  //手续费
   string fee = 7;
+  //剩余手续费
   string leftFee = 8;
+  //手续费资产
   SimpleAsset feeAsset = 9;
   //订单状态
   OfferStatus status = 10;
+  //方向
   OfferDirection direction = 11;
+  //交易对ID
   int64 tradePairId = 12;
 }
 
 enum OfferDirection {
+  //卖出
   sell = 0;
+  //买入
   buy = 1;
 }
 
 enum OfferStatus {
+  //挂单中
   OFFERING = 0;
+  //取消
   CANCEL = 1;
+  //完成
   OK = 2;
+  //失败
   FAIL = 3;
 }

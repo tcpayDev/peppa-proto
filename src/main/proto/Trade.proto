@@ -4,22 +4,33 @@ option java_package = "io.tradingchain.peppa.proto.trade";
 option java_outer_classname = "Trade";
 
 message FindTradesByUserRequest {
+  //用户密码
   string password = 1;
+  //用户账户
   string username = 2;
+  //平台
   string platform = 3;
+  //交易对ID
   int64 tradePairId = 4;
+  //开始时间
   int64 startTime = 5;
+  //结束时间
   int64 endTime = 6;
+  //页码
   int32 page = 7;
+  //每页数量
   int32 size = 8;
+  //交易方向
   string direction = 9;
 }
 message FindTradesByUserResponse {
+  //返回code
   int32 code = 1;
   string msg = 2;
+  //交易列表
   repeated TradeData trades = 3;
+  //交易记录总数
   int32 total = 4;
-
 }
 message FindTradeByIdRequest {
   int64 tradeId = 1;
@@ -27,19 +38,25 @@ message FindTradeByIdRequest {
 message FindTradeByIdResponse {
   int32 code = 1;
   string msg = 2;
+  //交易内容
   TradeData trade = 3;
 }
 
 message FindTradesByAddrRequest {
+  //用户公钥
   string addr = 1;
+  //分页 页码
   int32 page = 2;
+  //每页数量
   int32 size = 3;
 }
 
 message FindTradesByAddrResponse {
   int32 code = 1;
   string msg = 2;
+  //交易列表
   repeated TradeData data = 3;
+  //交易记录总数
   int32 total = 4;
 }
 
@@ -49,10 +66,13 @@ message FindTradeByOfferIdRequest {
 message FindTradeByOfferIdResponse {
   int32 code = 1;
   string msg = 2;
-  repeated TradeData trades = 3;
+  //交易列表
+  repeated TradeData data = 3;
+  //交易记录总数
   int32 total = 4;
 }
 message FindTradesByTradePairIdRequest {
+  //交易对ID
   int64 tradePairId = 1;
   int32 size = 2;
   int32 page = 3;
@@ -60,16 +80,26 @@ message FindTradesByTradePairIdRequest {
 message FindTradesByTradePairIdResponse {
   int32 code = 1;
   string msg = 2;
-  repeated TradeData trades = 3;
+  //交易列表
+  repeated TradeData data = 3;
+  //交易记录总数
   int32 total = 4;
 }
 message TradeData {
+  //ID
   int64 id = 1;
+  //基础币种
   SimpleAsset baseAsset = 2;
+  //计价币种
   SimpleAsset counterAsset = 3;
+  //交易数量
   string amount = 4;
+  //价格
   string price = 5;
+  //方向
   string direction = 6;
+  //创建时间
   int64 createTime = 7;
+  //交易单号
   string tradeNo = 8;
 }

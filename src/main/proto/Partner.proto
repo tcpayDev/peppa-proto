@@ -28,6 +28,7 @@ message CreatePartnerRequest{
 message CreatePartnerResponse{
   int32 code = 1;
   string msg = 2;
+  //接入方信息
   PartnerData partner = 3;
 }
 
@@ -54,6 +55,7 @@ message UpdatePartnerInfoRequest{
 message UpdatePartnerInfoResponse{
   int32 code = 1;
   string msg = 2;
+  //返回接入方信息
   PartnerData partner = 3;
 }
 
@@ -64,6 +66,7 @@ message FindPartnerInfoByIdRequest{
 message FindPartnerInfoByIdResponse{
   int32 code = 1;
   string msg = 2;
+  //查询接入方信息
   PartnerData partner = 3;
 }
 
@@ -75,13 +78,16 @@ message FindPartnersRequest{
 message FindPartnersResponse{
   int32 code = 1;
   string msg = 2;
+  //返回接入方数量
   int32 total = 3;
+  //查询接入方信息接口
   repeated PartnerData partners = 4;
 }
 
 //接入方资产信任
 message PartnerTrustAssetsRequest{
   string partnerKey = 1;
+  //资产信任接口
   repeated SimpleAsset assets = 2;
 }
 
@@ -91,18 +97,32 @@ message PartnerTrustAssetsResponse{
 }
 
 message PartnerData{
+  //接入方KEY
   string apiKey = 1;
+  //接入方platform
   string platform = 2;
+  //密钥
   string secret = 3;
+  //先付转账手续费
   string prepaidPaymentRate = 4;
+  //到付转账手续费
   string collectPaymentRate = 5;
+  //先付桥连手续费
   string prepaidPathRate = 6;
+  //到付桥连手续费
   string collectPathRate = 7;
+  //挂单手续费
   string offerRate = 8;
+  //先付转账手续费账户
   string prepaidPaymentRateAccount = 9;
+  //到付转账手续费账户
   string collectPaymentRateAccount = 10;
+  //先付桥连手续费账户
   string prepaidPathRateAccount = 11;
+  //到付桥连手续费账户
   string collectPathRateAccount = 12;
+  //挂单手续费账户
   string offerRateAccount = 13;
+  //签名需要的偏移量
   string iv = 14;
 }
