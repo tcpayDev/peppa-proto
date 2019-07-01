@@ -21,6 +21,8 @@ message CreatePartnerRequest{
   string collectPathRate = 7;
   //挂单手续费费账户
   string offerRate = 8;
+  //接入方简介
+  string info = 9;
 }
 
 message CreatePartnerResponse{
@@ -45,6 +47,8 @@ message UpdatePartnerInfoRequest{
   string collectPathRate = 7;
   //挂单手续费费账户
   string offerRate = 8;
+  //接入方简介
+  string info = 9;
 }
 
 message UpdatePartnerInfoResponse{
@@ -99,6 +103,6 @@ message PartnerData{
   string collectPaymentRateAccount = 10;
   string prepaidPathRateAccount = 11;
   string collectPathRateAccount = 12;
-  string cofferRateAccount = 13;
+  string offerRateAccount = 13;
   string iv = 14;
 }
