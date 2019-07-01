@@ -118,11 +118,17 @@ message FindPrepaidPathResponse {
   repeated PathData path = 3;
 }
 message CreateCollectPathPaymentRequest {
+  //接入方KEY
   string partnerKey = 1;
+  //用户密码
   string password = 2;
+  //用户名
   string username = 3;
+  //平台
   string platform = 4;
+  //交易密码
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
   //发起币种
   SimpleAsset sourceAsset = 7;
@@ -147,11 +153,17 @@ message CreateCollectPathPaymentResponse {
   PaymentData data = 3;
 }
 message CreatePrepaidPathPaymentRequest {
+  //接入方KEY
   string partnerKey = 1;
+  //用户密码
   string password = 2;
+  //用户名
   string username = 3;
+  //平台
   string platform = 4;
+  //交易密码
   string tradePassword = 5;
+  //授权码
   string authcode = 6;
   //发起币种
   SimpleAsset sourceAsset = 7;
@@ -163,6 +175,7 @@ message CreatePrepaidPathPaymentRequest {
   SimpleAsset receiveAsset = 10;
   //显示到账数量
   string receiveAmount = 11;
+  //外部请求标识（externalId和externalName组成唯一标识）
   string externalId = 12;
   string externalName = 13;
   //除去手续费发起数量
@@ -176,6 +189,7 @@ message CreatePrepaidPathPaymentResponse{
   PaymentData data = 3;
 }
 message FindPaymentByExternalIdRequest{
+  //外部查询标识，由于请求可能因为网络等异常导致，可由请求方通过外部请求标识进行数据查询
   string externalId = 1;
   string externalName = 2;
 
@@ -183,9 +197,11 @@ message FindPaymentByExternalIdRequest{
 message FindPaymentByExternalIdResponse{
   int32 code = 1;
   string msg = 2;
+  //转账列表
   PaymentData data = 3;
 }
 message FindPaymentByIdRequest{
+  //根据交易对ID进行查询
   int64 paymentId = 1;
 }
 message FindPaymentByIdResponse{
@@ -194,25 +210,37 @@ message FindPaymentByIdResponse{
   PaymentData data = 3;
 }
 message FindPaymentsByUserRequest {
+  //密码
   string password = 1;
+  //用户名
   string username = 2;
+  //平台
   string platform = 3;
+  //资产ID
   int64 assetId = 4;
+  //开始时间
   int64 startTime = 5;
+  //结束时间
   int64 endTime = 6;
+  //是否支付
   bool pay = 7;
+  //是否收款
   bool receive = 8;
+  //分页
   int32 page = 9;
   int32 size = 20;
 }
 message FindPaymentsByUserResponse {
   int32 code = 1;
   string msg = 2;
+  //转账列表
   repeated PaymentData data = 3;
+  //估值，目前只支持USDT估值
   int32 total = 4;
 }
 
 message FindPaymentsByAddrRequest{
+  //用户公钥
   string addr = 1;
   int32 page = 2;
   int32 size = 3;
@@ -221,10 +249,13 @@ message FindPaymentsByAddrRequest{
 message FindPaymentsByAddrResponse {
   int32 code = 1;
   string msg = 2;
+  //转账列表
   repeated PaymentData data = 3;
+  //估值，目前只支持USDT估值
   int32 total = 4;
 }
 message FindPaymentsByPartnerRequest {
+  //接入方KEY
   string partnerKey = 1;
   int32 page = 2;
   int32 size = 3;
@@ -232,64 +263,95 @@ message FindPaymentsByPartnerRequest {
 message FindPaymentsByPartnerResponse {
   int32 code = 1;
   string msg = 2;
+  //转账列表
   repeated PaymentData data = 3;
+  //估值，目前只支持USDT估值
   int32 total = 4;
 }
 message FindPaymentsRequest {
+  //分页
   int32 page = 1;
+  //每页数目
   int32 size = 2;
 }
 message FindPaymentsResponse {
   int32 code = 1;
   string msg = 2;
+  //转账列表
   repeated PaymentData data = 3;
+  //估值，目前只支持USDT估值
   int32 total = 4;
 }
 
 //支付路径信息
 message PathData {
+  //发起资产
   SimpleAsset sourceAsset = 1;
+  //到帐资产
   SimpleAsset destinationAsset =2;
+  //发起资产数量
   string sourceAmount = 3;
+  //实际发起资产数量
   string realSourceAmount = 4;
+  //到帐资产数量
   string destinationAmount = 5;
+  //实际到帐资产数量
   string realDestinationAmount = 6;
+  //拥有资产数量
   string balance = 7;
 }
 
 message PaymentData {
+  //ID
   int64 id = 1;
+  //创建时间
   int64 createTime = 2;
+  //发起人
   string from = 3;
+  //支付资产
   SimpleAsset payAsset = 4;
+  //支付数量
   string payAmount = 5;
+  //实际支付数量
   string realPayAmount = 6;
+  //接收人
   string to = 7;
+  //到帐资产
   SimpleAsset receiveAsset = 8;
+  //到帐数量
   string receiveAmount = 9;
+  //实际到账数量
   string realReceiveAmount = 10;
+  //手续费
   string fee = 11;
+  //手续费币种
   SimpleAsset feeAsset = 12;
+  //手续费费率
   string feeRate = 13;
+  //转账状态
   PaymentStatus status = 14;
+  //转账类型
   PaymentType paymentType = 15;
+  //手续费类型
   FeeType feeType = 16;
+  //接入方KEY
   string partnerKey = 17;
+  //方向
   string direction = 18;
-
+  //转账状态
   enum PaymentStatus {
-     PAYING = 0;
-     OK = 1;
-     FAIL = 2;
+     PAYING = 0;//转账中
+     OK = 1;//转账完成
+     FAIL = 2;//转账失败
   }
   enum PaymentType {
-    COMMON = 0;
-    BRIDGE = 1;
+    COMMON = 0;//普通转账
+    BRIDGE = 1;//桥连转账
   }
 
   enum FeeType {
-    COLLECT = 0;
-    PREPAID = 1;
-    NONE = 2;
+    COLLECT = 0;//到付
+    PREPAID = 1;//先付
+    NONE = 2;//未知
   }
 }
