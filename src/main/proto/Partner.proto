@@ -87,8 +87,8 @@ message FindPartnersResponse{
 //接入方资产信任
 message PartnerTrustAssetsRequest{
   string partnerKey = 1;
-  //资产信任接口
-  repeated SimpleAsset assets = 2;
+  //资产信任接口(单个资产，针对手续费账户)
+  SimpleAsset assets = 2;
 }
 
 message PartnerTrustAssetsResponse{
