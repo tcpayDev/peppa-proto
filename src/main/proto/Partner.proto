@@ -96,6 +96,15 @@ message PartnerTrustAssetsResponse{
   string msg = 2;
 }
 
+message PartnerStatusRequest{
+  string partnerKey = 1;
+}
+
+message PartnerStatusResponse{
+  int32 code = 1;
+  string msg = 2;
+}
+
 message PartnerData{
   //接入方KEY
   string apiKey = 1;
