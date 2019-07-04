@@ -79,7 +79,6 @@ message ValidateUsernameResponse{
   string msg = 2;
 }
 
-
 //验证密码是否正确
 message ValidatePasswordRequest{
   //用户名
@@ -308,27 +307,27 @@ message FindUserByPartnerResponse{
 }
 
 //获取用户信息
-message GetUserInfoRequest{
+message FindUserBalanceRequest{
   string username = 1;
   string password = 2;
   string platform = 3;
 }
 
 //获取用户信息返回
-message GetUserInfoResponse{
+message FindUserBalanceResponse{
   int32 code = 1;
   string msg = 2;
   //返回资产
   Balance data = 3;
 }
 
-message GetBalanceByAddrRequest{
+message FindBalanceByAddrRequest{
   string addr = 1;
   int32 size = 2;
   int32 page = 3;
 }
 
-message GetBalanceByAddrResponse{
+message FindBalanceByAddrResponse{
   int32 code = 1;
   string msg = 2;
   //返回资产
