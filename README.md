@@ -70,3 +70,5 @@ PersonProto.Person.Builder builder = PersonProto.Person.newBuilder();
         return ResponseEntity.ok(updated);
     }
   ```
+
+### [接口文档](https://github.com/Tradingchain/api-service-new/wiki)
