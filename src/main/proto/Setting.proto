@@ -1,0 +1,44 @@
+syntax = "proto3";
+import "SimpleVO.proto";
+option java_package = "io.tradingchain.peppa.proto.setting";
+option java_outer_classname = "Setting";
+
+message addTypeAndValueRequest{
+    Type type = 1;
+    string value = 2;
+}
+
+message addTypeAndValueResponse{
+    int32 code = 1;
+    string msg = 2;
+}
+
+message editType{
+    Type type = 1;
+    string value = 2;
+}
+
+message findValueRequest{
+    Type type = 1;
+    int32 size = 2;
+    int32 page = 3;
+}
+
+message findValueResponse{
+    int32 code = 1;
+    string msg = 2;
+    int32 total = 3;
+    repeated TypeValue data = 4;
+}
+
+message TypeValue{
+    Type type = 1;
+    string value = 2;
+}
+
+enum Type {
+    CRON_STATUS = 0;
+    TRANSFER_FEE_ACCOUNT = 1;
+    ACTIVE_ACCOUNT = 2;
+    TMP_USER_COUNT = 3;
+}
