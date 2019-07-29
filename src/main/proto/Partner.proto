@@ -11,18 +11,8 @@ message CreatePartnerRequest{
   string secret = 2;
   //平台标识
   string platform = 3;
-  //付付普通转账手续费率
-  string prepaidPaymentRate = 4;
-  //到付普通转账手续费率
-  string collectPaymentRate = 5;
-  //付付桥联转账手续费率
-  string prepaidPathRate = 6;
-  //到付桥联转账手续费率
-  string collectPathRate = 7;
-  //挂单手续费费账户
-  string offerRate = 8;
   //接入方简介
-  string info = 9;
+  string info = 4;
 }
 
 message CreatePartnerResponse{
@@ -38,18 +28,10 @@ message UpdatePartnerInfoRequest{
   string secret = 2;
   //平台标识
   string platform = 3;
-  //付付普通转账手续费率
-  string prepaidPaymentRate = 4;
-  //到付普通转账手续费率
-  string collectPaymentRate = 5;
-  //付付桥联转账手续费率
-  string prepaidPathRate = 6;
-  //到付桥联转账手续费率
-  string collectPathRate = 7;
-  //挂单手续费费账户
-  string offerRate = 8;
   //接入方简介
-  string info = 9;
+  string info = 4;
+  //接入方状态
+  PartnerStatus status = 5;
 }
 
 message UpdatePartnerInfoResponse{
@@ -112,26 +94,14 @@ message PartnerData{
   string platform = 2;
   //密钥
   string secret = 3;
-  //先付转账手续费
-  string prepaidPaymentRate = 4;
-  //到付转账手续费
-  string collectPaymentRate = 5;
-  //先付桥连手续费
-  string prepaidPathRate = 6;
-  //到付桥连手续费
-  string collectPathRate = 7;
-  //挂单手续费
-  string offerRate = 8;
-  //先付转账手续费账户
-  string prepaidPaymentRateAccount = 9;
-  //到付转账手续费账户
-  string collectPaymentRateAccount = 10;
-  //先付桥连手续费账户
-  string prepaidPathRateAccount = 11;
-  //到付桥连手续费账户
-  string collectPathRateAccount = 12;
-  //挂单手续费账户
-  string offerRateAccount = 13;
   //签名需要的偏移量
-  string iv = 14;
+  string iv = 4;
+  //接入方状态
+  PartnerStatus status = 5;
+}
+
+enum PartnerStatus{
+  OK = 0;
+  DELETED = 1;
+  LOCKED = 2;
 }
