@@ -25,6 +25,12 @@ message CreateBuyOfferRequest {
   //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
 }
 
 //创建卖单
@@ -50,6 +56,12 @@ message CreateSellOfferRequest {
   //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
 }
 
 //创建被动买单
@@ -76,6 +88,12 @@ message CreatePassiveBuyOfferRequest {
   //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
 }
 
 //创建被动卖单
@@ -102,6 +120,12 @@ message CreatePassiveSellOfferRequest {
   //外部标识，可用于网络异常，数据查询
   string externalId = 10;
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
 }
 
 //提交挂单返回统一内容
