@@ -3,81 +3,48 @@ import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.payment";
 option java_outer_classname = "Payment";
 
-//创建到付啦
-message CreateCollectPaymentRequest{
+//创建普通转账
+message CreatePaymentRequest{
   //接入方key
   string partnerKey = 1;
-  //密码
-  string password = 2;
   //用户名
-  string username = 3;
+  string username = 2;
   //授权码
-  string authcode = 4;
+  string authcode = 3;
   //平台名称
-  string platform = 5;
+  string platform = 4;
   //交易密码
-  string tradePassword = 6;
+  string tradePassword = 5;
   //币种
-  SimpleAsset sourceAsset = 7;
+  SimpleAsset sourceAsset = 6;
   //转账数量
-  string amount = 8;
+  string amount = 7;
   //收款人
-  string receiver = 9;
+  string receiver = 8;
   //外部id
-  string externalId = 10;
+  string externalId = 9;
   //外部名称
-  string externalName = 11;
+  string externalName = 10;
   //手续费账户
-  string feeAddr = 12;
-  //手续费数量
-  string feeAmount = 13;
+  string feeAddr = 11;
+  //手续费数量(sourceAsset数量)
+  string feeAmount = 12;
   //手续费费率
-  string feeRate = 14;
-  //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  SimpleAsset feeAsset = 15;
+  string feeRate = 13;
+  //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
+  SimpleAsset feeAsset = 14;
+  //手续费类别
+  FeeType feeType = 15;
 }
-//创建普通转账返回信息呀
+
+//创建转账返回信息呀
 message CreatePaymentResponse{
   int32 code = 1;
   string msg = 2;
   PaymentData payment = 3;
 }
 
-//创建付付呀
-message CreatePrepaidPaymentRequest{
-  //接入方key
-  string partnerKey = 1;
-  //密码
-  string password = 2;
-  //用户名
-  string username = 3;
-  //授权码
-  string authcode = 4;
-  //平台名称
-  string platform = 5;
-  //交易密码
-  string tradePassword = 6;
-  //币种
-  SimpleAsset sourceAsset = 7;
-  //转账数量
-  string amount = 8;
-  //收款人
-  string receiver = 9;
-  //外部id
-  string externalId = 10;
-  //外部名称
-  string externalName = 11;
-  //手续费账户
-  string feeAddr = 12;
-  //手续费数量
-  string feeAmount = 13;
-  //手续费费率
-  string feeRate = 14;
-  //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  SimpleAsset feeAsset = 15;
-}
-//查询用户到付列表
-message FindCollectPathRequest{
+message FindPaymentPathRequest {
   //接入方key
   string partnerKey = 1;
   //密码
@@ -98,40 +65,15 @@ message FindCollectPathRequest{
   string receiveUserAddr = 9;
   //手续费
   string feeRate = 10;
+  //手续费类别
+  FeeType feeType = 11;
 }
-message FindCollectPathResponse {
+message FindPaymentPathResponse {
   int32 code = 1;
   string msg = 2;
   repeated PathData path = 3;
 }
-message FindPrepaidPathRequest {
-  //接入方key
-  string partnerKey = 1;
-  //密码
-  string password = 2;
-  //用户名
-  string username = 3;
-  //平台名称
-  string platform = 4;
-  //发起币种
-  SimpleAsset sourceAsset = 5;
-  //最大发送数量
-  string maxAmount = 6;
-  //到账币种
-  SimpleAsset receiveAsset= 7;
-  //到账金额
-  string receiveAmount = 8;
-  //到账用户地址
-  string receiveUserAddr = 9;
-  //手续费
-  string feeRate = 10;
-}
-message FindPrepaidPathResponse {
-  int32 code = 1;
-  string msg = 2;
-  repeated PathData path = 3;
-}
-message CreateCollectPathPaymentRequest {
+message CreatePathPaymentRequest {
   //接入方KEY
   string partnerKey = 1;
   //用户密码
@@ -168,46 +110,10 @@ message CreateCollectPathPaymentRequest {
   string feeRate = 18;
   //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
   SimpleAsset feeAsset = 19;
+  //手续费类别
+  FeeType feeType = 20;
 }
-message CreatePrepaidPathPaymentRequest {
-  //接入方KEY
-  string partnerKey = 1;
-  //用户密码
-  string password = 2;
-  //用户名
-  string username = 3;
-  //平台
-  string platform = 4;
-  //交易密码
-  string tradePassword = 5;
-  //授权码
-  string authcode = 6;
-  //发起币种
-  SimpleAsset sourceAsset = 7;
-  //显示数量
-  string sourceAmount = 8;
-  //到账用户
-  string receiver = 9;
-  //到账币种
-  SimpleAsset receiveAsset = 10;
-  //显示到账数量
-  string receiveAmount = 11;
-  //外部请求标识（externalId和externalName组成唯一标识）
-  string externalId = 12;
-  string externalName = 13;
-  //除去手续费发起数量
-  string realSourceAmount = 14;
-  //除去手续费发起到账数量
-  string realReceiveAmount = 15;
-  //手续费账户
-  string feeAddr = 16;
-  //手续费数量
-  string feeAmount = 17;
-  //手续费费率
-  string feeRate = 18;
-  //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  SimpleAsset feeAsset = 19;
-}
+
 message FindPaymentByExternalIdRequest{
   //外部查询标识，由于请求可能因为网络等异常导致，可由请求方通过外部请求标识进行数据查询
   string externalId = 1;
@@ -358,20 +264,19 @@ message PaymentData {
   string partnerKey = 17;
   //方向
   string direction = 18;
-  //转账状态
-  enum PaymentStatus {
-     PAYING = 0;//转账中
-     OK = 1;//转账完成
-     FAIL = 2;//转账失败
-  }
-  enum PaymentType {
-    COMMON = 0;//普通转账
-    BRIDGE = 1;//桥连转账
-  }
+}
+//转账状态
+enum PaymentStatus {
+  PAYING = 0;//转账中
+  FINISH = 1;//转账完成
+  FAIL = 2;//转账失败
+}
+enum PaymentType {
+  COMMON = 0;//普通转账
+  BRIDGE = 1;//桥连转账
+}
 
-  enum FeeType {
-    COLLECT = 0;//到付
-    PREPAID = 1;//先付
-    NONE = 2;//未知
-  }
+enum FeeType {
+  COLLECT = 0;//到付
+  PREPAID = 1;//先付
 }
