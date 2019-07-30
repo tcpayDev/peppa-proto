@@ -96,6 +96,8 @@ message FindCollectPathRequest{
   string receiveAmount = 8;
   //到账用户地址
   string receiveUserAddr = 9;
+  //手续费
+  string feeRate = 10;
 }
 message FindCollectPathResponse {
   int32 code = 1;
@@ -121,6 +123,8 @@ message FindPrepaidPathRequest {
   string receiveAmount = 8;
   //到账用户地址
   string receiveUserAddr = 9;
+  //手续费
+  string feeRate = 10;
 }
 message FindPrepaidPathResponse {
   int32 code = 1;
