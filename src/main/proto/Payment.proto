@@ -27,6 +27,14 @@ message CreateCollectPaymentRequest{
   string externalId = 10;
   //外部名称
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
+  //手续费费率
+  string feeAsset = 15;
 }
 //创建到付返回信息呀
 message CreateCollectPaymentResponse{
@@ -59,6 +67,14 @@ message CreatePrepaidPaymentRequest{
   string externalId = 10;
   //外部名称
   string externalName = 11;
+  //手续费账户
+  string feeAddr = 12;
+  //手续费数量
+  string feeAmount = 13;
+  //手续费费率
+  string feeRate = 14;
+  //手续费费率
+  string feeAsset = 15;
 }
 //创建付付返回
 message CreatePrepaidPaymentResponse{
