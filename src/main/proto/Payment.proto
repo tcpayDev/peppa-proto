@@ -33,8 +33,8 @@ message CreateCollectPaymentRequest{
   string feeAmount = 13;
   //手续费费率
   string feeRate = 14;
-  //手续费费率
-  string feeAsset = 15;
+  //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
+  SimpleAsset feeAsset = 15;
 }
 //创建到付返回信息呀
 message CreateCollectPaymentResponse{
@@ -73,8 +73,8 @@ message CreatePrepaidPaymentRequest{
   string feeAmount = 13;
   //手续费费率
   string feeRate = 14;
-  //手续费费率
-  string feeAsset = 15;
+  //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
+  SimpleAsset feeAsset = 15;
 }
 //创建付付返回
 message CreatePrepaidPaymentResponse{
