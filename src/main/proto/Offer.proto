@@ -4,7 +4,7 @@ option java_package = "io.tradingchain.peppa.proto.offer";
 option java_outer_classname = "Offer";
 
 //创建买单
-message CreateBuyOfferRequest {
+message CreateOfferRequest {
   //接入方key
   string partnerKey = 1;
   //用户名
@@ -31,101 +31,10 @@ message CreateBuyOfferRequest {
   string feeAmount = 13;
   //手续费费率
   string feeRate = 14;
-}
-
-//创建卖单
-message CreateSellOfferRequest {
-  //接入方key
-  string partnerKey = 1;
-  //用户名
-  string username = 2;
-  //密码
-  string password = 3;
-  //平台
-  string platform = 4;
-  string tradePassword = 5;
-  //授权码
-  string authcode = 6;
-  //交易对Id
-  int64 tradePairId = 7;
-  //卖出数量
-  string amount = 8;
-  //卖出价格 以计价币作为单位
-  string price = 9;
-
-  //外部标识，可用于网络异常，数据查询
-  string externalId = 10;
-  string externalName = 11;
-  //手续费账户
-  string feeAddr = 12;
-  //手续费数量
-  string feeAmount = 13;
-  //手续费费率
-  string feeRate = 14;
-}
-
-//创建被动买单
-message CreatePassiveBuyOfferRequest {
-  //接入方KEY
-  string partnerKey = 1;
-  //用户密码
-  string password = 2;
-  //用户账户
-  string username = 3;
-  //接入方平台
-  string platform = 4;
-  //交易密码
-  string tradePassword = 5;
-  //授权码
-  string authcode = 6;
-  //交易对ID
-  int64 tradePairId = 7;
-  //交易数量
-  string amount = 8;
-  //价格
-  string price = 9;
-
-  //外部标识，可用于网络异常，数据查询
-  string externalId = 10;
-  string externalName = 11;
-  //手续费账户
-  string feeAddr = 12;
-  //手续费数量
-  string feeAmount = 13;
-  //手续费费率
-  string feeRate = 14;
-}
-
-//创建被动卖单
-message CreatePassiveSellOfferRequest {
-  //接入方KEY
-  string partnerKey = 1;
-  //用户密码
-  string password = 2;
-  //用户账户
-  string username = 3;
-  //接入方平台
-  string platform = 4;
-  //交易密码
-  string tradePassword = 5;
-  //授权码
-  string authcode = 6;
-  //交易对ID
-  int64 tradePairId = 7;
-  //交易数量
-  string amount = 8;
-  //价格
-  string price = 9;
-
-  //外部标识，可用于网络异常，数据查询
-  string externalId = 10;
-  string externalName = 11;
-  //手续费账户
-  string feeAddr = 12;
-  //手续费数量
-  string feeAmount = 13;
-  //手续费费率
-  string feeRate = 14;
+  //买卖方向
+  OfferDirection direction = 15;
+  //是否最优价格成交
+  OfferIsPassive isPassive = 16;
 }
 
 //提交挂单返回统一内容
@@ -330,11 +239,16 @@ message OfferData {
   int64 tradePairId = 12;
 }
 
+enum OfferIsPassive{
+  TRUE = 0;
+  FALSE = 1;
+}
+
 enum OfferDirection {
   //卖出
-  sell = 0;
+  SELL = 0;
   //买入
-  buy = 1;
+  BUY = 1;
 }
 
 enum OfferStatus {
