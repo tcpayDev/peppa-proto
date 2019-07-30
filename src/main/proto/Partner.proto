@@ -101,7 +101,7 @@ message PartnerData{
 }
 
 enum PartnerStatus{
-  OK = 0;
+  USED = 0;
   DELETED = 1;
   LOCKED = 2;
 }
