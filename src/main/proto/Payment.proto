@@ -268,8 +268,8 @@ message PaymentData {
 //转账状态
 enum PaymentStatus {
   PAYING = 0;//转账中
-  FINISH = 1;//转账完成
-  FAIL = 2;//转账失败
+  FINISHED = 1;//转账完成
+  FAILED = 2;//转账失败
 }
 enum PaymentType {
   COMMON = 0;//普通转账
