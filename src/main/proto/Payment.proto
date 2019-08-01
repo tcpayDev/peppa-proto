@@ -47,26 +47,18 @@ message CreatePaymentResponse{
 message FindPaymentPathRequest {
   //接入方key
   string partnerKey = 1;
-  //密码
-  string password = 2;
-  //用户名
-  string username = 3;
-  //平台名称
-  string platform = 4;
-  //发起币种
-  SimpleAsset sourceAsset = 5;
-  //最大发送数量
-  string maxAmount = 6;
+  //支付用户公钥
+  string payUserAddr = 2;
+  //支付币种
+  SimpleAsset sourceAsset = 3;
+  //最大愿意支付数量
+  string maxAmount = 4;
   //到账币种
-  SimpleAsset receiveAsset= 7;
+  SimpleAsset receiveAsset= 5;
   //到账金额
-  string receiveAmount = 8;
+  string receiveAmount = 6;
   //到账用户地址
-  string receiveUserAddr = 9;
-  //手续费
-  string feeRate = 10;
-  //手续费类别
-  FeeType feeType = 11;
+  string receiveUserAddr = 7;
 }
 message FindPaymentPathResponse {
   int32 code = 1;
@@ -217,14 +209,10 @@ message PathData {
   SimpleAsset destinationAsset =2;
   //发起资产数量
   string sourceAmount = 3;
-  //实际发起资产数量
-  string realSourceAmount = 4;
   //到账资产数量
-  string destinationAmount = 5;
-  //实际到账资产数量
-  string realDestinationAmount = 6;
+  string destinationAmount = 4;
   //拥有资产数量
-  string balance = 7;
+  string balance = 5;
 }
 
 message PaymentData {
