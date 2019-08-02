@@ -4,10 +4,10 @@ option java_package = "io.tradingchain.peppa.proto.trade";
 option java_outer_classname = "Trade";
 
 message FindTradesByUserRequest {
-  //用户密码
-  string password = 1;
   //用户账户
-  string username = 2;
+  string username = 1;
+  //用户密码
+  string password = 2;
   //平台
   string platform = 3;
   //交易对ID

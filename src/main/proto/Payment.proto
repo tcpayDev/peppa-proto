@@ -5,36 +5,32 @@ option java_outer_classname = "Payment";
 
 //创建普通转账
 message CreatePaymentRequest{
-  //接入方key
-  string partnerKey = 1;
   //用户名
-  string username = 2;
+  string username = 1;
   //授权码
-  string authcode = 3;
+  string authcode = 2;
   //平台名称
-  string platform = 4;
+  string platform = 3;
   //交易密码
-  string tradePassword = 5;
+  string tradePassword = 4;
   //币种
-  SimpleAsset sourceAsset = 6;
+  SimpleAsset sourceAsset = 5;
   //转账数量
-  string amount = 7;
+  string amount = 6;
   //收款人
-  string receiver = 8;
+  string receiver = 7;
   //外部id
-  string externalId = 9;
-  //外部名称
-  string externalName = 10;
+  string externalId = 8;
   //手续费账户
-  string feeAddr = 11;
+  string feeAddr = 9;
   //手续费数量(sourceAsset数量)
-  string feeAmount = 12;
+  string feeAmount = 10;
   //手续费费率
-  string feeRate = 13;
+  string feeRate = 11;
   //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
-  SimpleAsset feeAsset = 14;
+  SimpleAsset feeAsset = 12;
   //手续费类别
-  FeeType feeType = 15;
+  FeeType feeType = 13;
 }
 
 //创建转账返回信息呀
@@ -45,20 +41,18 @@ message CreatePaymentResponse{
 }
 
 message FindPaymentPathRequest {
-  //接入方key
-  string partnerKey = 1;
   //支付用户公钥
-  string payUserAddr = 2;
+  string payUserAddr = 1;
   //支付币种
-  SimpleAsset sourceAsset = 3;
+  SimpleAsset sourceAsset = 2;
   //最大愿意支付数量
-  string maxAmount = 4;
+  string maxAmount = 3;
   //到账币种
-  SimpleAsset receiveAsset= 5;
+  SimpleAsset receiveAsset= 4;
   //到账金额
-  string receiveAmount = 6;
+  string receiveAmount = 5;
   //到账用户地址
-  string receiveUserAddr = 7;
+  string receiveUserAddr = 6;
 }
 message FindPaymentPathResponse {
   int32 code = 1;
@@ -66,51 +60,46 @@ message FindPaymentPathResponse {
   repeated PathData path = 3;
 }
 message CreatePathPaymentRequest {
-  //接入方KEY
-  string partnerKey = 1;
   //用户密码
-  string password = 2;
+  string password = 1;
   //用户名
-  string username = 3;
+  string username = 2;
   //平台
-  string platform = 4;
+  string platform = 3;
   //交易密码
-  string tradePassword = 5;
+  string tradePassword = 4;
   //授权码
-  string authcode = 6;
+  string authcode = 5;
   //发起币种
-  SimpleAsset sourceAsset = 7;
+  SimpleAsset sourceAsset = 6;
   //显示数量
-  string sourceAmount = 8;
+  string sourceAmount = 7;
   //到账用户
-  string receiver = 9;
+  string receiver = 8;
   //到账币种
-  SimpleAsset receiveAsset= 10;
+  SimpleAsset receiveAsset= 9;
   //显示到账数量
-  string receiveAmount = 11;
-  string externalId = 12;
-  string externalName = 13;
+  string receiveAmount = 10;
+  string externalId = 11;
   //除去手续费发起数量
-  string realSourceAmount = 14;
+  string realSourceAmount = 12;
   //除去手续费发起到账数量
-  string realReceiveAmount = 15;
+  string realReceiveAmount = 13;
   //手续费账户
-  string feeAddr = 16;
+  string feeAddr = 14;
   //手续费数量
-  string feeAmount = 17;
+  string feeAmount = 15;
   //手续费费率
-  string feeRate = 18;
+  string feeRate = 16;
   //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  SimpleAsset feeAsset = 19;
+  SimpleAsset feeAsset = 17;
   //手续费类别
-  FeeType feeType = 20;
+  FeeType feeType = 18;
 }
 
 message FindPaymentByExternalIdRequest{
   //外部查询标识，由于请求可能因为网络等异常导致，可由请求方通过外部请求标识进行数据查询
   string externalId = 1;
-  string externalName = 2;
-
 }
 message FindPaymentByExternalIdResponse{
   int32 code = 1;

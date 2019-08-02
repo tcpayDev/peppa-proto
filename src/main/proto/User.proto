@@ -18,23 +18,8 @@ message RegistUserRequest {
   string inviteCode = 5;
   //请求标识，用于查询
   string externalId = 6;
-  //请求标识名称
-  string externalName = 7;
   //接入方Key
   string partnerKey = 8;
-}
-
-//前端应该做请求限制次数,用于校验邮箱是否属于本人
-message SendEmailRequest{
-  string email = 1;
-  //接入方Key
-  string partnerKey = 8;
-}
-
-//前端应该做请求限制
-message SendEmailResponse{
-  int32 code = 1;
-  string msg = 2;
 }
 
 //注册用户返回信息

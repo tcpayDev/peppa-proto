@@ -5,36 +5,32 @@ option java_outer_classname = "Offer";
 
 //创建买单
 message CreateOfferRequest {
-  //接入方key
-  string partnerKey = 1;
   //用户名
-  string username = 2;
-  //密码
-  string password = 3;
+  string username = 1;
   //平台
-  string platform = 4;
-  string tradePassword = 5;
+  string platform = 2;
+  //交易密码
+  string tradePassword = 3;
   //授权码
-  string authcode = 6;
+  string authcode = 4;
   //交易对Id
-  int64 tradePairId = 7;
+  int64 tradePairId = 5;
   //买入数量
-  string amount = 8;
+  string amount = 6;
   //买入价格 以计价币作为单位
-  string price = 9;
+  string price = 7;
   //外部标识，可用于网络异常，数据查询
-  string externalId = 10;
-  string externalName = 11;
+  string externalId = 8;
   //手续费账户
-  string feeAddr = 12;
+  string feeAddr = 9;
   //手续费数量
-  string feeAmount = 13;
+  string feeAmount = 10;
   //手续费费率
-  string feeRate = 14;
+  string feeRate = 11;
   //买卖方向
-  OfferDirection direction = 15;
+  OfferDirection direction = 12;
   //是否最优价格成交
-  OfferIsPassive isPassive = 16;
+  OfferIsPassive isPassive = 13;
 }
 
 //提交挂单返回统一内容
@@ -47,20 +43,18 @@ message CreateOfferResponse {
 
 //取消订单请求
 message CancelOfferRequest {
-  //接入方KEY
-  string partnerKey = 1;
+  //用户账户
+  string username = 1;
   //用户密码
   string password = 2;
-  //用户账户
-  string username = 3;
   //接入方平台
-  string platform = 4;
+  string platform = 3;
   //交易密码
-  string tradePassword = 5;
+  string tradePassword = 4;
   //挂单ID
-  int64 offerId = 6;
+  int64 offerId = 5;
   //授权码
-  string authcode = 7;
+  string authcode = 6;
 }
 
 //创建订单，返回内容
@@ -72,7 +66,6 @@ message CancelOfferResponse {
 message FindOfferByExternalIdRequest {
   //外部标识进行数据查询
   string externalId = 1;
-  string externalName = 2;
 }
 message FindOfferByExternalIdResponse {
   int32 code = 1;
@@ -92,15 +85,16 @@ message FindOfferByIdResponse {
 }
 
 message FindOffersByUserRequest {
-  //密码
-  string password = 1;
   //用户账户
-  string username = 2;
+  string username = 1;
+  //密码
+  string password = 2;
   //平台
   string platform = 3;
   int32 page = 4;
   int32 size = 5;
 }
+
 message FindOffersByUserResponse {
   int32 code = 1;
   string msg = 2;
@@ -111,10 +105,10 @@ message FindOffersByUserResponse {
 }
 
 message FindOffersByUserAndStatusRequest {
-  //密码
-  string password = 1;
   //用户账户
-  string username = 2;
+  string username = 1;
+  //密码
+  string password = 2;
   //平台
   string platform = 3;
   //订单状态
