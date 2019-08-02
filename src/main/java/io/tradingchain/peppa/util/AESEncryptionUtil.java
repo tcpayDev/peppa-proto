@@ -24,26 +24,10 @@ public class AESEncryptionUtil {
    * @param sSrc
    * @return
    */
-  public static String encrypt(String sKey, String ivParameter, byte[] sSrc) {
-    try {
+  public static String encrypt(String sKey, String ivParameter, byte[] sSrc)
+      throws IOException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException, BadPaddingException, IllegalBlockSizeException {
       return new BASE64Encoder()
           .encode(getCipher(sKey, ivParameter, Cipher.ENCRYPT_MODE).doFinal(sSrc));//此处使用BASE64做转码。
-    } catch (NoSuchAlgorithmException e) {
-      e.printStackTrace();
-    } catch (NoSuchPaddingException e) {
-      e.printStackTrace();
-    } catch (BadPaddingException e) {
-      e.printStackTrace();
-    } catch (InvalidKeyException e) {
-      e.printStackTrace();
-    } catch (IllegalBlockSizeException e) {
-      e.printStackTrace();
-    } catch (InvalidAlgorithmParameterException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    }
-    return null;
   }
 
   /**
@@ -53,28 +37,10 @@ public class AESEncryptionUtil {
    * @param sSrc
    * @return
    */
-  public static byte[] decrypt(String sKey, String ivParameter, byte[] sSrc) {
-    try {
+  public static byte[] decrypt(String sKey, String ivParameter, byte[] sSrc)
+      throws IOException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException, BadPaddingException, IllegalBlockSizeException {
       return getCipher(sKey, ivParameter, Cipher.DECRYPT_MODE)
           .doFinal(new BASE64Decoder().decodeBuffer(new String(sSrc)));
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    } catch (NoSuchPaddingException e) {
-      e.printStackTrace();
-    } catch (NoSuchAlgorithmException e) {
-      e.printStackTrace();
-    } catch (InvalidAlgorithmParameterException e) {
-      e.printStackTrace();
-    } catch (InvalidKeyException e) {
-      e.printStackTrace();
-    } catch (BadPaddingException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (IllegalBlockSizeException e) {
-      e.printStackTrace();
-    }
-    return null;
   }
 
   /**
