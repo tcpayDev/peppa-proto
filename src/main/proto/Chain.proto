@@ -4,32 +4,32 @@ import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.chain";
 option java_outer_classname = "Chain";
 
-message UserBalanceRequest{
+message ChainUserBalanceRequest{
   string addr = 1;
 }
 
-message UserBalanceResponse{
-  repeated UserBalanceData data = 1;
+message ChainUserBalanceResponse{
+  repeated ChainUserBalanceData data = 1;
 }
 
-message UserBalanceData{
+message ChainUserBalanceData{
   string name = 1;
   string issuer = 2;
   string balance = 3;
 }
 
-message UserPaymentRequest{
+message ChainUserPaymentRequest{
   string addr = 1;
   string cursor = 2;
   int32 limit = 3;
 }
 
-message UserPaymentResponse{
+message ChainUserPaymentResponse{
   string cursor = 1;
-  repeated PaymentData data = 2;
+  repeated ChainPaymentData data = 2;
 }
 
-message PaymentData{
+message ChainPaymentData{
   string from = 1;
   string to = 2;
   SimpleAsset sendAsset = 3;
@@ -38,18 +38,18 @@ message PaymentData{
   string toAmount = 6;
 }
 
-message UserTradeRequest{
+message ChainUserTradeRequest{
   string addr = 1;
   int32 limit = 2;
   string cursor = 3;
 }
 
-message UserTradeResponse{
+message ChainUserTradeResponse{
   string cursor = 1;
-  repeated TradeData data = 2;
+  repeated ChainTradeData data = 2;
 }
 
-message TradeData {
+message ChainTradeData {
   string baseOfferId = 1;
   string counterOfferId = 2;
   string baseAccount = 3;
