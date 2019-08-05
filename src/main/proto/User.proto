@@ -18,8 +18,6 @@ message RegistUserRequest {
   string inviteCode = 5;
   //请求标识，用于查询
   string externalId = 6;
-  //接入方Key
-  string partnerKey = 8;
 }
 
 //注册用户返回信息
