@@ -41,6 +41,7 @@ message ChainPaymentData{
   string sendAmount = 5;
   string toAmount = 6;
   ChainPaymentType type = 7;
+  string createTime = 8;
 }
 
 enum ChainPaymentType{
@@ -73,6 +74,7 @@ message ChainTradeData {
   string baseAmount = 9;
   string counterAmount = 10;
   bool baseIsSell = 11;
+  string createTime = 12;
 }
 
 
