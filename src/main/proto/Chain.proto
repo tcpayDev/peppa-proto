@@ -44,8 +44,8 @@ message ChainPaymentData{
 }
 
 enum ChainPaymentType{
-  COMMON = 0;
-  BRIDGE = 1;
+  PAYMENT = 0;
+  PATH = 1;
 }
 
 message ChainUserTradeRequest{
