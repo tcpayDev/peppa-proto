@@ -9,7 +9,9 @@ message ChainUserBalanceRequest{
 }
 
 message ChainUserBalanceResponse{
-  repeated ChainUserBalanceData data = 1;
+  int32 code = 1;
+  string msg = 2;
+  repeated ChainUserBalanceData data = 3;
 }
 
 message ChainUserBalanceData{
@@ -25,8 +27,10 @@ message ChainUserPaymentRequest{
 }
 
 message ChainUserPaymentResponse{
-  string cursor = 1;
-  repeated ChainPaymentData data = 2;
+  int32 code = 1;
+  string msg = 2;
+  string cursor = 3;
+  repeated ChainPaymentData data = 4;
 }
 
 message ChainPaymentData{
@@ -45,8 +49,10 @@ message ChainUserTradeRequest{
 }
 
 message ChainUserTradeResponse{
-  string cursor = 1;
-  repeated ChainTradeData data = 2;
+  int32 code = 1;
+  string msg = 2;
+  string cursor = 3;
+  repeated ChainTradeData data = 4;
 }
 
 message ChainTradeData {
