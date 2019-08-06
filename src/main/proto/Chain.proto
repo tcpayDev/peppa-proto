@@ -40,6 +40,12 @@ message ChainPaymentData{
   SimpleAsset toAsset = 4;
   string sendAmount = 5;
   string toAmount = 6;
+  ChainPaymentType type = 7;
+}
+
+enum ChainPaymentType{
+  COMMON = 0;
+  BRIDGE = 1;
 }
 
 message ChainUserTradeRequest{
