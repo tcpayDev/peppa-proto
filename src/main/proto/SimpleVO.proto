@@ -11,3 +11,9 @@ message SimpleAsset{
     //发行总量
     bool isBasic = 3;
 }
+
+message SimpleResponse{
+    //简单返回内容
+    int32 code = 1;
+    string msg = 2;
+}
