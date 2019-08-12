@@ -98,6 +98,8 @@ message PartnerData{
   string iv = 4;
   //接入方状态
   PartnerStatus status = 5;
+  //接入方介绍
+  string info = 6;
 }
 
 enum PartnerStatus{
