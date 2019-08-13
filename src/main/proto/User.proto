@@ -33,7 +33,7 @@ message RegistUserResponse {
 }
 
 //信任资产
-message TrustAssetsRequest{
+message TrustAssetsRequest {
   string username = 1;
   string platform = 3;
   //用户授权码
@@ -43,13 +43,13 @@ message TrustAssetsRequest{
 }
 
 //信任资产返回信息
-message TrustAssetsResponse{
+message TrustAssetsResponse {
   int32 code = 1;
   string msg = 2;
 }
 
 //验证用户是否存在
-message ValidateUsernameRequest{
+message ValidateUsernameRequest {
   //用户名
   string username = 1;
   //平台标识
@@ -57,13 +57,13 @@ message ValidateUsernameRequest{
 }
 
 //验证用户是否存在返回
-message ValidateUsernameResponse{
+message ValidateUsernameResponse {
   int32 code = 1;
   string msg = 2;
 }
 
 //验证密码是否正确
-message ValidatePasswordRequest{
+message UserLoginRequest {
   //用户名
   string username = 1;
   //密码
@@ -73,13 +73,13 @@ message ValidatePasswordRequest{
 }
 
 //验证密码是否正确返回
-message ValidatePasswordResponse{
+message UserLoginResponse {
   int32 code = 1;
   string msg = 2;
   UserData data = 3;
 }
 //验证交易密码是否正确
-message ValidateTradePasswordRequest{
+message ValidateTradePasswordRequest {
   //用户名
   string username = 1;
   //交易密码
@@ -88,13 +88,13 @@ message ValidateTradePasswordRequest{
   string platform = 3;
 }
 //验证交易密码是否正确返回
-message ValidateTradePasswordResponse{
+message ValidateTradePasswordResponse {
   int32 code = 1;
   string msg = 2;
 }
 
 //验证拜占庭
-message ValidateTokenRequest{
+message ValidateTokenRequest {
   //用户名
   string username = 1;
   //密码
