@@ -15,7 +15,7 @@ message CreatePaymentRequest{
   string tradePassword = 4;
   //币种
   SimpleAsset sourceAsset = 5;
-  //转账数量
+  //转账数量(不包含手续费)
   string amount = 6;
   //收款人
   string receiver = 7;
@@ -31,6 +31,8 @@ message CreatePaymentRequest{
   SimpleAsset feeAsset = 12;
   //手续费类别
   FeeType feeType = 13;
+  //notify url
+  string notify = 14;
 }
 
 //创建转账返回信息呀
@@ -95,6 +97,8 @@ message CreatePathPaymentRequest {
   SimpleAsset feeAsset = 17;
   //手续费类别
   FeeType feeType = 18;
+  //notify url
+  string notify = 19;
 }
 
 message FindPaymentByExternalIdRequest{
