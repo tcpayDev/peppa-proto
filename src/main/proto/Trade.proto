@@ -61,7 +61,7 @@ message FindTradesByAddrResponse {
 }
 
 message FindTradeByOfferExternalIdRequest {
-  int64 externalId = 1;
+  string externalId = 1;
 }
 message FindTradeByOfferExternalIdResponse {
   int32 code = 1;
