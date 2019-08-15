@@ -60,10 +60,10 @@ message FindTradesByAddrResponse {
   int32 total = 4;
 }
 
-message FindTradeByOfferExternalIdRequest {
-  string externalId = 1;
+message FindTradeByOfferNoRequest {
+  string offerNo = 1;
 }
-message FindTradeByOfferExternalIdResponse {
+message FindTradeByOfferNoResponse {
   int32 code = 1;
   string msg = 2;
   //交易列表

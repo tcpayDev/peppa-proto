@@ -45,16 +45,14 @@ message CreateOfferResponse {
 message CancelOfferRequest {
   //用户账户
   string username = 1;
-  //用户密码
-  string password = 2;
   //接入方平台
-  string platform = 3;
+  string platform = 2;
   //交易密码
-  string tradePassword = 4;
+  string tradePassword = 3;
   //挂单ID
-  int64 offerId = 5;
+  string offerNo = 4;
   //授权码
-  string authcode = 6;
+  string authcode = 5;
 }
 
 //创建订单，返回内容
@@ -197,8 +195,8 @@ message DepthData {
 
 //offer 订单内容
 message OfferData {
-  //挂单ID
-  string externalId = 1;
+  //挂单单号
+  string offerNo = 1;
   //基础币种
   SimpleAsset baseAsset = 2;
   //计价币种
