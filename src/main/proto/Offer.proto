@@ -74,16 +74,6 @@ message FindOfferByExternalIdResponse {
   OfferData offer = 3;
 }
 
-message FindOfferByIdRequest {
-  int64 offerId = 1;
-}
-message FindOfferByIdResponse {
-  int32 code = 1;
-  string msg = 2;
-  //返回挂单内容
-  OfferData offer = 3;
-}
-
 message FindOffersByUserRequest {
   //用户账户
   string username = 1;
@@ -208,7 +198,7 @@ message DepthData {
 //offer 订单内容
 message OfferData {
   //挂单ID
-  int64 offerId = 1;
+  string externalId = 1;
   //基础币种
   SimpleAsset baseAsset = 2;
   //计价币种

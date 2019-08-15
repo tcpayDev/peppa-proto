@@ -111,15 +111,6 @@ message FindPaymentByExternalIdResponse{
   //转账列表
   PaymentData data = 3;
 }
-message FindPaymentByIdRequest{
-  //根据交易对ID进行查询
-  int64 paymentId = 1;
-}
-message FindPaymentByIdResponse{
-  int32 code = 1;
-  string msg = 2;
-  PaymentData data = 3;
-}
 message FindPaymentsByUserRequest {
   //密码
   string password = 1;
@@ -209,8 +200,8 @@ message PathData {
 }
 
 message PaymentData {
-  //ID
-  int64 id = 1;
+  //外部转账ID
+  string externalId = 1;
   //创建时间
   int64 createTime = 2;
   //发起人
