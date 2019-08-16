@@ -31,6 +31,9 @@ message CreateOfferRequest {
   OfferDirection direction = 12;
   //是否最优价格成交
   OfferIsPassive isPassive = 13;
+  SimpleAsset feeAsset = 14;
+  SimpleAsset baseAsset = 15;
+  SimpleAsset counterAsset = 16;
 }
 
 //提交挂单返回统一内容
