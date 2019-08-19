@@ -238,12 +238,14 @@ enum OfferDirection {
 }
 
 enum OfferStatus {
+  //提交中(并未提交到链上，只有提交到链上才可以呀。SUBMITTING状态不可取消，只有挂单中状态可以提交)
+  SUBMITTING = 0;
   //挂单中
-  OFFERING = 0;
+  OFFERING = 1;
   //取消
-  CANCEL = 1;
+  CANCEL = 2;
   //完成
-  OK = 2;
+  OK = 3;
   //失败
-  FAIL = 3;
+  FAIL = 4;
 }
