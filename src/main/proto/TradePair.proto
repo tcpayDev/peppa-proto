@@ -6,13 +6,9 @@ option java_outer_classname = "TradePair";
 //创建交易对
 message CreateTradePairRequest {
   //基础币种
-  string baseAssetName = 1;
-  //基础币种发行者
-  string baseAssetIssuer = 2;
+  SimpleAsset baseAsset = 1;
   //计价币种
-  string counterAssetName = 3;
-  //计价币种发行者
-  string counterAssetIssuer = 4;
+  SimpleAsset counterAsset = 2;
 }
 //创建交易对返回
 message CreateTradePairResponse {
@@ -49,11 +45,9 @@ message UpdateTradePairRequest {
   //交易对Id
   int64 tradePairId = 1;
   //基础币种
-  string baseAssetName = 2;
-  string baseAssetIssuer = 3;
+  SimpleAsset baseAsset = 2;
   //计价币种
-  string counterAssetName = 4;
-  string counterAssetIssuer = 5;
+  SimpleAsset counterAsset = 3;
 }
 //更新交易对返回
 message UpdateTradePairResponse {
