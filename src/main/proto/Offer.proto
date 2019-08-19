@@ -34,6 +34,7 @@ message CreateOfferRequest {
   SimpleAsset feeAsset = 14;
   SimpleAsset baseAsset = 15;
   SimpleAsset counterAsset = 16;
+  string notifyUrl = 17;
 }
 
 //提交挂单返回统一内容
