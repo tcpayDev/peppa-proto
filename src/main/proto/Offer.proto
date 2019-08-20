@@ -57,6 +57,8 @@ message CancelOfferRequest {
   string offerNo = 4;
   //授权码
   string authcode = 5;
+  //notify 通知
+  string notifyUrl = 6;
 }
 
 //创建订单，返回内容
