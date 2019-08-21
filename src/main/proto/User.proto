@@ -67,7 +67,7 @@ message ValidateUsernameResponse {
   string msg = 2;
 }
 
-//验证密码是否正确
+//获取用户公钥
 message UserGetAddrRequest {
   //用户名
   string username = 1;
@@ -75,7 +75,7 @@ message UserGetAddrRequest {
   string password = 2;
 }
 
-//验证密码是否正确返回
+//获取用户公钥
 message UserGetAddrResponse {
   int32 code = 1;
   string msg = 2;
@@ -98,10 +98,8 @@ message ValidateTradePasswordResponse {
 message ValidateTokenRequest {
   //用户名
   string username = 1;
-  //密码
-  string password = 2;
   //token
-  string tokenKey = 3;
+  string tokenKey = 2;
 }
 
 //验证拜占庭是否正确返回
@@ -113,10 +111,8 @@ message ValidateTokenResponse{
 message ValidateAuthcodeRequest{
   //用户名
   string username = 1;
-  //密码
-  string password = 2;
   //token
-  string authcode = 3;
+  string authcode = 2;
 }
 
 //验证授权码是否正确返回

@@ -7,34 +7,32 @@ option java_outer_classname = "Offer";
 message CreateOfferRequest {
   //用户名
   string username = 1;
-  //平台
-  string platform = 2;
   //交易密码
-  string tradePassword = 3;
+  string tradePassword = 2;
   //授权码
-  string authcode = 4;
+  string authcode = 3;
   //交易对Id
-  int64 tradePairId = 5;
+  int64 tradePairId = 4;
   //买入数量
-  string amount = 6;
+  string amount = 5;
   //买入价格 以计价币作为单位
-  string price = 7;
+  string price = 6;
   //外部标识，可用于网络异常，数据查询
-  string externalId = 8;
+  string externalId = 7;
   //手续费账户
-  string feeAddr = 9;
+  string feeAddr = 8;
   //手续费数量
-  string feeAmount = 10;
+  string feeAmount = 9;
   //手续费费率
-  string feeRate = 11;
+  string feeRate = 10;
   //买卖方向
-  OfferDirection direction = 12;
-  //是否最优价格成交
-  OfferIsPassive isPassive = 13;
-  SimpleAsset feeAsset = 14;
-  SimpleAsset baseAsset = 15;
-  SimpleAsset counterAsset = 16;
-  string notifyUrl = 17;
+  OfferDirection direction = 11;
+  //是否被动买入
+  OfferIsPassive isPassive = 12;
+  SimpleAsset feeAsset = 13;
+  SimpleAsset baseAsset = 14;
+  SimpleAsset counterAsset = 15;
+  string notifyUrl = 16;
 }
 
 //提交挂单返回统一内容
@@ -49,16 +47,16 @@ message CreateOfferResponse {
 message CancelOfferRequest {
   //用户账户
   string username = 1;
-  //接入方平台
-  string platform = 2;
   //交易密码
-  string tradePassword = 3;
+  string tradePassword = 2;
   //挂单ID
-  string offerNo = 4;
+  string offerNo = 3;
   //授权码
-  string authcode = 5;
+  string authcode = 4;
   //notify 通知
-  string notifyUrl = 6;
+  string notifyUrl = 5;
+  //外部请求标识 外部单号
+  string externalId = 6;
 }
 
 //创建订单，返回内容
@@ -81,10 +79,6 @@ message FindOfferByExternalIdResponse {
 message FindOffersByUserRequest {
   //用户账户
   string username = 1;
-  //密码
-  string password = 2;
-  //平台
-  string platform = 3;
   int32 page = 4;
   int32 size = 5;
 }
@@ -101,14 +95,10 @@ message FindOffersByUserResponse {
 message FindOffersByUserAndStatusRequest {
   //用户账户
   string username = 1;
-  //密码
-  string password = 2;
-  //平台
-  string platform = 3;
   //订单状态
-  OfferStatus status = 4;
-  int32 page = 5;
-  int32 size = 6;
+  OfferStatus status = 2;
+  int32 page = 3;
+  int32 size = 4;
 }
 message FindOffersByUserAndStatusResponse {
   int32 code = 1;
@@ -214,7 +204,7 @@ message OfferData {
   //剩余数量
   string leftAmount = 6;
   //手续费
-  string fee = 7;
+  string feeAmount = 7;
   //剩余手续费
   string leftFee = 8;
   //手续费资产

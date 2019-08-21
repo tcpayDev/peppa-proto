@@ -6,22 +6,18 @@ option java_outer_classname = "Trade";
 message FindTradesByUserRequest {
   //用户账户
   string username = 1;
-  //用户密码
-  string password = 2;
-  //平台
-  string platform = 3;
   //交易对ID
-  int64 tradePairId = 4;
+  int64 tradePairId = 2;
   //开始时间
-  int64 startTime = 5;
+  int64 startTime = 3;
   //结束时间
-  int64 endTime = 6;
+  int64 endTime = 4;
   //页码
-  int32 page = 7;
+  int32 page = 5;
   //每页数量
-  int32 size = 8;
+  int32 size = 6;
   //交易方向
-  string direction = 9;
+  string direction = 7;
 }
 message FindTradesByUserResponse {
   //返回code
