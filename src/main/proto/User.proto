@@ -10,14 +10,12 @@ message RegistUserRequest {
   string username = 1;
   //密码
   string password = 2;
-  //平台标识
-  string platform = 3;
   //交易密码
-  string tradePassword = 4;
+  string tradePassword = 3;
   //邀请码
-  string inviteCode = 5;
+  string inviteCode = 4;
   //请求标识，用于查询
-  string externalId = 6;
+  string externalId = 5;
 }
 
 //注册用户返回信息
@@ -35,11 +33,20 @@ message RegistUserResponse {
 //信任资产
 message TrustAssetsRequest {
   string username = 1;
-  string platform = 3;
   //用户授权码
-  string authcode = 4;
+  string authcode = 2;
   //要信任资产列表
-  repeated SimpleAsset data = 5;
+  repeated SimpleAsset data = 3;
+}
+
+//信任资产
+message TrustAssetsByAddrRequest {
+  //用户公钥
+  string addr = 1;
+  //用户授权码
+  string authcode = 2;
+  //要信任资产列表
+  repeated SimpleAsset data = 3;
 }
 
 //信任资产返回信息
@@ -52,8 +59,6 @@ message TrustAssetsResponse {
 message ValidateUsernameRequest {
   //用户名
   string username = 1;
-  //平台标识
-  string platform = 2;
 }
 
 //验证用户是否存在返回
@@ -63,17 +68,15 @@ message ValidateUsernameResponse {
 }
 
 //验证密码是否正确
-message UserLoginRequest {
+message UserGetAddrRequest {
   //用户名
   string username = 1;
   //密码
   string password = 2;
-  //平台标识
-  string platform = 3;
 }
 
 //验证密码是否正确返回
-message UserLoginResponse {
+message UserGetAddrResponse {
   int32 code = 1;
   string msg = 2;
   UserData data = 3;
@@ -84,8 +87,6 @@ message ValidateTradePasswordRequest {
   string username = 1;
   //交易密码
   string tradePassword = 2;
-  //平台标识
-  string platform = 3;
 }
 //验证交易密码是否正确返回
 message ValidateTradePasswordResponse {
@@ -99,10 +100,8 @@ message ValidateTokenRequest {
   string username = 1;
   //密码
   string password = 2;
-  //平台
-  string platform = 3;
   //token
-  string tokenKey = 4;
+  string tokenKey = 3;
 }
 
 //验证拜占庭是否正确返回
@@ -116,10 +115,8 @@ message ValidateAuthcodeRequest{
   string username = 1;
   //密码
   string password = 2;
-  //平台
-  string platform = 3;
   //token
-  string authcode = 4;
+  string authcode = 3;
 }
 
 //验证授权码是否正确返回
@@ -136,10 +133,8 @@ message UpdateUserPasswordRequest{
   string newPassword = 2;
   //用户名
   string username = 3;
-  //密码
-  string platform = 4;
   //授权码
-  string authcode = 5;
+  string authcode = 4;
 }
 
 
@@ -157,10 +152,8 @@ message UpdateUserTradePasswordRequest{
   string newTradePassword = 2;
   //用户名
   string username = 3;
-  //密码
-  string platform = 4;
   //授权码
-  string authcode = 5;
+  string authcode = 4;
 }
 
 //修改用户交易密码返回
@@ -175,10 +168,8 @@ message ForgetPasswordRequest{
   string newPassword = 1;
   //用户名
   string username = 2;
-  //密码
-  string platform = 3;
   //授权码
-  string authcode = 4;
+  string authcode = 3;
 }
 
 //忘记交易密码
@@ -187,10 +178,8 @@ message ForgetTradePasswordRequest{
   string newTradePassword = 1;
   //用户名
   string username = 2;
-  //密码
-  string platform = 3;
   //授权码
-  string authcode = 4;
+  string authcode = 3;
 }
 
 message ForgetPasswordOrTradePasswordResponse{
@@ -202,14 +191,10 @@ message ForgetPasswordOrTradePasswordResponse{
 message UpdateUserResetAuthcodeRequest{
   //用户名
   string username = 1;
-  //密码
-  string password = 2;
-  //平台
-  string platform = 3;
   //交易密码
-  string tradePassword = 4;
+  string tradePassword = 2;
   //拜占庭
-  string tokenKey = 5;
+  string tokenKey = 3;
 }
 
 //修改用户授权码返回
@@ -223,14 +208,10 @@ message UpdateUserResetAuthcodeResponse{
 message UpdateUserResetTokenRequest{
   //用户名
   string username = 1;
-  //密码
-  string password = 2;
-  //平台
-  string platform = 3;
   //交易密码
-  string tradePassword = 4;
+  string tradePassword = 2;
   //授权码
-  string authcodeKey = 5;
+  string authcodeKey = 3;
 }
 
 //修改用户拜占庭返回
@@ -291,9 +272,8 @@ message FindUserByPartnerResponse{
 
 //获取用户信息
 message FindUserBalanceRequest{
+  //用户名
   string username = 1;
-  string password = 2;
-  string platform = 3;
 }
 
 //获取用户信息返回
@@ -324,8 +304,6 @@ message UserData {
   string inviteCode = 3;
   //邀请人
   string inviteUser = 4;
-  //平台标识
-  string platform = 5;
   //公钥
   string addr = 6;
   //创建时间
