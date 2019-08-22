@@ -221,7 +221,9 @@ message PaymentData {
   //手续费类型
   FeeType feeType = 15;
   //方向
-  string direction = 18;
+  string direction = 16;
+  //转账No
+  string payNo = 17;
 }
 //转账状态
 enum PaymentStatus {
