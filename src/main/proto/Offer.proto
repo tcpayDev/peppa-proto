@@ -234,10 +234,12 @@ enum OfferStatus {
   SUBMITTING = 0;
   //挂单中
   OFFERING = 1;
+  //取消中
+  CANCELING = 2;
   //取消
-  CANCEL = 2;
+  CANCEL = 3;
   //完成
-  OK = 3;
+  OK = 4;
   //失败
-  FAIL = 4;
+  FAIL = 5;
 }
