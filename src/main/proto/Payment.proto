@@ -40,6 +40,43 @@ message CreatePaymentResponse{
   PaymentData payment = 3;
 }
 
+message CreateBatchPaymentRequest{
+  //用户名
+  string username = 1;
+  //授权码
+  string authcode = 2;
+  //交易密码
+  string tradePassword = 3;
+  //转账列表
+  repeated BatchPaymentData data = 4;
+  //notify url
+  string notify = 5;
+}
+
+message BatchPaymentData{
+  //币种
+  SimpleAsset asset = 1;
+  //转账数量(不包含手续费)
+  string amount = 2;
+  //收款人
+  string receiver = 3;
+  //手续费账户
+  string feeAddr = 4;
+  //手续费数量(sourceAsset数量)
+  string feeAmount = 5;
+  //手续费费率
+  string feeRate = 6;
+  //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
+  SimpleAsset feeAsset = 7;
+  //手续费类别
+  FeeType feeType = 8;
+}
+
+message CreateBatchPaymentResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
 message FindPaymentPathRequest {
   //支付用户公钥
   string payUserAddr = 1;
@@ -192,38 +229,39 @@ message PathData {
 message PaymentData {
   //创建时间
   int64 createTime = 1;
-  //发起人
-  string from = 2;
-  //支付资产
-  SimpleAsset payAsset = 3;
-  //支付数量
-  string payAmount = 4;
-  //实际支付数量
-  string realPayAmount = 5;
-  //接收人
-  string to = 6;
-  //到账资产
-  SimpleAsset receiveAsset = 7;
-  //到账数量
-  string receiveAmount = 8;
-  //实际到账数量
-  string realReceiveAmount = 9;
-  //手续费
-  string feeAmount = 10;
-  //手续费币种
-  SimpleAsset feeAsset = 11;
-  //手续费费率
-  string feeRate = 12;
-  //转账状态
-  PaymentStatus status = 13;
-  //转账类型
-  PaymentType paymentType = 14;
-  //手续费类型
-  FeeType feeType = 15;
   //方向
-  string direction = 16;
+  string direction = 2;
   //转账No
-  string payNo = 17;
+  string payNo = 3;
+  //转账状态
+  PaymentStatus status = 4;
+  //转账详情
+  repeated PaymentDetail details = 5;
+}
+
+message PaymentDetail{
+  //发起人
+  string from = 1;
+  //支付资产
+  SimpleAsset payAsset = 2;
+  //支付数量
+  string payAmount = 3;
+  //接收人
+  string to = 4;
+  //到账资产
+  SimpleAsset receiveAsset = 5;
+  //到账数量
+  string receiveAmount = 6;
+  //手续费
+  string feeAmount = 7;
+  //手续费币种
+  SimpleAsset feeAsset = 8;
+  //手续费费率
+  string feeRate = 9;
+  //转账类型
+  PaymentType paymentType = 10;
+  //手续费类型
+  FeeType feeType = 11;
 }
 //转账状态
 enum PaymentStatus {
