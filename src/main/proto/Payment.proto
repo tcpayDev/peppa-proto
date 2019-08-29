@@ -227,14 +227,12 @@ message PathData {
 message PaymentData {
   //创建时间
   int64 createTime = 1;
-  //方向
-  string direction = 2;
   //转账No
-  string payNo = 3;
+  string payNo = 2;
   //转账状态
-  PaymentStatus status = 4;
+  PaymentStatus status = 3;
   //转账详情
-  repeated PaymentDetail details = 5;
+  repeated PaymentDetail details = 4;
 }
 
 message PaymentDetail{
@@ -260,6 +258,8 @@ message PaymentDetail{
   PaymentType paymentType = 10;
   //手续费类型
   FeeType feeType = 11;
+  //方向
+  string direction = 12;
 }
 //转账状态
 enum PaymentStatus {

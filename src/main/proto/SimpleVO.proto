@@ -8,7 +8,7 @@ message SimpleAsset{
     string name = 1;
     //资产发行人
     string issuer = 2;
-    //发行总量
+    //是否为基础币种TC
     bool isBasic = 3;
 }
 
