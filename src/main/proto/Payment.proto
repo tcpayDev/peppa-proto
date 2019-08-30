@@ -37,7 +37,7 @@ message CreatePaymentRequest{
 message CreatePaymentResponse{
   int32 code = 1;
   string msg = 2;
-  PaymentData payment = 3;
+  PaymentData data = 3;
 }
 
 message CreateBatchPaymentRequest{
