@@ -55,6 +55,7 @@ message CreateBatchPaymentRequest{
   string externalId = 6;
 }
 
+//批量转账 每一个转账内容
 message BatchPaymentData{
   //币种
   SimpleAsset asset = 1;
@@ -73,7 +74,7 @@ message BatchPaymentData{
   //手续费类别
   FeeType feeType = 8;
 }
-
+//批量转账返回code和msg
 message CreateBatchPaymentResponse {
   int32 code = 1;
   string msg = 2;
