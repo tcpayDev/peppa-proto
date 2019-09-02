@@ -16,6 +16,8 @@ message RegistUserRequest {
   string inviteCode = 4;
   //请求标识，用于查询
   string externalId = 5;
+  //异步通知
+  string notify = 6;
 }
 
 //注册用户返回信息
@@ -226,7 +228,7 @@ message FindUserByExternalIdRequest {
   string externalName = 2;
 }
 
-//通过外部externalid查询用户 返回
+//通过外部externalid查询用户 返回用户基本信息？？两段私钥？？？
 message FindUserByExternalIdResponse{
   int32 code = 1;
   string msg = 2;
