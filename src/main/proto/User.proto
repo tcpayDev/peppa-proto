@@ -221,18 +221,20 @@ message UpdateUserResetTokenResponse{
 
 //通过外部externalid查询用户
 message FindUserByExternalIdRequest {
-
   //外部扩展标识Id
   string externalId = 1;
-  //外部扩展标识
-  string externalName = 2;
 }
 
 //通过外部externalid查询用户 返回用户基本信息？？两段私钥？？？
 message FindUserByExternalIdResponse{
   int32 code = 1;
   string msg = 2;
-  UserData data = 3;
+  //用户公钥
+  string addr = 3;
+  //授权码
+  string authCode = 4;
+  //拜占庭
+  string token = 5;
 }
 
 //查询用户列表
