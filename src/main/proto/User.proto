@@ -124,7 +124,7 @@ message ValidateAuthcodeResponse{
 }
 
 //修改用户密码
-message UpdateUserPasswordRequest{
+message UpdatePasswordRequest {
   //旧密码
   string oldPassword = 1;
   //新密码
@@ -137,13 +137,13 @@ message UpdateUserPasswordRequest{
 
 
 //修改用户密码返回
-message UpdateUserPasswordResponse{
+message UpdatePasswordResponse {
   int32 code = 1;
   string msg = 2;
 }
 
 //修改用户交易密码
-message UpdateUserTradePasswordRequest{
+message UpdateTradePasswordRequest {
   //旧密码
   string oldPassword = 1;
   //新交易密码
@@ -155,13 +155,13 @@ message UpdateUserTradePasswordRequest{
 }
 
 //修改用户交易密码返回
-message UpdateUserTradePasswordResponse{
+message UpdateTradePasswordResponse {
   int32 code = 1;
   string msg = 2;
 }
 
 //忘记密码
-message ForgetPasswordRequest{
+message ResetPasswordRequest {
   //新交易密码
   string newPassword = 1;
   //用户名
@@ -171,7 +171,7 @@ message ForgetPasswordRequest{
 }
 
 //忘记交易密码
-message ForgetTradePasswordRequest{
+message ResetTradePasswordRequest {
   //新交易密码
   string newTradePassword = 1;
   //用户名
@@ -180,13 +180,13 @@ message ForgetTradePasswordRequest{
   string authcode = 3;
 }
 
-message ForgetPasswordOrTradePasswordResponse{
+message ResetPasswordOrTradePasswordResponse {
   string message = 1;
   int32 code = 2;
 }
 
 //修改用户授权码
-message UpdateUserResetAuthcodeRequest{
+message ResetAuthcodeRequest {
   //用户名
   string username = 1;
   //交易密码
@@ -196,14 +196,14 @@ message UpdateUserResetAuthcodeRequest{
 }
 
 //修改用户授权码返回
-message UpdateUserResetAuthcodeResponse{
+message ResetAuthcodeResponse {
   int32 code = 1;
   string msg = 2;
   string authCode = 3;
 }
 
 //修改用户拜占庭
-message UpdateUserResetTokenRequest{
+message ResetTokenRequest {
   //用户名
   string username = 1;
   //交易密码
@@ -213,7 +213,7 @@ message UpdateUserResetTokenRequest{
 }
 
 //修改用户拜占庭返回
-message UpdateUserResetTokenResponse{
+message ResetTokenResponse{
   int32 code = 1;
   string msg = 2;
   string token = 3;

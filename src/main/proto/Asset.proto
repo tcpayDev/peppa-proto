@@ -17,9 +17,6 @@ message IssuerAssetRequest {
   string destination = 5;
   //接收者授权码
   string destinationAuthCode = 6;
-  //收取手续费（TC数量）
-  string feeAmount = 7;
-
 }
 
 //资产发行返回信息
