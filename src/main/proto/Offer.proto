@@ -94,23 +94,6 @@ message FindOffersByUserResponse {
   repeated OfferData offers = 4;
 }
 
-message FindOffersByUserAndStatusRequest {
-  //用户账户
-  string username = 1;
-  //订单状态
-  OfferStatus status = 2;
-  int32 page = 3;
-  int32 size = 4;
-}
-message FindOffersByUserAndStatusResponse {
-  int32 code = 1;
-  string msg = 2;
-  //返回集合字段
-  repeated OfferData offers = 3;
-  //挂单总数
-  int32 total = 4;
-}
-
 message FindOffersByTradePairRequest {
   //交易对ID
   int64 tradePairId = 1;
