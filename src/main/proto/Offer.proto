@@ -79,8 +79,10 @@ message FindOfferByExternalIdResponse {
 message FindOffersByUserRequest {
   //用户账户
   string username = 1;
-  int32 page = 4;
-  int32 size = 5;
+  int32 page = 2;
+  int32 size = 3;
+  //订单状态
+  OfferStatus status = 4;
 }
 
 message FindOffersByUserResponse {
@@ -210,7 +212,7 @@ message OfferData {
   //手续费资产
   SimpleAsset feeAsset = 9;
   //订单状态
-  OfferStatus status = 10;
+  string status = 10;
   //方向
   OfferDirection direction = 11;
   //交易对ID
@@ -242,4 +244,6 @@ enum OfferStatus {
   OK = 4;
   //失败
   FAIL = 5;
+  //全部
+  ALL = 6;
 }
