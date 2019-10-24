@@ -233,34 +233,29 @@ message PaymentData {
   //转账状态
   PaymentStatus status = 3;
   //转账详情
-  repeated PaymentDetail details = 4;
-}
-
-message PaymentDetail{
-  //发起人
-  string from = 1;
+  string from = 4;
   //支付资产
-  SimpleAsset payAsset = 2;
+  SimpleAsset payAsset = 5;
   //支付数量
-  string payAmount = 3;
+  string payAmount = 6;
   //接收人
-  string to = 4;
+  string to = 7;
   //到账资产
-  SimpleAsset receiveAsset = 5;
+  SimpleAsset receiveAsset = 8;
   //到账数量
-  string receiveAmount = 6;
+  string receiveAmount = 9;
   //手续费
-  string feeAmount = 7;
+  string feeAmount = 10;
   //手续费币种
-  SimpleAsset feeAsset = 8;
+  SimpleAsset feeAsset = 11;
   //手续费费率
-  string feeRate = 9;
+  string feeRate = 12;
   //转账类型
-  PaymentType paymentType = 10;
+  PaymentType paymentType = 13;
   //手续费类型
-  FeeType feeType = 11;
+  FeeType feeType = 14;
   //方向
-  string direction = 12;
+  string direction = 15;
 }
 //转账状态
 enum PaymentStatus {
