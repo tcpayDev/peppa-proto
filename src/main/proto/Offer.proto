@@ -5,33 +5,33 @@ option java_outer_classname = "Offer";
 
 //创建买单
 message CreateOfferRequest {
-  //用户名
+    //用户名
   string username = 1;
-  //交易密码
+    //交易密码
   string tradePassword = 2;
-  //授权码
+    //授权码
   string authcode = 3;
-  //交易对Id
+    //交易对Id
   int64 tradePairId = 4;
-  //买入数量
+    //买入数量
   string amount = 5;
-  //买入价格 以计价币作为单位
+    //买入价格 以计价币作为单位
   string price = 6;
-  //外部标识，可用于网络异常，数据查询
+    //外部标识，可用于网络异常，数据查询
   string externalId = 7;
-  //手续费账户
+    //手续费账户
   string feeAddr = 8;
-  //手续费数量
+    //手续费数量
   string feeAmount = 9;
-  //手续费费率
+    //手续费费率
   string feeRate = 10;
-  //买卖方向
+    //买卖方向
   OfferDirection direction = 11;
-  //是否被动买入
+    //是否被动买入
   OfferIsPassive isPassive = 12;
-  SimpleAsset feeAsset = 13;
-  SimpleAsset baseAsset = 14;
-  SimpleAsset counterAsset = 15;
+    AssetData feeAsset = 13;
+    AssetData baseAsset = 14;
+    AssetData counterAsset = 15;
   string notifyUrl = 16;
 }
 
@@ -176,29 +176,29 @@ message DepthData {
 
 //offer 订单内容
 message OfferData {
-  //挂单单号
+    //挂单单号
   string offerNo = 1;
-  //基础币种
-  SimpleAsset baseAsset = 2;
-  //计价币种
-  SimpleAsset counterAsset = 3;
-  //价格
+    //基础币种
+    AssetData baseAsset = 2;
+    //计价币种
+    AssetData counterAsset = 3;
+    //价格
   string price = 4;
-  //数量
+    //数量
   string amount = 5;
-  //剩余数量
+    //剩余数量
   string leftAmount = 6;
-  //手续费
+    //手续费
   string feeAmount = 7;
-  //剩余手续费
+    //剩余手续费
   string leftFee = 8;
-  //手续费资产
-  SimpleAsset feeAsset = 9;
-  //订单状态
+    //手续费资产
+    AssetData feeAsset = 9;
+    //订单状态
   string status = 10;
-  //方向
+    //方向
   OfferDirection direction = 11;
-  //交易对ID
+    //交易对ID
   int64 tradePairId = 12;
 }
 

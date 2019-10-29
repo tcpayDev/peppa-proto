@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "SimpleVO.proto";
 option java_package = "io.tradingchain.peppa.proto.asset";
 option java_outer_classname = "Asset";
 
@@ -82,19 +83,4 @@ message FindAssetsResponse {
   string msg = 2;
   repeated AssetData assets = 3;
   int32 total = 4;
-}
-
-//资产内容
-message AssetData {
-  int64 id = 1;
-  //资产名称
-  string name = 2;
-  //资产发行人
-  string issuer = 3;
-  //发行总量
-  string total = 4;
-  //资产简介
-  string info = 5;
-  //发行方gateway
-  string gateway = 6;
 }

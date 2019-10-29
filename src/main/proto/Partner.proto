@@ -70,7 +70,7 @@ message FindPartnersResponse{
 message PartnerTrustAssetsRequest{
   string partnerKey = 1;
   //资产信任接口
-  repeated SimpleAsset assets = 2;
+  repeated AssetData assets = 2;
 }
 
 message PartnerTrustAssetsResponse{

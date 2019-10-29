@@ -82,20 +82,20 @@ message FindTradesByTradePairIdResponse {
   int32 total = 4;
 }
 message TradeData {
-  //ID
+    //ID
   int64 id = 1;
-  //基础币种
-  SimpleAsset baseAsset = 2;
-  //计价币种
-  SimpleAsset counterAsset = 3;
-  //交易数量
+    //基础币种
+    AssetData baseAsset = 2;
+    //计价币种
+    AssetData counterAsset = 3;
+    //交易数量
   string amount = 4;
-  //价格
+    //价格
   string price = 5;
-  //方向
+    //方向
   string direction = 6;
-  //创建时间
+    //创建时间
   int64 createTime = 7;
-  //交易单号
+    //交易单号
   string tradeNo = 8;
 }

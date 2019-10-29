@@ -36,8 +36,8 @@ message ChainUserPaymentResponse{
 message ChainPaymentData{
   string from = 1;
   string to = 2;
-  SimpleAsset sendAsset = 3;
-  SimpleAsset toAsset = 4;
+  AssetData sendAsset = 3;
+  AssetData toAsset = 4;
   string sendAmount = 5;
   string toAmount = 6;
   ChainPaymentType type = 7;

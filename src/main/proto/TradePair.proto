@@ -6,9 +6,9 @@ option java_outer_classname = "TradePair";
 //创建交易对
 message CreateTradePairRequest {
   //基础币种
-  SimpleAsset baseAsset = 1;
+  AssetData baseAsset = 1;
   //计价币种
-  SimpleAsset counterAsset = 2;
+  AssetData counterAsset = 2;
 }
 //创建交易对返回
 message CreateTradePairResponse {
@@ -45,9 +45,9 @@ message UpdateTradePairRequest {
   //交易对Id
   int64 tradePairId = 1;
   //基础币种
-  SimpleAsset baseAsset = 2;
+  AssetData baseAsset = 2;
   //计价币种
-  SimpleAsset counterAsset = 3;
+  AssetData counterAsset = 3;
 }
 //更新交易对返回
 message UpdateTradePairResponse {
@@ -74,7 +74,7 @@ message TradePairData {
   //交易对id
   int64 tradePairId = 1;
   //基础币种
-  SimpleAsset baseAsset = 2;
+  AssetData baseAsset = 2;
   //计价币种
-  SimpleAsset counterAsset = 3;
+  AssetData counterAsset = 3;
 }

@@ -14,19 +14,19 @@ message CreatePaymentRequest{
   //外部id
   string externalId = 4;
   //币种
-  SimpleAsset sourceAsset = 5;
+  AssetData payAsset = 5;
   //转账数量(不包含手续费)
   string amount = 6;
   //收款人
   string receiver = 7;
   //手续费账户
-  string feeAddr = 8;
+  string feeUserAddr = 8;
   //手续费数量(sourceAsset数量)
   string feeAmount = 9;
   //手续费费率
   string feeRate = 10;
   //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
-  SimpleAsset feeAsset = 11;
+  AssetData feeAsset = 11;
   //手续费类别
   FeeType feeType = 12;
   //notify url
@@ -40,55 +40,15 @@ message CreatePaymentResponse{
   PaymentData data = 3;
 }
 
-message CreateBatchPaymentRequest{
-  //用户名
-  string username = 1;
-  //授权码
-  string authcode = 2;
-  //交易密码
-  string tradePassword = 3;
-  //转账列表
-  repeated BatchPaymentData data = 4;
-  //notify url
-  string notify = 5;
-  //外部id
-  string externalId = 6;
-}
-
-//批量转账 每一个转账内容
-message BatchPaymentData{
-  //币种
-  SimpleAsset asset = 1;
-  //转账数量(不包含手续费)
-  string amount = 2;
-  //收款人
-  string receiver = 3;
-  //手续费账户
-  string feeAddr = 4;
-  //手续费数量(sourceAsset数量)
-  string feeAmount = 5;
-  //手续费费率
-  string feeRate = 6;
-  //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
-  SimpleAsset feeAsset = 7;
-  //手续费类别
-  FeeType feeType = 8;
-}
-//批量转账返回code和msg
-message CreateBatchPaymentResponse {
-  int32 code = 1;
-  string msg = 2;
-}
-
 message FindPaymentPathRequest {
   //支付用户公钥
   string payUserAddr = 1;
   //支付币种
-  SimpleAsset sourceAsset = 2;
+  AssetData payAsset = 2;
   //最大愿意支付数量
   string maxAmount = 3;
   //到账币种
-  SimpleAsset receiveAsset= 4;
+  AssetData receiveAsset = 4;
   //到账金额
   string receiveAmount = 5;
   //到账用户地址
@@ -108,23 +68,23 @@ message CreatePathPaymentRequest {
   string authcode = 3;
   string externalId = 4;
   //发起币种
-  SimpleAsset sourceAsset = 5;
+  AssetData payAsset = 5;
   //显示数量
-  string sourceAmount = 6;
+  string payAmount = 6;
   //到账用户
   string receiver = 7;
   //到账币种
-  SimpleAsset receiveAsset= 8;
+  AssetData receiveAsset = 8;
   //显示到账数量
   string receiveAmount = 9;
   //手续费账户
-  string feeAddr = 10;
+  string feeUserAddr = 10;
   //手续费数量
   string feeAmount = 11;
   //手续费费率
   string feeRate = 12;
   //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  SimpleAsset feeAsset = 13;
+  AssetData feeAsset = 13;
   //手续费类别
   FeeType feeType = 14;
   //notify url
@@ -144,19 +104,9 @@ message FindPaymentByExternalIdResponse{
 message FindPaymentsByUserRequest {
   //用户名
   string username = 1;
-  //资产ID
-  int64 assetId = 2;
-  //开始时间
-  int64 startTime = 3;
-  //结束时间
-  int64 endTime = 4;
-  //是否支付
-  bool pay = 5;
-  //是否收款
-  bool receive = 6;
   //分页
-  int32 page = 7;
-  int32 size = 8;
+  int32 page = 2;
+  int32 size = 3;
 }
 message FindPaymentsByUserResponse {
   int32 code = 1;
@@ -196,6 +146,7 @@ message FindPaymentsByPartnerResponse {
   //估值，目前只支持USDT估值
   int32 total = 4;
 }
+
 message FindPaymentsRequest {
   //分页
   int32 page = 1;
@@ -214,9 +165,9 @@ message FindPaymentsResponse {
 //支付路径信息
 message PathData {
   //发起资产
-  SimpleAsset sourceAsset = 1;
+  AssetData sourceAsset = 1;
   //到账资产
-  SimpleAsset destinationAsset =2;
+  AssetData destinationAsset = 2;
   //发起资产数量
   string sourceAmount = 3;
   //到账资产数量
@@ -235,19 +186,19 @@ message PaymentData {
   //转账详情
   string from = 4;
   //支付资产
-  SimpleAsset payAsset = 5;
+  AssetData payAsset = 5;
   //支付数量
   string payAmount = 6;
   //接收人
   string to = 7;
   //到账资产
-  SimpleAsset receiveAsset = 8;
+  AssetData receiveAsset = 8;
   //到账数量
   string receiveAmount = 9;
   //手续费
   string feeAmount = 10;
   //手续费币种
-  SimpleAsset feeAsset = 11;
+  AssetData feeAsset = 11;
   //手续费费率
   string feeRate = 12;
   //转账类型
@@ -255,8 +206,9 @@ message PaymentData {
   //手续费类型
   FeeType feeType = 14;
   //方向
-  string direction = 15;
+  PaymentDirection direction = 15;
 }
+
 //转账状态
 enum PaymentStatus {
   TODO = 0;//待转账
@@ -272,4 +224,9 @@ enum PaymentType {
 enum FeeType {
   COLLECT = 0;//到付
   PREPAID = 1;//先付
+}
+
+enum PaymentDirection {
+  INCOME = 0;//转入
+  OUTCOME = 1;//转出
 }

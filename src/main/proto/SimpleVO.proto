@@ -3,16 +3,20 @@ syntax = "proto3";
 option java_package = "io.tradingchain.peppa.proto.offer";
 option java_outer_classname = "SimpleVO";
 //资产内容
-message SimpleAsset{
+message AssetData {
+    int32 id =1;
     //资产名称
-    string name = 1;
+    string name = 2;
     //资产发行人
-    string issuer = 2;
+    string issuer = 3;
     //是否为基础币种TC
-    bool isBasic = 3;
+    string info = 4;
+    string gateway = 5;
+    //是否为基础币种TC
+    int64 total = 6;
 }
 
-message SimpleResponse{
+message SimpleResponse {
     //简单返回内容
     int32 code = 1;
     string msg = 2;
