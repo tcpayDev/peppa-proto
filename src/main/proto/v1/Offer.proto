@@ -151,7 +151,7 @@ message CreatePassiveSellOfferResponse {
 message FindCurrentOffersByUserRequest {
     //用户账户
     string username = 1;
-    int32 page = 2;
+    string cursor = 2;
     int32 size = 3;
 }
 
@@ -159,8 +159,7 @@ message FindCurrentOffersByUserRequest {
 message FindCurrentOffersByUserResponse {
     int32 code = 1;
     string msg = 2;
-    //挂单总数
-    int32 total = 3;
+    string cursor = 3;
     //返回集合字段
     repeated OfferData data = 4;
 }
