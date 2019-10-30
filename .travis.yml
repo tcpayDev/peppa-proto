@@ -17,7 +17,7 @@ deploy:
   provider: releases
   api_key:
     secure: 7yYCI3d0nXissoJjmkOzLwuNfm8A2vwn/J1F1CpBOGdeVtBiFDtQD5SU3UEMzz8y4sYwj8ZlizOBZH0Zi9S1ioPFqGHWaaGSz6zaWDpqirfTH/w4f4mV5zgI0cadfYKyGOqnqoePrcEge3JsW4sXAleqQeUuFpatDm22sLmYxPFkbeNZk6Wz6rf7LXJm4dRr9Io9MO6is4QfaQgP6uhPNPwUPJEHG3m2aPI40apD34foHmNF9bpQk3BR+7rWt4JP7fgcBRh3eZ3XN4h57asFDacLpXxKx2YbAXHppTJ33EWAwx76uJ5/hLYwTzmCg6FFOSMx/cTrI+EbKZ4+HuaCbQFzxj59vTdxPX4fKG+EdlbAXfoQIeU4T26sAQobrpbCOMsph56grPDcB2llFzvsaDhZoYGtg6m3cnBgQSN2vcq/Zz0tCGcioUXJh+n40PQDZzWXpm8X8KEp2j07QAo/zEJsA9TJxrEZgWY1WPRJ9pfztvARbywlhmldG4Wp/PT2AOJESefW+uy+0nV4NAHvt675icvrqyb58Vec3Yaq1as0l54SbIW7pHW7Em4SMIirkTC+nWbFWMtfMRNwMVn6bjDeO02ZKGTekV1RO/zDy5IWeLNFC22h2aZhxDfJj4WcKA6vvxBU7OWEWuvasTkzNNw3VB2ePGKqEPf4sDDWzRo=
-  file: target/release.jar
+  file: /home/travis/build/tcpayDev/peppa-proto/target/release.jar
   on:
     repo: tcpayDev/peppa-proto
     tags: true
