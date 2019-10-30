@@ -1,0 +1,166 @@
+syntax = "proto3";
+import "data/BaseResponse.proto";
+option java_package = "io.tradingchain.peppa.proto.payment";
+option java_outer_classname = "Payment";
+
+//创建普通转账
+message CreatePaymentRequest{
+  //用户名
+  string username = 1;
+  //授权码
+  string authcode = 2;
+  //交易密码
+  string tradePassword = 3;
+  //外部id
+  string externalId = 4;
+  //币种
+  int64 payAssetId = 5;
+  //转账数量(不包含手续费)
+  string payAmount = 6;
+  //收款人
+  string receiveUserAddr = 7;
+  //手续费账户
+  string feeUserAddr = 8;
+  //手续费数量(sourceAsset数量)
+  string feeAmount = 9;
+  //手续费费率
+  string feeRate = 10;
+  //手续费资产ID
+  int64 feeAssetId = 11;
+  //手续费类别
+  FeeType feeType = 12;
+  //notify url
+  string notify = 13;
+}
+
+//创建转账返回信息呀
+message CreatePaymentResponse{
+  int32 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+
+message CreatePathPaymentRequest {
+  //用户名
+  string username = 1;
+  //交易密码
+  string tradePassword = 2;
+  //授权码
+  string authcode = 3;
+  //外部标示
+  string externalId = 4;
+  //发起币种
+  int64 payAssetId = 5;
+  //显示数量
+  string payAmount = 6;
+  //到账用户
+  string receiveUserAddr = 7;
+  //到账币种ID
+  int64 receiveAssetId = 8;
+  //显示到账数量
+  string receiveAmount = 9;
+  //手续费账户
+  string feeUserAddr = 10;
+  //手续费数量
+  string feeAmount = 11;
+  //手续费费率
+  string feeRate = 12;
+  //手续费资产ID
+  int64 feeAssetId = 13;
+  //手续费类别
+  FeeType feeType = 14;
+  //notify url
+  string notify = 15;
+}
+
+
+//创建转账返回信息呀
+message CreatePathPaymentResponse{
+  int32 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+
+message FindPaymentsRequest {
+  //用户名 必填
+  string username = 1;
+  //分页
+  int32 page = 2;
+  int32 size = 3;
+  //转账状态（为空则查全部）
+  PaymentStatus status = 4;
+  //起止时间
+  int64 startTime = 5;
+  int64 endTime = 6;
+  //转账方向
+  PaymentDirection direction = 7;
+  //手续费类型
+  FeeType feeType = 8;
+  //转账类型
+  PaymentType paymentType = 9;
+}
+
+message FindPaymentsResponse {
+  int32 code = 1;
+  string msg = 2;
+  //转账列表
+  repeated PaymentData data = 3;
+  //估值，目前只支持USDT估值
+  int32 total = 4;
+}
+
+//根据外部标示查询
+message FindPaymentByExternalIdRequest{
+  //外部查询标识，由于请求可能因为网络等异常导致，可由请求方通过外部请求标识进行数据查询
+  string externalId = 1;
+}
+message FindPaymentByExternalIdResponse{
+  int32 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+
+//根据转账单号
+message FindPaymentByPayNoRequest{
+  string payNo = 1;
+}
+message FindPaymentByPayNoResponse{
+  int32 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+
+//-------------------------------
+message FindPaymentPathRequest {
+  //支付用户公钥
+  string payUserAddr = 1;
+  //支付币种
+  int64 payAssetId = 2;
+  //最大愿意支付数量
+  string maxAmount = 3;
+  //到账币种
+  int64 receiveAssetId = 4;
+  //到账金额
+  string receiveAmount = 5;
+  //到账用户地址
+  string receiveUserAddr = 6;
+}
+message FindPaymentPathResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated PathData path = 3;
+}
+
+//支付路径信息
+message PathData {
+  //发起资产
+  AssetData sourceAsset = 1;
+  //到账资产
+  AssetData destinationAsset = 2;
+  //发起资产数量
+  string sourceAmount = 3;
+  //到账资产数量
+  string destinationAmount = 4;
+  //拥有资产数量
+  string balance = 5;
+}

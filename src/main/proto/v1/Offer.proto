@@ -1,0 +1,274 @@
+syntax = "proto3";
+import "data/BaseResponse.proto";
+option java_package = "io.tradingchain.peppa.proto.offer";
+option java_outer_classname = "Offer";
+
+//创建买单
+message CreateBuyOfferRequest {
+    //用户名
+    string username = 1;
+    //交易密码
+    string tradePassword = 2;
+    //授权码
+    string authcode = 3;
+    //交易对Id
+    int64 tradePairId = 4;
+    //买入数量
+    string amount = 5;
+    //买入价格 以计价币作为单位
+    string price = 6;
+    //外部标识，可用于网络异常，数据查询
+    string externalId = 7;
+    //手续费账户
+    string feeUserAddr = 8;
+    //手续费数量
+    string feeAmount = 9;
+    //手续费费率
+    string feeRate = 10;
+    //手续费资产ID
+    int64 feeAssetId = 11;
+    //异步通知地址
+    string notifyUrl = 12;
+}
+
+//创建买单返回信息
+message CreateBuyOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//创建卖单
+message CreateSellOfferRequest {
+    //用户名
+    string username = 1;
+    //交易密码
+    string tradePassword = 2;
+    //授权码
+    string authcode = 3;
+    //交易对Id
+    int64 tradePairId = 4;
+    //买入数量
+    string amount = 5;
+    //买入价格 以计价币作为单位
+    string price = 6;
+    //外部标识，可用于网络异常，数据查询
+    string externalId = 7;
+    //手续费账户
+    string feeUserAddr = 8;
+    //手续费数量
+    string feeAmount = 9;
+    //手续费费率
+    string feeRate = 10;
+    //手续费资产ID
+    int64 feeAssetId = 11;
+    //异步通知地址
+    string notifyUrl = 12;
+}
+
+//创建卖单返回信息
+message CreateSellOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//创建被动买单
+message CreatePassiveBuyOfferRequest {
+    //用户名
+    string username = 1;
+    //交易密码
+    string tradePassword = 2;
+    //授权码
+    string authcode = 3;
+    //交易对Id
+    int64 tradePairId = 4;
+    //买入数量
+    string amount = 5;
+    //买入价格 以计价币作为单位
+    string price = 6;
+    //外部标识，可用于网络异常，数据查询
+    string externalId = 7;
+    //手续费账户
+    string feeUserAddr = 8;
+    //手续费数量
+    string feeAmount = 9;
+    //手续费费率
+    string feeRate = 10;
+    //手续费资产ID
+    int64 feeAssetId = 11;
+    //异步通知地址
+    string notifyUrl = 12;
+}
+
+//创建被动买单返回信息
+message CreatePassiveBuyOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//创建被动卖单
+message CreatePassiveSellOfferRequest {
+    //用户名
+    string username = 1;
+    //交易密码
+    string tradePassword = 2;
+    //授权码
+    string authcode = 3;
+    //交易对Id
+    int64 tradePairId = 4;
+    //买入数量
+    string amount = 5;
+    //买入价格 以计价币作为单位
+    string price = 6;
+    //外部标识，可用于网络异常，数据查询
+    string externalId = 7;
+    //手续费账户
+    string feeUserAddr = 8;
+    //手续费数量
+    string feeAmount = 9;
+    //手续费费率
+    string feeRate = 10;
+    //手续费资产ID
+    int64 feeAssetId = 11;
+    //异步通知地址
+    string notifyUrl = 12;
+}
+
+//创建被动卖单返回信息
+message CreatePassiveSellOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//查询当前挂单
+message FindCurrentOffersByUserRequest {
+    //用户账户
+    string username = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+//查询当前挂单返回
+message FindCurrentOffersByUserResponse {
+    int32 code = 1;
+    string msg = 2;
+    //挂单总数
+    int32 total = 3;
+    //返回集合字段
+    repeated OfferData data = 4;
+}
+
+//查询历史挂单
+message FindHistoryOffersByUserRequest {
+    //用户账户
+    string username = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+//查询历史挂单返回
+message FindHistoryOffersByUserResponse {
+    int32 code = 1;
+    string msg = 2;
+    //挂单总数
+    int32 total = 3;
+    //返回集合字段
+    repeated OfferData data = 4;
+}
+
+//根据外部标示查询挂单
+message FindOfferByExternalIdRequest {
+    //外部标识进行数据查询
+    string externalId = 1;
+}
+message FindOfferByExternalIdResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//根据挂单单号查询
+message FindOfferRequest {
+    //挂单单号
+    string offerNo = 1;
+}
+//根据挂单单号查询返回
+message FindOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回挂单内容
+    OfferData data = 3;
+}
+
+//用户根据交易对ID查询当前对应挂单
+message FindOffersByTradePairRequest {
+    //交易对ID
+    int64 tradePairId = 1;
+    int32 page = 2;
+    int32 size = 3;
+    string username = 4;
+}
+//用户根据交易对ID查询当前对应挂单返回
+message FindOffersByTradePairResponse {
+    int32 code = 1;
+    string msg = 2;
+    //返回集合字段
+    repeated OfferData data = 3;
+    //挂单总数
+    int32 total = 4;
+}
+
+//取消订单请求
+message CancelOfferRequest {
+    //用户账户
+    string username = 1;
+    //交易密码
+    string tradePassword = 2;
+    //挂单ID
+    string offerNo = 3;
+    //授权码
+    string authcode = 4;
+}
+
+//取消订单返回内容
+message CancelOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    CancelOfferData data = 3;
+}
+
+//根据offerNo查询取消订单
+message FindCancelOfferRequest {
+    //挂单ID
+    string offerNo = 1;
+}
+
+//根据offerNo查询取消订单返回
+message FindCancelOfferResponse {
+    int32 code = 1;
+    string msg = 2;
+    CancelOfferData data = 3;
+}
+
+//查询深度
+message FindOffersDepthRequest {
+    int32 page = 1;
+    int32 size = 2;
+    //交易对ID
+    int64 tradePairId = 3;
+}
+//查询深度返回
+message FindOffersDepthResponse {
+    int32 code = 1;
+    string msg = 2;
+    //深度
+    DepthData data = 3;
+}

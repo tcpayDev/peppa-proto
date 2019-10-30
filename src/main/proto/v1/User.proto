@@ -1,0 +1,204 @@
+syntax = "proto3";
+
+import "data/BaseResponse.proto";
+
+option java_package = "io.tradingchain.peppa.proto.v1.user";
+option java_outer_classname = "User";
+//注册用户
+message RegistUserRequest {
+  //用户名
+  string username = 1;
+  //密码
+  string password = 2;
+  //交易密码
+  string tradePassword = 3;
+  //请求标识，用于查询
+  string externalId = 4;
+  //邀请码
+  string inviteCode = 5;
+}
+
+//注册用户返回信息
+message RegistUserResponse {
+  int32 code = 1;
+  string msg = 2;
+  //返回信息
+  UserKeyData data = 3;
+}
+
+//通过外部externalid查询用户
+message FindUserByExternalIdRequest {
+  //外部扩展标识Id
+  string externalId = 1;
+}
+
+//通过外部externalid查询用户
+message FindUserByExternalIdResponse{
+  int32 code = 1;
+  string msg = 2;
+  UserKeyData data = 3;
+}
+
+//获取用户公钥
+message UserGetAddrRequest {
+  //用户名
+  string username = 1;
+  //密码
+  string password = 2;
+}
+
+//获取用户公钥
+message UserGetAddrResponse {
+  int32 code = 1;
+  string msg = 2;
+  UserData data = 3;
+}
+
+//修改用户密码
+message UpdatePasswordRequest {
+  //旧密码
+  string oldPassword = 1;
+  //新密码
+  string newPassword = 2;
+  //用户名
+  string username = 3;
+  //授权码
+  string authcode = 4;
+}
+
+//修改用户密码返回
+message UpdatePasswordResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+//修改用户交易密码
+message UpdateTradePasswordRequest {
+  //旧密码
+  string oldPassword = 1;
+  //新交易密码
+  string newTradePassword = 2;
+  //用户名
+  string username = 3;
+  //授权码
+  string authcode = 4;
+}
+
+//修改用户交易密码返回
+message UpdateTradePasswordResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+//重置密码
+message ResetPasswordRequest {
+  //新交易密码
+  string newPassword = 1;
+  //用户名
+  string username = 2;
+  //授权码
+  string authcode = 3;
+}
+
+//重置交易密码和登录密码返回
+message ResetPasswordResponse {
+  string message = 1;
+  int32 code = 2;
+}
+
+//重置交易密码
+message ResetTradePasswordRequest {
+  //新交易密码
+  string newTradePassword = 1;
+  //用户名
+  string username = 2;
+  //授权码
+  string authcode = 3;
+}
+
+//重置交易密码和登录密码返回
+message ResetTradePasswordResponse {
+  string message = 1;
+  int32 code = 2;
+}
+
+
+//重置用户授权码
+message ResetAuthcodeRequest {
+  //用户名
+  string username = 1;
+  //交易密码
+  string tradePassword = 2;
+  //拜占庭
+  string tokenKey = 3;
+}
+
+//重置用户授权码返回
+message ResetAuthcodeResponse {
+  int32 code = 1;
+  string msg = 2;
+  //返回信息
+  UserKeyData data = 3;
+}
+
+
+//重置用户拜占庭
+message ResetTokenRequest {
+  //用户名
+  string username = 1;
+  //交易密码
+  string tradePassword = 2;
+  //授权码
+  string authcodeKey = 3;
+}
+
+//重置用户拜占庭返回
+message ResetTokenResponse{
+  int32 code = 1;
+  string msg = 2;
+  //返回信息
+  UserKeyData data = 3;
+}
+
+//信任资产
+message TrustAssetsRequest {
+  string username = 1;
+  //用户授权码
+  string authcode = 2;
+  //要信任资产id 格式为  1,2,3,4,5,6,7,8,9
+  repeated int64 ids = 3;
+}
+
+//信任资产返回信息
+message TrustAssetsResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+//验证授权码是否正确
+message ValidateAuthcodeRequest{
+  //用户名
+  string username = 1;
+  //用户的授权码
+  string authcode = 2;
+}
+
+//验证授权码是否正确返回
+message ValidateAuthcodeResponse{
+  int32 code = 1;
+  string msg = 2;
+}
+
+//获取用户信息
+message FindUserBalanceRequest{
+  //用户名
+  string username = 1;
+}
+
+//获取用户信息返回
+message FindUserBalanceResponse{
+  int32 code = 1;
+  string msg = 2;
+  //返回资产
+  repeated BalanceData data = 3;
+}

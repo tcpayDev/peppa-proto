@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "SimpleVO.proto";
+option java_package = "io.tradingchain.peppa.proto.asset";
+option java_outer_classname = "Asset";
+
+
+//查询资产列表
+message FindAssetsRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+//资产列表返回内容
+message FindAssetsResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated AssetData data = 3;
+  int32 total = 4;
+}
+
+//查询资产内容
+message FindAssetByIdRequest {
+  int64 assetId = 1;
+}
+
+//查询资产返回内容
+message FindAssetByIdResponse {
+  int32 code = 1;
+  string msg = 2;
+  AssetData data = 3;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "data/BaseResponse.proto";
+option java_package = "io.tradingchain.peppa.proto.tradepair";
+option java_outer_classname = "TradePair";
+
+//根据交易对id查询
+message FindTradePairByIdRequest {
+  int64 tradePairId = 1;
+}
+//根据交易对ID查询返回
+message FindTradePairByIdResponse {
+  int32 code = 1;
+  string msg = 2;
+  //交易对详情
+  TradePairData data = 3;
+}
+
+//查询全部交易对
+message FindTradePairsRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+//返回查询交易对列表
+message FindTradePairsResponse {
+  int32 code = 1;
+  string msg = 2;
+  //交易对列表
+  repeated TradePairData data = 3;
+  int32 total = 4;
+}

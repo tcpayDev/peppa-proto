@@ -1,0 +1,256 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+option java_package = "io.tradingchain.peppa.proto.v1";
+option java_outer_classname = "Base";
+
+//用户公钥,私钥
+message UserKeyData {
+    //用户公钥
+    string addr = 1;
+    //授权码
+    string authCode = 2;
+    //拜占庭
+    string token = 3;
+}
+
+//用户信息
+message UserData {
+    int64 userId = 1;
+    //用户名
+    string username = 2;
+    //邀请码
+    string inviteCode = 3;
+    //邀请人
+    string inviteUser = 4;
+    //公钥
+    string addr = 6;
+    //创建时间
+    int64 createTime = 7;
+    //创建时间
+    int64 updateTime = 8;
+}
+
+//资产详情
+message BalanceData {
+    //资产名称
+    string name = 1;
+    //资产发行者
+    string issuer = 2;
+    //拥有数量
+    string amount = 3;
+}
+
+//资产
+message AssetData {
+    int64 id = 1;
+    //资产名称
+    string name = 2;
+    //资产发行人
+    string issuer = 3;
+    //是否为基础币种TC
+    string info = 4;
+    string gateway = 5;
+    //是否为基础币种TC
+    string total = 6;
+}
+
+//交易对详情
+message TradePairData {
+    //交易对id
+    int64 tradePairId = 1;
+    //基础币种
+    AssetData baseAsset = 2;
+    //计价币种
+    AssetData counterAsset = 3;
+}
+
+//转账详情
+message PaymentData {
+    //创建时间
+    int64 createTime = 1;
+    //Core层 转账单号
+    string payNo = 2;
+    //转账状态
+    PaymentStatus status = 3;
+    //转账Addr
+    string from = 4;
+    //支付资产
+    AssetData payAsset = 5;
+    //支付数量
+    string payAmount = 6;
+    //接收人Addr
+    string to = 7;
+    //到账资产
+    AssetData receiveAsset = 8;
+    //到账数量
+    string receiveAmount = 9;
+    //手续费
+    string feeAmount = 10;
+    //手续费币种
+    AssetData feeAsset = 11;
+    //手续费费率
+    string feeRate = 12;
+    //转账类型
+    PaymentType paymentType = 13;
+    //手续费类型
+    FeeType feeType = 14;
+    //方向
+    PaymentDirection direction = 15;
+    //更新时间
+    int64 updateTime = 16;
+    //完成时间
+    int64 finishTime = 17;
+}
+
+//转账状态
+enum PaymentStatus {
+    TODO = 0; //待转账
+    PAYING = 1; //转账中
+    PAYED = 2; //转账完成
+    FAILED = 3; //转账失败
+}
+//转账类型
+enum PaymentType {
+    COMMON = 0; //普通转账
+    BRIDGE = 1; //桥连转账
+}
+//手续费类型
+enum FeeType {
+    COLLECT = 0; //到付
+    PREPAID = 1; //先付
+}
+//转账方向
+enum PaymentDirection {
+    INCOME = 0; //转入
+    OUTCOME = 1; //转出
+}
+
+//kline类型
+enum KlineType {
+    //分钟
+    MINUTELY = 0;
+    //分钟
+    FIVE_MINUTELY = 1;
+    //15分钟
+    QUARTER_HOURLY = 2;
+    //半小时
+    HALF_HOURLY = 3;
+    //小时
+    HOURLY = 4;
+    //6小时
+    QUARTER_DAY = 5;
+    //12小时
+    HALF_DAY = 6;
+    //日线
+    DAILY = 7;
+    //周线
+    WEEKLY = 8;
+}
+
+//k线详情
+message KLineData {
+    //时间戳
+    int64 time = 1;
+    //开盘价
+    string open = 2;
+    //最高价
+    string top = 3;
+    //最低价
+    string low = 4;
+    //收盘价
+    string close = 5;
+    //成交量
+    string volume = 6;
+}
+
+//offer 挂单内容
+message OfferData {
+    //挂单单号
+    string offerNo = 1;
+    //交易对信息
+    TradePairData tradePair = 2;
+    //剩余手续费
+    string leftFee = 3;
+    //价格
+    string price = 4;
+    //总数量
+    string amount = 5;
+    //剩余数量
+    string leftAmount = 6;
+    //手续费
+    string feeAmount = 7;
+    //手续费资产
+    AssetData feeAsset = 8;
+    //订单状态
+    OfferStatus status = 9;
+    //方向
+    OfferDirection direction = 10;
+}
+//挂单方向
+enum OfferDirection {
+    //卖出
+    SELL = 0;
+    //买入
+    BUY = 1;
+}
+//挂单状态
+enum OfferStatus {
+    //挂单中
+    OFFERING = 0;
+    //完成
+    FINISHED = 1;
+    //失败
+    FAIL = 2;
+    //在去往链的路上
+    TODO = 3;
+}
+
+//深度列表
+message DepthData {
+    //交易对深度  卖出
+    repeated DepthInfoData askData = 3;
+    //买入深度
+    repeated DepthInfoData bidData = 4;
+}
+//深度列表内容详情
+message DepthInfoData {
+    //价格
+    string price = 1;
+    //总挂单数
+    string amount = 2;
+}
+//取消详情
+message CancelOfferData {
+    CancelOfferStatus status = 1;
+    OfferData offer = 2;
+    int64 createTime = 3;
+    int64 finishTime = 4;
+    //这次取消操作的返回信息
+    string failedMsg = 5;
+}
+//取消状态
+enum CancelOfferStatus {
+    //撤销中
+    CANCELLING = 0;
+    //撤销完成
+    CANCELED = 1;
+    //撤销失败
+    FAIL = 2;
+}
+
+//交易详情
+message TradeData {
+    //ID
+    string tradeId = 1;
+    //交易对
+    TradePairData tradePair = 2;
+    //链上确认时间戳
+    int64 createTime = 3;
+    //成交的Base资产数量
+    string amount = 4;
+    //价格
+    string price = 5;
+    //方向
+    string direction = 6;
+}
