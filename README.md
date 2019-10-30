@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Tradingchain/peppa-proto.svg?branch=master)](https://travis-ci.org/Tradingchain/peppa-proto)
+[![Build Status](https://travis-ci.org/tcpayDev/peppa-proto.svg?branch=master)](https://travis-ci.org/tcpayDev/peppa-proto)
 
 # peppa-proto
 

@@ -3,7 +3,7 @@ jdk:
   - openjdk8
 on:
     tags: true
-    repo: Tradingchain/peppa-proto
+    repo: tcpayDev/peppa-proto
 before_install:
   - wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0/protoc-3.7.0-linux-x86_64.zip
   - unzip protoc-3.7.0-linux-x86_64.zip -d /tmp/
@@ -15,10 +15,10 @@ install:
   - mvn install -DfinalName=release -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
   provider: releases
-  api_key:
-    secure: 9e871de85332415f7097fafae654c61c1eeb6578
+    user: "tcpayDev"
+    password: "Chenyu123!@#"
   file: target/release.jar
   skip_cleanup: true
   on:
     tags: true
-    repo: Tradingchain/peppa-proto
+    repo: tcpayDev/peppa-proto
