@@ -29,9 +29,7 @@ message CreateOfferRequest {
   OfferDirection direction = 11;
     //是否被动买入
   OfferIsPassive isPassive = 12;
-    AssetData feeAsset = 13;
-    AssetData baseAsset = 14;
-    AssetData counterAsset = 15;
+  int64 feeAssetId = 13;
   string notifyUrl = 16;
 }
 
@@ -193,7 +191,7 @@ message OfferData {
     //剩余手续费
   string leftFee = 8;
     //手续费资产
-    AssetData feeAsset = 9;
+  AssetData feeAsset = 9;
     //订单状态
   string status = 10;
     //方向

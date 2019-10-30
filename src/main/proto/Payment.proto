@@ -14,7 +14,7 @@ message CreatePaymentRequest{
   //外部id
   string externalId = 4;
   //币种
-  AssetData payAsset = 5;
+  int64 payAssetId = 5;
   //转账数量(不包含手续费)
   string amount = 6;
   //收款人
@@ -26,7 +26,7 @@ message CreatePaymentRequest{
   //手续费费率
   string feeRate = 10;
   //手续费费率 指定手续费币种，默认传递sourceAsset 不可为空
-  AssetData feeAsset = 11;
+  int64 feeAssetId = 11;
   //手续费类别
   FeeType feeType = 12;
   //notify url
@@ -44,11 +44,11 @@ message FindPaymentPathRequest {
   //支付用户公钥
   string payUserAddr = 1;
   //支付币种
-  AssetData payAsset = 2;
+  int64 payAssetId = 2;
   //最大愿意支付数量
   string maxAmount = 3;
   //到账币种
-  AssetData receiveAsset = 4;
+  int64 receiveAssetId = 4;
   //到账金额
   string receiveAmount = 5;
   //到账用户地址
@@ -66,15 +66,16 @@ message CreatePathPaymentRequest {
   string tradePassword = 2;
   //授权码
   string authcode = 3;
+  //外部标示
   string externalId = 4;
   //发起币种
-  AssetData payAsset = 5;
+  int64 payAssetId = 5;
   //显示数量
   string payAmount = 6;
   //到账用户
   string receiver = 7;
-  //到账币种
-  AssetData receiveAsset = 8;
+  //到账币种ID
+  int64 receiveAssetId = 8;
   //显示到账数量
   string receiveAmount = 9;
   //手续费账户
@@ -84,7 +85,7 @@ message CreatePathPaymentRequest {
   //手续费费率
   string feeRate = 12;
   //手续费费率 指定手续费币种，不指定默认会收取sourceAsset
-  AssetData feeAsset = 13;
+  int64 feeAssetId = 13;
   //手续费类别
   FeeType feeType = 14;
   //notify url
@@ -183,13 +184,13 @@ message PaymentData {
   string payNo = 2;
   //转账状态
   PaymentStatus status = 3;
-  //转账详情
+  //转账Addr
   string from = 4;
   //支付资产
   AssetData payAsset = 5;
   //支付数量
   string payAmount = 6;
-  //接收人
+  //接收人Addr
   string to = 7;
   //到账资产
   AssetData receiveAsset = 8;
