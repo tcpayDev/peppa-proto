@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "data/BaseResponse.proto";
-option java_package = "io.tradingchain.peppa.proto.payment";
+option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Payment";
 
 //创建普通转账

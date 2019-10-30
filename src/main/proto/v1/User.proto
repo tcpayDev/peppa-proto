@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "data/BaseResponse.proto";
 
-option java_package = "io.tradingchain.peppa.proto.v1.user";
+option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "User";
 //注册用户
 message RegistUserRequest {

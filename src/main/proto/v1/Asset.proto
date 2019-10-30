@@ -1,9 +1,8 @@
 syntax = "proto3";
 
-import "SimpleVO.proto";
-option java_package = "io.tradingchain.peppa.proto.asset";
+import "data/BaseResponse.proto";
+option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Asset";
-
 
 //查询资产列表
 message FindAssetsRequest {
