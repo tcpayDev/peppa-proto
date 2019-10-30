@@ -1,23 +1,23 @@
 language: java
 jdk:
-  - openjdk8
-on:
-    tags: true
-    repo: tcpayDev/peppa-proto
+- openjdk8
+true:
+  tags: true
+  repo: tcpayDev/peppa-proto
 before_install:
-  - wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0/protoc-3.7.0-linux-x86_64.zip
-  - unzip protoc-3.7.0-linux-x86_64.zip -d /tmp/
-  - export PATH=/tmp/bin:$PATH
+- wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0/protoc-3.7.0-linux-x86_64.zip
+- unzip protoc-3.7.0-linux-x86_64.zip -d /tmp/
+- export PATH=/tmp/bin:$PATH
 cache:
   directories:
-    - /home/travis/.m2/
+  - "/home/travis/.m2/"
 install:
-  - mvn install -DfinalName=release -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DfinalName=release -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
   provider: releases
-  api_key: 86cb55b3f4e9397716fecceb73ddcd03e8274279
+  api_key:
+    secure: 7yYCI3d0nXissoJjmkOzLwuNfm8A2vwn/J1F1CpBOGdeVtBiFDtQD5SU3UEMzz8y4sYwj8ZlizOBZH0Zi9S1ioPFqGHWaaGSz6zaWDpqirfTH/w4f4mV5zgI0cadfYKyGOqnqoePrcEge3JsW4sXAleqQeUuFpatDm22sLmYxPFkbeNZk6Wz6rf7LXJm4dRr9Io9MO6is4QfaQgP6uhPNPwUPJEHG3m2aPI40apD34foHmNF9bpQk3BR+7rWt4JP7fgcBRh3eZ3XN4h57asFDacLpXxKx2YbAXHppTJ33EWAwx76uJ5/hLYwTzmCg6FFOSMx/cTrI+EbKZ4+HuaCbQFzxj59vTdxPX4fKG+EdlbAXfoQIeU4T26sAQobrpbCOMsph56grPDcB2llFzvsaDhZoYGtg6m3cnBgQSN2vcq/Zz0tCGcioUXJh+n40PQDZzWXpm8X8KEp2j07QAo/zEJsA9TJxrEZgWY1WPRJ9pfztvARbywlhmldG4Wp/PT2AOJESefW+uy+0nV4NAHvt675icvrqyb58Vec3Yaq1as0l54SbIW7pHW7Em4SMIirkTC+nWbFWMtfMRNwMVn6bjDeO02ZKGTekV1RO/zDy5IWeLNFC22h2aZhxDfJj4WcKA6vvxBU7OWEWuvasTkzNNw3VB2ePGKqEPf4sDDWzRo=
   file: target/release.jar
-  skip_cleanup: true
   on:
-    tags: true
     repo: tcpayDev/peppa-proto
+    tags: true
