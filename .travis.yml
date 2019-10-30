@@ -15,8 +15,8 @@ install:
   - mvn install -DfinalName=release -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
   provider: releases
-    user: "tcpayDev"
-    password: "Chenyu123!@#"
+  user: "tcpayDev"
+  password: "Chenyu123!@#"
   file: target/release.jar
   skip_cleanup: true
   on:

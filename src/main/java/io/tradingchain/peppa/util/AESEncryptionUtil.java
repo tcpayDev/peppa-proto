@@ -33,7 +33,7 @@ public class AESEncryptionUtil {
           .encode(getCipher(sKey, ivParameter, Cipher.ENCRYPT_MODE).doFinal(sSrc));//此处使用BASE64做转码。
   }
 
-  
+
   /**
    * 解密
    * @param sKey key
