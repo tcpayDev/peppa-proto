@@ -102,51 +102,6 @@ message PaymentData {
     int64 finishTime = 17;
 }
 
-//转账状态
-enum PaymentStatus {
-    TODO = 0; //待转账
-    PAYING = 1; //转账中
-    PAYED = 2; //转账完成
-    FAILED = 3; //转账失败
-}
-//转账类型
-enum PaymentType {
-    COMMON = 0; //普通转账
-    BRIDGE = 1; //桥连转账
-}
-//手续费类型
-enum FeeType {
-    COLLECT = 0; //到付
-    PREPAID = 1; //先付
-}
-//转账方向
-enum PaymentDirection {
-    INCOME = 0; //转入
-    OUTCOME = 1; //转出
-}
-
-//kline类型
-enum KlineType {
-    //分钟
-    MINUTELY = 0;
-    //分钟
-    FIVE_MINUTELY = 1;
-    //15分钟
-    QUARTER_HOURLY = 2;
-    //半小时
-    HALF_HOURLY = 3;
-    //小时
-    HOURLY = 4;
-    //6小时
-    QUARTER_DAY = 5;
-    //12小时
-    HALF_DAY = 6;
-    //日线
-    DAILY = 7;
-    //周线
-    WEEKLY = 8;
-}
-
 //k线详情
 message KLineData {
     //时间戳
@@ -186,24 +141,6 @@ message OfferData {
     //方向
     OfferDirection direction = 10;
 }
-//挂单方向
-enum OfferDirection {
-    //卖出
-    SELL = 0;
-    //买入
-    BUY = 1;
-}
-//挂单状态
-enum OfferStatus {
-    //挂单中
-    OFFERING = 0;
-    //完成
-    FINISHED = 1;
-    //失败
-    FAIL = 2;
-    //在去往链的路上
-    TODO = 3;
-}
 
 //深度列表
 message DepthData {
@@ -228,15 +165,6 @@ message CancelOfferData {
     //这次取消操作的返回信息
     string failedMsg = 5;
 }
-//取消状态
-enum CancelOfferStatus {
-    //撤销中
-    CANCELLING = 0;
-    //撤销完成
-    CANCELED = 1;
-    //撤销失败
-    FAIL = 2;
-}
 
 //交易详情
 message TradeData {
@@ -252,4 +180,86 @@ message TradeData {
     string price = 5;
     //方向
     string direction = 6;
+}
+
+// ======== 枚举类 不能重复 ==========//
+
+//挂单方向
+enum OfferDirection {
+    //卖出
+    SELL = 0;
+    //买入
+    BUY = 1;
+}
+
+//挂单状态
+enum OfferStatus {
+    //挂单中
+    OFFER_DOING = 0;
+    //完成
+    OFFER_FINISHED = 1;
+    //失败
+    OFFER_FAILED = 2;
+    //在去往链的路上
+    OFFER_TODO = 3;
+}
+
+//取消状态
+enum CancelOfferStatus {
+    //撤销中
+    CANCEL_DOING = 0;
+    //撤销完成
+    CANCEL_FINISHED = 1;
+    //撤销失败
+    CANCEL_FAILED = 2;
+    //在去往链的路上
+    CANCEL_TODO = 3;
+}
+
+//转账状态
+enum PaymentStatus {
+    PAYMENT_TODO = 0; //待转账
+    PAYMENT_DOING = 1; //转账中
+    PAYMENT_FINISHED = 2; //转账完成
+    PAYMENT_FAILED = 3; //转账失败
+}
+
+//转账类型
+enum PaymentType {
+    COMMON = 0; //普通转账
+    BRIDGE = 1; //桥连转账
+}
+
+//手续费类型
+enum FeeType {
+    COLLECT = 0; //到付
+    PREPAID = 1; //先付
+}
+
+//转账方向
+enum PaymentDirection {
+    INCOME = 0; //转入
+    OUTCOME = 1; //转出
+}
+
+//kline类型
+enum KlineType {
+    //分钟
+    MINUTELY = 0;
+    //分钟
+    FIVE_MINUTELY = 1;
+    //15分钟
+    QUARTER_HOURLY = 2;
+    //半小时
+    HALF_HOURLY = 3;
+    //小时
+    HOURLY = 4;
+    //6小时
+    QUARTER_DAY = 5;
+    //12小时
+    HALF_DAY = 6;
+    //日线
+    DAILY = 7;
+    //周线
+    WEEKLY = 8;
 }
