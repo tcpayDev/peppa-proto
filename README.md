@@ -2,35 +2,6 @@
 
 # peppa-proto
 
-* proto文件放在src/main/proto目录下。
-
-* mvn install编译打包成jar。
-
-* Spring Boot工程配置AESEncryptionFilter：
-
-   +增加如下filter配置：filter 服务端会做处理
-   
-   ```
-   @Configuration
-   public class FilterConfig {
-   
-     @Bean
-     public Filter aesEncryptionFilter() {
-       return new AESEncryptionFilter();
-     }
-   
-     @Bean
-     public FilterRegistrationBean aesEncryptFilterRegistration() {
-       FilterRegistrationBean registration = new FilterRegistrationBean();
-       registration.setFilter(new DelegatingFilterProxy("aesEncryptionFilter"));
-       registration.addUrlPatterns("/*"); //
-       registration.setName("aesEncryptionFilter");
-       registration.setOrder(1);
-       return registration;
-     }
-   }
-     ```
-     
 * Client代码示例：
 ```
 PersonProto.Person.Builder builder = PersonProto.Person.newBuilder();
@@ -70,5 +41,3 @@ PersonProto.Person.Builder builder = PersonProto.Person.newBuilder();
         return ResponseEntity.ok(updated);
     }
   ```
-
-### [接口文档](https://github.com/Tradingchain/api-service-new/wiki)
