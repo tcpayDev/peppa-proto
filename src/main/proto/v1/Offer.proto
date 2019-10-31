@@ -27,8 +27,6 @@ message CreateBuyOfferRequest {
     string feeRate = 10;
     //手续费资产ID
     int64 feeAssetId = 11;
-    //异步通知地址
-    string notifyUrl = 12;
 }
 
 //创建买单返回信息
@@ -63,8 +61,6 @@ message CreateSellOfferRequest {
     string feeRate = 10;
     //手续费资产ID
     int64 feeAssetId = 11;
-    //异步通知地址
-    string notifyUrl = 12;
 }
 
 //创建卖单返回信息
@@ -99,8 +95,6 @@ message CreatePassiveBuyOfferRequest {
     string feeRate = 10;
     //手续费资产ID
     int64 feeAssetId = 11;
-    //异步通知地址
-    string notifyUrl = 12;
 }
 
 //创建被动买单返回信息
@@ -135,8 +129,6 @@ message CreatePassiveSellOfferRequest {
     string feeRate = 10;
     //手续费资产ID
     int64 feeAssetId = 11;
-    //异步通知地址
-    string notifyUrl = 12;
 }
 
 //创建被动卖单返回信息
