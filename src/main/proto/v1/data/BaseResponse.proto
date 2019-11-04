@@ -202,6 +202,8 @@ enum OfferStatus {
     OFFER_FAILED = 2;
     //在去往链的路上
     OFFER_TODO = 3;
+    //在去往链的路上
+    OFFER_CANCELED = 4;
 }
 
 //取消状态
