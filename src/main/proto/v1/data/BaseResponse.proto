@@ -182,6 +182,11 @@ message TradeData {
     string direction = 6;
 }
 
+message SimpleResponse{
+    int32 code = 1;
+    string msg = 2;
+}
+
 // ======== 枚举类 不能重复 ==========//
 
 //挂单方向
