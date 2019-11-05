@@ -37,6 +37,17 @@ message FindUserByPartnerResponse{
     repeated UserData data = 4;
 }
 
+message AdminTrustAssetsRequest{
+    string username = 1;
+    string authcode = 2;
+    string assetName = 3;
+}
+
+message AdminTrustAssetsResponse{
+    int32 code = 1;
+    string msg = 2;
+}
+
 //资产发行
 message IssuerAssetRequest {
     //资产发行名称
