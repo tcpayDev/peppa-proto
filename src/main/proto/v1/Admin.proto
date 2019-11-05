@@ -41,6 +41,8 @@ message AdminTrustAssetsRequest{
     string username = 1;
     string authcode = 2;
     string assetName = 3;
+    //信任总量
+    int64 total = 4;
 }
 
 message AdminTrustAssetsResponse{
@@ -60,8 +62,6 @@ message IssuerAssetRequest {
     string total = 4;
     //接收者
     string destination = 5;
-    //接收者授权码
-    string destinationAuthCode = 6;
 }
 
 //资产发行返回信息
