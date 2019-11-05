@@ -42,7 +42,7 @@ message AdminTrustAssetsRequest{
     string authcode = 2;
     string assetName = 3;
     //信任总量
-    int64 total = 4;
+    string total = 4;
 }
 
 message AdminTrustAssetsResponse{
