@@ -102,8 +102,8 @@ message ResetPasswordRequest {
 
 //重置交易密码和登录密码返回
 message ResetPasswordResponse {
-  string message = 1;
-  int32 code = 2;
+  int32 code = 1;
+  string msg = 2;
 }
 
 //重置交易密码
@@ -118,8 +118,8 @@ message ResetTradePasswordRequest {
 
 //重置交易密码和登录密码返回
 message ResetTradePasswordResponse {
-  string message = 1;
-  int32 code = 2;
+  int32 code = 1;
+  string msg = 2;
 }
 
 
