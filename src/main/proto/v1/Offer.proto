@@ -227,6 +227,8 @@ message CancelOfferRequest {
     string offerNo = 3;
     //授权码
     string authcode = 4;
+    //手续费授权码
+    string feeAuthcode = 5;
 }
 
 //取消订单返回内容
