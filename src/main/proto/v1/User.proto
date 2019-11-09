@@ -202,3 +202,29 @@ message FindUserBalanceResponse{
   //返回资产
   repeated BalanceData data = 3;
 }
+
+//验证交易密码是否正确
+message ValidateTradePasswordRequest{
+  //用户名
+  string username = 1;
+  //用户的交易密码
+  string tradePassword = 2;
+}
+
+//验证交易密码是否正确返回
+message ValidateTradePasswordResponse{
+  int32 code = 1;
+  string msg = 2;
+}
+
+//验证用户名是否重复
+message ValidateUserNameRequest{
+  //用户名
+  string username = 1;
+}
+
+//验证用户名是否重复返回
+message ValidateUserNameResponse{
+  int32 code = 1;
+  string msg = 2;
+}
