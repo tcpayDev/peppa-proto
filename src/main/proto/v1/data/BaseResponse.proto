@@ -201,16 +201,18 @@ enum OfferDirection {
 //挂单状态
 enum OfferStatus {
   OFFER_STATUS_NONE = 0; //未知,用于查询，全部
+  //等待挂单
+  OFFER_TODO = 1;
   //挂单中
-  OFFER_DOING = 1;
+  OFFER_DOING = 2;
   //完成
-  OFFER_FINISHED = 2;
+  OFFER_FINISHED =3;
   //失败
-  OFFER_FAILED = 3;
+  OFFER_FAILED = 4;
   //在去往链的路上
-  OFFER_TODO = 4;
+  OFFER_TO_DOING = 5;
   //在去往链的路上
-  OFFER_CANCELED = 5;
+  OFFER_CANCELED = 6;
 }
 
 //取消状态
