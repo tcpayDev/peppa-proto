@@ -98,7 +98,7 @@ message CreateBatchPaymentRequest {
 message CreateBatchPaymentResponse {
   int32 code = 1;
   string msg = 2;
-  PaymentData data = 3;
+  repeated PaymentData data = 3;
 }
 
 
