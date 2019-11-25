@@ -4,7 +4,7 @@ option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Payment";
 
 //创建普通转账
-message CreatePaymentRequest{
+message CreatePaymentRequest {
   //用户名
   string username = 1;
   //授权码
@@ -34,7 +34,7 @@ message CreatePaymentRequest{
 }
 
 //创建转账返回信息呀
-message CreatePaymentResponse{
+message CreatePaymentResponse {
   int32 code = 1;
   string msg = 2;
   PaymentData data = 3;
@@ -73,13 +73,34 @@ message CreatePathPaymentRequest {
   string notify = 15;
 }
 
-
 //创建转账返回信息呀
-message CreatePathPaymentResponse{
+message CreatePathPaymentResponse {
   int32 code = 1;
   string msg = 2;
   PaymentData data = 3;
 }
+
+//创建普通批量转账
+message CreateBatchPaymentRequest {
+  //用户公钥
+  string addr = 1;
+  //授权码
+  string authcode = 2;
+  //交易密码
+  string tradePassword = 3;
+  //转账详情
+  repeated BatchPaymentData data = 4;
+  //notify url
+  string notify = 5;
+}
+
+//创建普通批量转账返回内容
+message CreateBatchPaymentResponse {
+  int32 code = 1;
+  string msg = 2;
+  PaymentData data = 3;
+}
+
 
 message FindPaymentsRequest {
   //用户名 必填
@@ -110,21 +131,22 @@ message FindPaymentsResponse {
 }
 
 //根据外部标示查询
-message FindPaymentByExternalIdRequest{
+message FindPaymentByExternalIdRequest {
   //外部查询标识，由于请求可能因为网络等异常导致，可由请求方通过外部请求标识进行数据查询
   string externalId = 1;
 }
-message FindPaymentByExternalIdResponse{
+message FindPaymentByExternalIdResponse {
   int32 code = 1;
   string msg = 2;
   PaymentData data = 3;
 }
 
 //根据转账单号
-message FindPaymentByPayNoRequest{
+message FindPaymentByPayNoRequest {
   string payNo = 1;
 }
-message FindPaymentByPayNoResponse{
+
+message FindPaymentByPayNoResponse {
   int32 code = 1;
   string msg = 2;
   PaymentData data = 3;

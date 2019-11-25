@@ -181,11 +181,34 @@ message TradeData {
   //方向
   string direction = 6;
 }
+//批量转账
+message BatchPaymentData {
+  //币种
+  int64 payAssetId = 1;
+  //转账数量(不包含手续费)
+  string payAmount = 2;
+  //收款人
+  string receiveUserAddr = 3;
+  //外部id
+  string externalId = 4;
+  //手续费账户
+  string feeUserAddr = 5;
+  //手续费数量(sourceAsset数量)
+  string feeAmount = 6;
+  //手续费费率
+  string feeRate = 7;
+  //手续费资产ID
+  int64 feeAssetId = 8;
+  //手续费类别
+  FeeType feeType = 9;
+}
 
+//简单返回
 message SimpleResponse {
   int32 code = 1;
   string msg = 2;
 }
+
 
 // ======== 枚举类 不能重复 ==========//
 
