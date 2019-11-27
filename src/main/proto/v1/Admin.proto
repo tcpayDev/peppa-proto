@@ -56,12 +56,10 @@ message IssuerAssetRequest {
     string assetName = 1;
     //资产发行内容
     string info = 2;
-    //发行gateway
-    string gateway = 3;
     //发行总量
-    string total = 4;
+    string total = 3;
     //接收者
-    string destination = 5;
+    string destination = 4;
 }
 
 //资产发行返回信息
@@ -77,8 +75,6 @@ message UpdateAssetRequest {
     int64 assetId = 1;
     //资产简介
     string info = 2;
-    //发行方网关
-    string gateway = 3;
 }
 
 //更新资产返回内容

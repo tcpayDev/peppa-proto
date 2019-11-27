@@ -49,9 +49,8 @@ message AssetData {
   string issuer = 3;
   //是否为基础币种TC
   string info = 4;
-  string gateway = 5;
   //是否为基础币种TC
-  string total = 6;
+  string total = 5;
 }
 
 //交易对详情
