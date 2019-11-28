@@ -5,128 +5,123 @@ option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Admin";
 
 //查询用户列表
-message FindUsersRequest{
-    //页码
-    int32 page = 1;
-    //条目
-    int32 size = 2;
+message FindUsersRequest {
+  //页码
+  int32 page = 1;
+  //条目
+  int32 size = 2;
 }
 
 //查询用户列表返回
-message FindUsersResponse{
-    int32 code = 1;
-    string msg = 2;
-    //返回总条数
-    int32 total = 3;
-    //用户集合列表
-    repeated UserData data = 4;
+message FindUsersResponse {
+  int32 code = 1;
+  string msg = 2;
+  //返回总条数
+  int32 total = 3;
+  //用户集合列表
+  repeated UserData data = 4;
 }
 
 //通过partnerKey查询用户列表
-message FindUserByPartnerRequest{
-    string partnerKey = 1;
-    int32 page = 2;
-    int32 size = 3;
+message FindUserByPartnerRequest {
+  string partnerKey = 1;
+  int32 page = 2;
+  int32 size = 3;
 }
 
 //返回partnerKey查询用户列表
-message FindUserByPartnerResponse{
-    int32 code = 1;
-    string msg = 2;
-    int32 total = 3;
-    repeated UserData data = 4;
+message FindUserByPartnerResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 total = 3;
+  repeated UserData data = 4;
 }
 
-message AdminTrustAssetsRequest{
-    string username = 1;
-    string authcode = 2;
-    string assetName = 3;
-    //信任总量
-    string total = 4;
+message AdminAddAssetRequest {
+  string assetName = 1;
 }
 
-message AdminTrustAssetsResponse{
-    int32 code = 1;
-    string msg = 2;
+message AdminAddAssetResponse {
+  int32 code = 1;
+  string msg = 2;
 }
 
 //资产发行
 message IssuerAssetRequest {
-    //资产发行名称
-    string assetName = 1;
-    //资产发行内容
-    string info = 2;
-    //发行总量
-    string total = 3;
-    //接收者
-    string destination = 4;
+  //资产发行名称
+  string assetName = 1;
+  //资产发行内容
+  string info = 2;
+  //发行总量
+  string total = 3;
+  //接收者
+  string destination = 4;
 }
 
 //资产发行返回信息
 message IssuerAssetResponse {
-    int32 code = 1;
-    string msg = 2;
-    AssetData asset = 3;
+  int32 code = 1;
+  string msg = 2;
+  AssetData asset = 3;
 }
 
 //更新资产内容
 message UpdateAssetRequest {
-    //资产ID
-    int64 assetId = 1;
-    //资产简介
-    string info = 2;
+  //资产ID
+  int64 assetId = 1;
+  //资产简介
+  string info = 2;
 }
 
 //更新资产返回内容
 message UpdateAssetResponse {
-    int32 code = 1;
-    string msg = 2;
-    AssetData asset = 3;
+  int32 code = 1;
+  string msg = 2;
+  AssetData asset = 3;
 }
 
 //创建交易对
 message CreateTradePairRequest {
-    //基础币种
-    int64 baseAssetId = 1;
-    //计价币种
-    int64 counterAssetId = 2;
+  //基础币种
+  int64 baseAssetId = 1;
+  //计价币种
+  int64 counterAssetId = 2;
 }
 //创建交易对返回
 message CreateTradePairResponse {
-    int32 code = 1;
-    string msg = 2;
-    //交易对详情
-    TradePairData tradePair = 3;
+  int32 code = 1;
+  string msg = 2;
+  //交易对详情
+  TradePairData tradePair = 3;
 }
 
 //删除交易对
 message DeleteTradePairRequest {
-    int64 tradePairId = 1;
+  int64 tradePairId = 1;
 }
 
 //删除交易对返回信息
 message DeleteTradePairResponse {
-    int32 code = 1;
-    string msg = 2;
+  int32 code = 1;
+  string msg = 2;
 }
-
 
 //查询全部订单
 message FindOffersRequest {
-    int32 page = 1;
-    int32 size = 2;
-    //订单状态
-    OfferStatus status = 3;
+  int32 page = 1;
+  int32 size = 2;
+  //订单状态
+  OfferStatus status = 3;
 }
 
 //查询全部订单返回
 message FindOffersResponse {
-    int32 code = 1;
-    string msg = 2;
-    //返回集合字段
-    repeated OfferData offers = 3;
-    //挂单总数
-    int32 total = 4;
+  int32 code = 1;
+  string msg = 2;
+  //返回集合字段
+  repeated OfferData offers = 3;
+  //挂单总数
+  int32 total = 4;
 }
 
 
