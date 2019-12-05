@@ -39,23 +39,23 @@ message FindUserByPartnerResponse {
 
 message AdminAddAssetRequest {
   string assetName = 1;
+  string info = 2;
 }
 
 message AdminAddAssetResponse {
   int32 code = 1;
   string msg = 2;
+  AssetData asset = 3;
 }
 
 //资产发行
 message IssuerAssetRequest {
   //资产发行名称
-  string assetName = 1;
-  //资产发行内容
-  string info = 2;
-  //发行总量
-  string total = 3;
-  //接收者
-  string destination = 4;
+  int64 assetId = 1;
+  //发行/增发总量
+  string total = 2;
+  //接收者用户名
+  string destination = 3;
 }
 
 //资产发行返回信息
