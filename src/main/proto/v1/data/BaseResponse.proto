@@ -99,6 +99,8 @@ message PaymentData {
   int64 updateTime = 16;
   //完成时间
   int64 finishTime = 17;
+  //错误信息
+  string errorMsg = 18;
 }
 
 //k线详情
