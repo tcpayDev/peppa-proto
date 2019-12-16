@@ -37,6 +37,27 @@ message FindUserByPartnerResponse {
   repeated UserData data = 4;
 }
 
+message OtcPayment {
+  //用户名
+  string username = 1;
+  //授权码
+  string authcode = 2;
+  //交易密码
+  string tradePassword = 3;
+  //外部id
+  string externalId = 4;
+  //币种
+  int64 payAssetId = 5;
+  //转账数量(不包含手续费)
+  string payAmount = 6;
+  //收款人
+  string receiveUsername = 7;
+  //手续费类别
+  FeeType feeType = 8;
+  //notify url
+  string notify = 9;
+}
+
 message AdminAddAssetRequest {
   string assetName = 1;
   string info = 2;
