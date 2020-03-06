@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/tcpayDev/peppa-proto.svg?branch=master)](https://travis-ci.org/tcpayDev/peppa-proto)
-
+![Publish both to Gihub Packages and Maven Central](https://github.com/tcpayDev/peppa-proto/workflows/Publish%20both%20to%20Gihub%20Packages%20and%20Maven%20Central/badge.svg)
 # peppa-proto
 
 * Client代码示例：
@@ -28,16 +27,4 @@ PersonProto.Person.Builder builder = PersonProto.Person.newBuilder();
         byte[] decrypted = AESEncryptionUtil.decrypt("somekey", response.body().bytes());
 
         System.out.println(new String(decrypted, "utf-8"));
-  ```
-  
-  * Server代码示例：
-  ```
-  @PostMapping(value = "/update")
-    public ResponseEntity<PersonProto.Person> getPersonInfo(RequestEntity<PersonProto.Person> entity) {
-        PersonProto.Person person = entity.getBody();
-        System.out.println("request: " + person);
-        PersonProto.Person updated = PersonProto.Person.newBuilder().setId(person.getId()).setName("Mr. " + person.getName()).addAllPhone(person.getPhoneList()).build();
-        System.out.println("response: " + updated);
-        return ResponseEntity.ok(updated);
-    }
   ```
