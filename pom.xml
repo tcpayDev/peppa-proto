@@ -8,6 +8,23 @@
   <artifactId>proto</artifactId>
   <version>v2.1.2</version>
   <name>proto</name>
+  <description>A tool For peppa.</description>
+  <url>http://www.tcpay.info/</url>
+  <scm>
+    <url>https://github.com/tcpayDev/peppa-proto</url>
+  </scm>
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <url>https://projectlombok.org/LICENSE</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>my</name>
+      <email>my@tcpay.info</email>
+    </developer>
+  </developers>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -53,18 +70,18 @@
           </execution>
         </executions>
       </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>attach-sources</id>
-                    <goals>
-                        <goal>jar</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
