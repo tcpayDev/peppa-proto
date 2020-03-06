@@ -56,4 +56,11 @@
         </plugins>
         <finalName>${finalName}</finalName>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/tcpayDev/peppa-proto</url>
+        </repository>
+    </distributionManagement>
 </project>
