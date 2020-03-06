@@ -1,0 +1,4 @@
+before_install:
+  - wget https://github.com/`echo $GROUP | grep -oP '(?<=com\.github\.)\w+'`/peppa-proto/releases/download/$VERSION/proto.jar -O proto.jar
+install:
+  - mvn install:install-file -Dfile=proto.jar -DartifactId=$ARTIFACT -DgroupId=$GROUP -Dversion=$VERSION -Dpackaging=jar
