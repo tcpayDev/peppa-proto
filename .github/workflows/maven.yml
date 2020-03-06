@@ -18,9 +18,10 @@ jobs:
         with:
           version: 3.7.1
       - name: setup-gpg
-        run: sudo apt install gnupg
-      - name: import pgp keys
-        run: gpg --receive-keys 394EAD745C8A6841
+        run: |
+          sudo apt install gnupg
+          gpg --receive-keys 394EAD745C8A6841
+          gpg --default-key 394EAD745C8A6841
       - name: Build with Maven
         run: mvn -B package
         env:
