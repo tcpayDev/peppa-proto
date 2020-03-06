@@ -1,4 +1,4 @@
-package info.tcpay.peppa.util;
+package io.tradingchain.peppa.util;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
