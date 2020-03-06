@@ -11,7 +11,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: proto
+          server-id: github
+          server-username: GITHUB_USERNAME
+          server-password: GITHUB_TOKEN
       - name: Setup protoc
         uses: arduino/setup-protoc@v1.1.0
         with:
