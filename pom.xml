@@ -56,12 +56,31 @@
         </plugins>
         <finalName>${finalName}</finalName>
     </build>
-    <distributionManagement>
-        <repository>
+    <profiles>
+        <profile>
             <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/tcpayDev/peppa-proto/</url>
-            <uniqueVersion>false</uniqueVersion>
-        </repository>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub OWNER Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/tcpayDev/peppa-proto/</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>maven</id>
+            <distributionManagement>
+                <repository>
+                    <id>maven</id>
+                    <name>Maven Central Reposition</name>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+    <distributionManagement>
+
     </distributionManagement>
 </project>
