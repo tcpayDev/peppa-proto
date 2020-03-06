@@ -18,7 +18,7 @@ jobs:
         with:
           version: 3.7.1
       - name: setup-gpg
-        uses: olafurpg/setup-gpg@v2
+        run: apt update && apt install gnupg
       - name: import pgp keys
         run: gpg --receive-keys 394EAD745C8A6841
       - name: Build with Maven
