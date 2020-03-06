@@ -22,7 +22,7 @@ jobs:
         env:
           RELEASE_VERSION: v1.8.9
       - name: Publish to Apache Maven Central
-        run: mvn deploy -Pmaven
+        run: mvn deploy
         env:
           MAVEN_USERNAME: tcpayDev
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
