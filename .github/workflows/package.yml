@@ -17,12 +17,18 @@ jobs:
         run: mvn -B package
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -Pgithub
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_USERNAME: tcpayDev
       - name: Set up Apache Maven Central
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
           server-id: maven
-          server-username: tcpayDev
-          server-password: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_CENTRAL_TOKEN
       - name: Publish to Apache Maven Central
         run: mvn deploy -Pmaven
+        env:
+          MAVEN_USERNAME: tcpayDev
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
