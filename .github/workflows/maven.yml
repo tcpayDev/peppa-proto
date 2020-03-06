@@ -17,10 +17,12 @@ jobs:
         uses: arduino/setup-protoc@v1.1.0
         with:
           version: 3.7.1
+      - name: setup-gpg
+        uses: olafurpg/setup-gpg@v2
       - name: Build with Maven
         run: mvn -B package
         env:
-          RELEASE_VERSION: v1.8.9
+          GPG_PASS: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
       - name: Publish to Apache Maven Central
         run: mvn deploy
         env:
