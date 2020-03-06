@@ -21,6 +21,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: target/proto.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -Pgithub
         env:
