@@ -1,5 +1,8 @@
 name: Publish both to Gihub Packages and Maven Central
-on: [push]
+on: 
+  push:
+    tags: 
+      - 'v*.*.*'
 jobs:
   build:
     runs-on: ubuntu-latest
