@@ -19,7 +19,6 @@ jobs:
         run: mvn deploy -Pgithub
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          GITHUB_USERNAME: tcpayDev
       - name: Set up Apache Maven Central
         uses: actions/setup-java@v1
         with:
