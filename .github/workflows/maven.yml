@@ -20,6 +20,9 @@ jobs:
       - name: setup-gpg
         run: |
           sudo apt install gnupg
+          echo "start"
+          gpg --list-keys
+          echo "end"
           gpg --receive-keys 394EAD745C8A6841
           gpg --default-key 394EAD745C8A6841
       - name: Build with Maven
