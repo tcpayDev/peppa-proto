@@ -3,20 +3,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.tradingchain.peppa</groupId>
+    <groupId>info.tcpay.peppa</groupId>
     <artifactId>proto</artifactId>
-    <version>v0.1</version>
-
-    <name>communication</name>
-
+    <version>v2.0.0</version>
+    <name>proto</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <finalName>${project.artifactId}-${project.version}</finalName>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.googlecode.protobuf-java-format</groupId>
@@ -30,7 +26,6 @@
             <version>3.7.0</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -42,7 +37,6 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
