@@ -1,6 +1,8 @@
-name: Publish to Maven Central
-on: 
+name: Publish both to Gihub Packages and Maven Central
+on:
   push:
+    tags:
+      - 'v*.*.*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,26 +12,17 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: maven
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_CENTRAL_TOKEN
       - name: Setup protoc
         uses: arduino/setup-protoc@v1.1.0
         with:
           version: 3.7.1
-      - name: setup-gpg
-        run: |
-          sudo apt install gnupg
-          gpg --receive-keys 394EAD745C8A6841
-          echo "start"
-          gpg --list-keys
-          echo "end"
       - name: Build with Maven
         run: mvn -B package
         env:
-          GPG_PASS: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-      - name: Publish to Apache Maven Central
-        run: mvn deploy
+          RELEASE_VERSION: ${{ github.ref }}
+      - name: Send Jar File To Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/proto.jar
         env:
-          MAVEN_USERNAME: tcpayDev
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

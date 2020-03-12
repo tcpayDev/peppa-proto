@@ -6,31 +6,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>info.tcpay.peppa</groupId>
   <artifactId>proto</artifactId>
-  <version>v2.1.2</version>
-  <name>proto</name>
-  <description>A tool For peppa.</description>
-  <url>http://www.tcpay.info/</url>
-  <scm>
-    <url>https://github.com/tcpayDev/peppa-proto</url>
-  </scm>
-  <licenses>
-    <license>
-      <name>The MIT License</name>
-      <url>https://projectlombok.org/LICENSE</url>
-    </license>
-  </licenses>
-  <developers>
-    <developer>
-      <name>my</name>
-      <email>my@tcpay.info</email>
-    </developer>
-  </developers>
+  <version>v2.2.0</version>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <gpg.executable>gpg</gpg.executable>
-    <gpg.passphrase>${env.GPG_PASS}</gpg.passphrase>
   </properties>
   <dependencies>
     <dependency>
@@ -72,65 +52,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.7</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>maven</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>false</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-  <distributionManagement>
-    <repository>
-      <id>maven</id>
-      <name>Maven Central Reposition</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-      <uniqueVersion>false</uniqueVersion>
-    </repository>
-  </distributionManagement>
 </project>
