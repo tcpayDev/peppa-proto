@@ -1,5 +1,8 @@
 name: Publish both to Gihub Packages and Maven Central
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*.*.*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +18,11 @@ jobs:
           version: 3.7.1
       - name: Build with Maven
         run: mvn -B package
+        env:
+          RELEASE_VERSION: ${{ github.ref }}
       - name: Send Jar File To Release Asset
         uses: softprops/action-gh-release@v1
+        with:
+          files: target/proto.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
