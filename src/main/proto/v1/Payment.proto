@@ -3,6 +3,73 @@ import "v1/data/BaseResponse.proto";
 option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Payment";
 
+//携带备注 创建普通转账
+message CreatePaymentWithRemarkRequest {
+  //用户名
+  string username = 1;
+  //授权码
+  string authcode = 2;
+  //交易密码
+  string tradePassword = 3;
+  //外部id
+  string externalId = 4;
+  //币种
+  int64 payAssetId = 5;
+  //转账数量(不包含手续费)
+  string payAmount = 6;
+  //收款人
+  string receiveUserAddr = 7;
+  //手续费账户
+  string feeUserAddr = 8;
+  //手续费数量(sourceAsset数量)
+  string feeAmount = 9;
+  //手续费费率
+  string feeRate = 10;
+  //手续费资产ID
+  int64 feeAssetId = 11;
+  //手续费类别
+  FeeType feeType = 12;
+  //notify url
+  string notify = 13;
+  //备注
+  string remark = 14;
+}
+
+//携带备注 创建转账返回信息呀
+message CreatePaymentWithRemarkResponse {
+  int32 code = 1;
+  string msg = 2;
+  PaymentWithRemarkData data = 3;
+}
+
+//查询用户转账
+message FindPaymentsByUsernameRequest {
+  //用户名 必填
+  string username = 1;
+  //分页
+  int32 page = 2;
+  int32 size = 3;
+  //转账状态（为空则查全部）
+  PaymentStatus status = 4;
+  //起止时间
+  int64 startTime = 5;
+  int64 endTime = 6;
+  //转账方向
+  PaymentDirection direction = 7;
+  //手续费类型
+  FeeType feeType = 8;
+  //转账类型
+  PaymentType paymentType = 9;
+}
+
+message FindPaymentsByUsernameResponse {
+  int32 code = 1;
+  string msg = 2;
+  //转账列表
+  repeated PaymentWithRemarkData data = 3;
+  int32 total = 4;
+}
+
 //创建普通转账
 message CreatePaymentRequest {
   //用户名

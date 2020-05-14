@@ -103,6 +103,53 @@ message PaymentData {
   string errorMsg = 18;
 }
 
+
+//转账详情
+message PaymentWithRemarkData {
+  //创建时间
+  int64 createTime = 1;
+  //Core层 转账单号
+  string payNo = 2;
+  //转账状态
+  PaymentStatus status = 3;
+  //转账Addr
+  string from = 4;
+  //支付资产
+  AssetData payAsset = 5;
+  //支付数量
+  string payAmount = 6;
+  //接收人Addr
+  string to = 7;
+  //到账资产
+  AssetData receiveAsset = 8;
+  //到账数量
+  string receiveAmount = 9;
+  //手续费
+  string feeAmount = 10;
+  //手续费币种
+  AssetData feeAsset = 11;
+  //手续费费率
+  string feeRate = 12;
+  //转账类型
+  PaymentType paymentType = 13;
+  //手续费类型
+  FeeType feeType = 14;
+  //方向
+  PaymentDirection direction = 15;
+  //更新时间
+  int64 updateTime = 16;
+  //完成时间
+  int64 finishTime = 17;
+  //错误信息
+  string errorMsg = 18;
+  //remark
+  string remark = 19;
+  //externalId & externalName
+  string externalId = 20;
+  //请求方Key
+  string externalName = 21;
+}
+
 //k线详情
 message KLineData {
   //时间戳
