@@ -49,17 +49,9 @@ message FindPaymentsByUsernameRequest {
   //分页
   int32 page = 2;
   int32 size = 3;
-  //转账状态（为空则查全部）
-  PaymentStatus status = 4;
   //起止时间
-  int64 startTime = 5;
-  int64 endTime = 6;
-  //转账方向
-  PaymentDirection direction = 7;
-  //手续费类型
-  FeeType feeType = 8;
-  //转账类型
-  PaymentType paymentType = 9;
+  int64 startTime = 4;
+  int64 endTime = 5;
 }
 
 message FindPaymentsByUsernameResponse {
