@@ -42,7 +42,7 @@ message CreatePaymentWithRemarkResponse {
   PaymentWithRemarkData data = 3;
 }
 
-//查询用户转账
+//查询用户转账记录
 message FindPaymentsByUsernameRequest {
   //用户名 必填
   string username = 1;
@@ -61,6 +61,27 @@ message FindPaymentsByUsernameResponse {
   repeated PaymentWithRemarkData data = 3;
   int32 total = 4;
 }
+
+//查询用户转账记录
+message FindAccountFlowsRequest {
+  //用户名 必填
+  string username = 1;
+  //分页
+  int32 page = 2;
+  int32 size = 3;
+  //起止时间
+  int64 startTime = 4;
+  int64 endTime = 5;
+}
+
+message FindAccountFlowsResponse {
+  int32 code = 1;
+  string msg = 2;
+  //转账列表
+  repeated PaymentFlowsData data = 3;
+  int32 total = 4;
+}
+
 
 //创建普通转账
 message CreatePaymentRequest {
