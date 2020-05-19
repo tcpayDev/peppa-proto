@@ -19,8 +19,8 @@ message CreatePaymentWithRemarkRequest {
   string payAmount = 6;
   //收款人 收款人core注册的用户名
   string receiver = 7;
-  //手续费账户
-  string feeUserAddr = 8;
+  //手续费账户 core注册的用户名
+  string feeUser = 8;
   //手续费数量(sourceAsset数量)
   string feeAmount = 9;
   //手续费费率
