@@ -43,26 +43,6 @@ message CreatePaymentWithRemarkResponse {
 }
 
 //查询用户转账记录
-message FindPaymentsByUsernameRequest {
-  //用户名 必填
-  string username = 1;
-  //分页
-  int32 page = 2;
-  int32 size = 3;
-  //起止时间
-  int64 startTime = 4;
-  int64 endTime = 5;
-}
-
-message FindPaymentsByUsernameResponse {
-  int32 code = 1;
-  string msg = 2;
-  //转账列表
-  repeated PaymentWithRemarkData data = 3;
-  int32 total = 4;
-}
-
-//查询用户转账记录
 message FindAccountFlowsRequest {
   //用户名 必填
   string username = 1;
@@ -81,7 +61,6 @@ message FindAccountFlowsResponse {
   repeated PaymentFlowsData data = 3;
   int32 total = 4;
 }
-
 
 //创建普通转账
 message CreatePaymentRequest {
@@ -181,34 +160,6 @@ message CreateBatchPaymentResponse {
   repeated PaymentData data = 3;
 }
 
-
-message FindPaymentsRequest {
-  //用户名 必填
-  string username = 1;
-  //分页
-  int32 page = 2;
-  int32 size = 3;
-  //转账状态（为空则查全部）
-  PaymentStatus status = 4;
-  //起止时间
-  int64 startTime = 5;
-  int64 endTime = 6;
-  //转账方向
-  PaymentDirection direction = 7;
-  //手续费类型
-  FeeType feeType = 8;
-  //转账类型
-  PaymentType paymentType = 9;
-}
-
-message FindPaymentsResponse {
-  int32 code = 1;
-  string msg = 2;
-  //转账列表
-  repeated PaymentData data = 3;
-  //估值，目前只支持USDT估值
-  int32 total = 4;
-}
 
 //根据外部标示查询
 message FindPaymentByExternalIdRequest {
