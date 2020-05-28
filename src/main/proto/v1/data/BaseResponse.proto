@@ -187,9 +187,9 @@ message PaymentFlowDetailData {
   int64 finishTime = 6;
   //remark
   string remark = 7;
-  //完成时间
+  //发起方
   string from = 8;
-  //remark
+  //接收方
   string to = 9;
   //externalId & externalName
   string externalId = 10;

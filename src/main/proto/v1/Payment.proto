@@ -66,8 +66,8 @@ message FindAccountFlowsResponse {
 message FindAccountFlowDetailRequest {
   //用户名 必填
   string username = 1;
-  //分页
-  int32 cursor = 2;
+  //游标
+  int64 cursor = 2;
   //默认50条
   int32 size = 3;
 }
@@ -77,7 +77,7 @@ message FindAccountFlowDetailResponse {
   string msg = 2;
   //转账列表
   repeated PaymentFlowDetailData data = 3;
-  int32 cursor = 4;
+  int64 cursor = 4;
 }
 
 //创建普通转账
