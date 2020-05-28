@@ -53,7 +53,7 @@ message FindAccountFlowsRequest {
   int64 startTime = 4;
   int64 endTime = 5;
 }
-
+//为admin查询账本
 message FindAccountFlowsResponse {
   int32 code = 1;
   string msg = 2;
