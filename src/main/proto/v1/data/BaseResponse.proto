@@ -171,6 +171,32 @@ message PaymentFlowsData {
   string externalName = 9;
 }
 
+//转账详情 FOR 钱包
+message PaymentFlowDetailData {
+  //创建时间
+  int64 createTime = 1;
+  //Core层 转账单号
+  string payNo = 2;
+  //支付资产
+  AssetData asset = 3;
+  //支付数量
+  string amount = 4;
+  //方向
+  PaymentDirection direction = 5;
+  //完成时间
+  int64 finishTime = 6;
+  //remark
+  string remark = 7;
+  //完成时间
+  string from = 8;
+  //remark
+  string to = 9;
+  //externalId & externalName
+  string externalId = 10;
+  //请求方Key
+  string externalName = 11;
+}
+
 //k线详情
 message KLineData {
   //时间戳

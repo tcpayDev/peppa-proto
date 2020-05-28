@@ -62,6 +62,22 @@ message FindAccountFlowsResponse {
   int32 total = 4;
 }
 
+//查询用户转账记录
+message FindAccountFlowDetailRequest {
+  //用户名 必填
+  string username = 1;
+  //分页
+  int32 cursor = 2;
+  //默认50条
+  int32 size = 3;
+
+message FindAccountFlowDetailResponse {
+  int32 code = 1;
+  string msg = 2;
+  //转账列表
+  repeated PaymentFlowDetailData data = 3;
+}
+
 //创建普通转账
 message CreatePaymentRequest {
   //用户名
