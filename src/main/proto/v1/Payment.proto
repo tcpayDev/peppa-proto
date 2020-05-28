@@ -70,6 +70,7 @@ message FindAccountFlowDetailRequest {
   int32 cursor = 2;
   //默认50条
   int32 size = 3;
+}
 
 message FindAccountFlowDetailResponse {
   int32 code = 1;
