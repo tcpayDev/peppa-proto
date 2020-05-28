@@ -76,6 +76,7 @@ message FindAccountFlowDetailResponse {
   string msg = 2;
   //转账列表
   repeated PaymentFlowDetailData data = 3;
+  int32 cursor = 4;
 }
 
 //创建普通转账
