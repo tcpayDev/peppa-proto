@@ -4,15 +4,22 @@ option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Payment";
 
 //批量查询接口
-message FindBatchPaymentRequest{
+message FindBatchPaymentByExternalIdRequest {
+  //发起方的externalId
   repeated string externalId = 1;
 }
 
+//批量查询接口
+message FindBatchPaymentByPayNoRequest {
+  //core的 转账单号
+  repeated string payNo = 1;
+}
+
 //批量查询返回
-message FindBatchPaymentResponse{
+message FindBatchPaymentResponse {
   int32 code = 1;
   string msg = 2;
- repeated PaymentData data = 3;
+  repeated PaymentData data = 3;
 }
 
 //携带备注 创建普通转账
@@ -189,7 +196,6 @@ message CreateBatchPaymentResponse {
   string msg = 2;
   repeated PaymentData data = 3;
 }
-
 
 //根据外部标示查询
 message FindPaymentByExternalIdRequest {

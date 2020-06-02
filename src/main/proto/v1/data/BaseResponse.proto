@@ -188,13 +188,17 @@ message PaymentFlowDetailData {
   //remark
   string remark = 7;
   //发起方
-  string from = 8;
+  string fromAddr = 8;
   //接收方
-  string to = 9;
+  string toAddr = 9;
+  //发起方
+  string fromUsername = 10;
+  //接收方
+  string toUsername = 11;
   //externalId & externalName
-  string externalId = 10;
+  string externalId = 12;
   //请求方Key
-  string externalName = 11;
+  string externalName = 13;
 }
 
 //k线详情
