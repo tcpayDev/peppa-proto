@@ -3,6 +3,18 @@ import "v1/data/BaseResponse.proto";
 option java_package = "io.tradingchain.peppa.proto.v1";
 option java_outer_classname = "Payment";
 
+//批量查询接口
+message FindBatchPaymentRequest{
+  repeated string externalId = 1;
+}
+
+//批量查询返回
+message FindBatchPaymentResponse{
+  int32 code = 1;
+  string msg = 2;
+ repeated PaymentData data = 3;
+}
+
 //携带备注 创建普通转账
 message CreatePaymentWithRemarkRequest {
   //用户名
