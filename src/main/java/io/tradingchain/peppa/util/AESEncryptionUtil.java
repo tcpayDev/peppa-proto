@@ -30,7 +30,7 @@ public class AESEncryptionUtil {
           InvalidKeyException, NoSuchPaddingException, BadPaddingException,
           IllegalBlockSizeException {
     return getCipher(sKey, ivParameter, Cipher.DECRYPT_MODE)
-        .doFinal(Base64.getDecoder().decode(sSrc));
+        .doFinal(Base64.getDecoder().decode(new String(sSrc)));
   }
 
   /** 加密算法 */
