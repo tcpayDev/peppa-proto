@@ -1,5 +1,5 @@
 jdk:
-  - openjdk9
+  - openjdk11
 before_install:
   - wget https://github.com/`echo $GROUP | grep -oP '(?<=com\.github\.)\w+'`/peppa-proto/releases/download/$VERSION/proto.jar -O proto.jar
 install:
